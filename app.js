@@ -1,4 +1,4 @@
-/* App — Diretrizes para a Gestão de Projetos UNIALFA */
+/* App — Diretrizes para a Gestão de Projetos (SGP) */
 (function () {
   'use strict';
 
@@ -86,7 +86,7 @@
           <a class="nav-item" href="14 - validador-projetos.html" target="_blank" rel="noopener">
             <span class="tag">◈</span><span class="lbl">Validador de Projetos</span>
           </a>
-          <a class="nav-item" href="15 - central-ajuda.html?v=79" target="_blank" rel="noopener">
+          <a class="nav-item" href="15 - central-ajuda.html?v=80" target="_blank" rel="noopener">
             <span class="tag">?</span><span class="lbl">Central de Ajuda</span>
           </a>
           <a class="nav-item" href="apresentacao.html">

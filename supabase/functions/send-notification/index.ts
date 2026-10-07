@@ -1,7 +1,7 @@
 // Edge Function: send-notification
 // Envia e-mails transacionais via SMTP do Gmail e, para quem tiver ativado, lembretes
 // push no celular via Web Push, para as notificacoes de transicao de estado
-// do Sistema de Gestao de Projetos UNIALFA (Gate 1, Gate 2, SMP, Canvas, TAP, TEP).
+// do Sistema de Gestao de Projetos (SGP) (Gate 1, Gate 2, SMP, Canvas, TAP, TEP).
 //
 // Segredos necessarios (definidos via `supabase secrets set NOME=valor`):
 //   SMTP_USER           - conta Gmail remetente (ex.: fulano@gmail.com)

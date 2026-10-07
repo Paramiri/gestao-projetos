@@ -60,7 +60,7 @@
 //     framing de visibilidade (accountability) — o status ja esta sendo visto pela Gerencia de
 //     Projetos no Painel de Prazos, nao e so um pedido isolado.
 //   - Preheader (texto escondido que a caixa de entrada mostra ao lado do assunto, ver
-//     `preheader` em emailTemplate) — sem isso a pre-visualizacao pegava a barra "UNIALFA...",
+//     `preheader` em emailTemplate) — sem isso a pre-visualizacao pegava a barra do cabecalho,
 //     que nao diz nada.
 //   - Microcopy do botao ligada ao resultado esperado ("Regularizar agora", "Atualizar
 //     execucao agora"), nao a navegacao ("Abrir o Meu Painel").
@@ -159,7 +159,7 @@ function emailTemplate(opts: {
     .join("");
   return (
     // Preheader: texto que a caixa de entrada mostra ao lado do assunto (Gmail/Apple Mail) —
-    // sem isso, ela pega o primeiro texto visível do e-mail (a barra "UNIALFA..."), que nao diz
+    // sem isso, ela pega o primeiro texto visível do e-mail (a barra do cabecalho), que nao diz
     // nada. Escondido visualmente, nao aparece ao abrir o e-mail.
     (opts.preheader
       ? `<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#F3F4F6;opacity:0">${opts.preheader}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>`

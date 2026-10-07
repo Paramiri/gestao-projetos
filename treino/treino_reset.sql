@@ -1,5 +1,5 @@
 -- =====================================================================
--- UNIALFA - Reset do ambiente de TREINAMENTO
+-- SGP - Reset do ambiente de TREINAMENTO
 -- Projeto Supabase: treinamento (ref uuxvdulunrwppbmofyux)
 -- =====================================================================
 -- Apaga TODOS os dados de projetos/formularios do ambiente de treino

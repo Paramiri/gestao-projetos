@@ -1,4 +1,4 @@
-// Shim de notificações push (lembretes no celular) do Sistema UNIALFA.
+// Shim de notificações push (lembretes no celular) do Sistema de Gestão de Projetos (SGP).
 // Independente do unialfaAuth (usado hoje só em index.html) — recebe email/token de quem chamar.
 window.unialfaPush = (function () {
   var SUPABASE_URL = 'https://fiarntunpqteopwjkhjg.supabase.co';

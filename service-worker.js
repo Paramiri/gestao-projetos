@@ -1,4 +1,4 @@
-// Service worker do Sistema de Gestão de Projetos UNIALFA
+// Service worker do Sistema de Gestão de Projetos (SGP)
 // Responsabilidade única: receber notificações push e abrir/focar a página ao clicar.
 // Não faz cache de páginas (o site não funciona offline).
 

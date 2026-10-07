@@ -51,7 +51,7 @@ function json(body: unknown, status = 200) {
 }
 
 const RESET_SQL = `-- =====================================================================
--- UNIALFA - Reset do ambiente de TREINAMENTO
+-- SGP - Reset do ambiente de TREINAMENTO
 -- Projeto Supabase: treinamento (ref uuxvdulunrwppbmofyux)
 -- =====================================================================
 -- Apaga TODOS os dados de projetos/formularios do ambiente de treino
@@ -78,12 +78,12 @@ delete from public.projetos;
 `;
 
 const SEED_SQL = `-- =====================================================================
--- UNIALFA - Seed de dados de exemplo para o ambiente de TREINAMENTO
+-- SGP - Seed de dados de exemplo para o ambiente de TREINAMENTO
 -- Projeto Supabase: treinamento (ref uuxvdulunrwppbmofyux)
 -- =====================================================================
 -- Fase 2 do ambiente de treinamento: popula o banco (ate entao vazio,
--- so com as 6 contas fixas de treino) com 7 projetos ficticios da
--- UNIALFA cobrindo todo o ciclo de vida, do Gate 1 pendente ate um
+-- so com as 6 contas fixas de treino) com 7 projetos ficticios de
+-- uma instituicao de ensino, cobrindo todo o ciclo de vida, do Gate 1 pendente ate um
 -- projeto totalmente encerrado (TEP + RLA).
 --
 -- REEXECUCAO: este script e seguro para reaplicar sobre dados ja
@@ -269,7 +269,7 @@ insert into public.kv_store (key, value) values
 -- ---------------------------------------------------------------------
 -- 09 - TEP - Termo de Encerramento de Projeto (prefixo 'tep:') - 1 registro (P7)
 -- ---------------------------------------------------------------------
-('tep:tep_1781528400000_p7t01', '{"id":"tep_1781528400000_p7t01","protocolo":"SGP-09-2026-001","status":"Aprovado","createdAt":1781528400000,"criadoPorEmail":"gp@demo.sgp.local","tipo":"Concluído","nomeProjeto":"Recredenciamento MEC","unidade":"Asseg. Qualidade","gerente":"Rafael Souza","programa":"Programa de Garantia da Qualidade","justificativa":"O processo de recredenciamento institucional foi concluído com sucesso, com parecer favorável emitido pela comissão do MEC após a visita in loco realizada em junho de 2026.","atividades":"Levantamento documental, atualização do PDI, consolidação de indicadores da CPA, protocolo do dossiê e acompanhamento da visita in loco encerrados.","linkPasta":"https://drive.unialfa.local/recredenciamento-mec-2026","outrosDocs":"Parecer final da comissão avaliadora do MEC, PDI atualizado, dossiê protocolado.","analise":"Projeto conduzido dentro do orçamento previsto (R$ 180.000,00) e com apenas um pequeno ajuste de cronograma na fase de protocolo. Recomenda-se manter a rotina de atualização anual dos indicadores da CPA para facilitar o próximo ciclo avaliativo.","entregas":[{"produto":"Dossiê de recredenciamento protocolado no sistema e-MEC","data":"2026-05-15"},{"produto":"PDI institucional atualizado","data":"2025-12-20"},{"produto":"Parecer favorável da comissão avaliadora do MEC","data":"2026-06-15"}],"projetoId":"a0000007-0000-4000-8000-000000000007"}'),
+('tep:tep_1781528400000_p7t01', '{"id":"tep_1781528400000_p7t01","protocolo":"SGP-09-2026-001","status":"Aprovado","createdAt":1781528400000,"criadoPorEmail":"gp@demo.sgp.local","tipo":"Concluído","nomeProjeto":"Recredenciamento MEC","unidade":"Asseg. Qualidade","gerente":"Rafael Souza","programa":"Programa de Garantia da Qualidade","justificativa":"O processo de recredenciamento institucional foi concluído com sucesso, com parecer favorável emitido pela comissão do MEC após a visita in loco realizada em junho de 2026.","atividades":"Levantamento documental, atualização do PDI, consolidação de indicadores da CPA, protocolo do dossiê e acompanhamento da visita in loco encerrados.","linkPasta":"https://drive.sgp.local/recredenciamento-mec-2026","outrosDocs":"Parecer final da comissão avaliadora do MEC, PDI atualizado, dossiê protocolado.","analise":"Projeto conduzido dentro do orçamento previsto (R$ 180.000,00) e com apenas um pequeno ajuste de cronograma na fase de protocolo. Recomenda-se manter a rotina de atualização anual dos indicadores da CPA para facilitar o próximo ciclo avaliativo.","entregas":[{"produto":"Dossiê de recredenciamento protocolado no sistema e-MEC","data":"2026-05-15"},{"produto":"PDI institucional atualizado","data":"2025-12-20"},{"produto":"Parecer favorável da comissão avaliadora do MEC","data":"2026-06-15"}],"projetoId":"a0000007-0000-4000-8000-000000000007"}'),
 
 -- ---------------------------------------------------------------------
 -- 10 - RLA - Registro de Lições Aprendidas (prefixo 'rla:') - 1 registro (P7)

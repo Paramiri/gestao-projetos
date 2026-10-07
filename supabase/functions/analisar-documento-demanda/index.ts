@@ -1,6 +1,6 @@
 // Edge Function: analisar-documento-demanda
 // Recebe o texto extraido de um documento Word/PDF/txt (o formulario oficial
-// FORALF00339 - Solicitacao de Demanda, ja preenchido a mao fora do sistema)
+// SGP-01 - Solicitacao de Demanda, ja preenchido a mao fora do sistema)
 // colado ou anexado pelo usuario, e usa a API da Claude (Anthropic) para
 // extrair os campos estruturados e devolver JSON pronto para preencher o
 // formulario online. O usuario sempre revisa e completa antes de salvar -
@@ -42,7 +42,7 @@ const UNIDADES = [
   "ADM e Infraestrutura", "GPTI", "Controladoria", "Gerência de Controladoria",
 ];
 
-const SYSTEM_PROMPT = `Você é um assistente que extrai dados estruturados do texto de uma Solicitação de Demanda de Projetos (formulário oficial FORALF00339) da UNIALFA, em português do Brasil. O texto vem de um documento Word ou PDF que a pessoa preencheu manualmente fora do sistema e agora está transcrevendo para o formulário online.
+const SYSTEM_PROMPT = `Você é um assistente que extrai dados estruturados do texto de uma Solicitação de Demanda de Projetos (formulário oficial SGP-01), em português do Brasil. O texto vem de um documento Word ou PDF que a pessoa preencheu manualmente fora do sistema e agora está transcrevendo para o formulário online.
 
 O formulário oficial tem estas seções numeradas, nesta ordem: 1 Nome do projeto, 2 Solicitante, 3 Justificativa/Necessidade, 4 Objetivo/Resultado esperado, 5 Escopo, 6 Prazo desejado, 7 Orçamento estimado, 8 Partes interessadas, 9 Anexos.
 
