@@ -33,7 +33,7 @@ supabase link --project-ref fiarntunpqteopwjkhjg
 
 ## Contas de treinamento
 
-6 contas fixas (`@treino.unialfa.local`, senha `Treino@2026`), uma por papel —
+6 contas fixas (`@demo.sgp.local`, senha `Treino@2026`), uma por papel —
 criadas separadamente via Auth Admin API, não fazem parte destes scripts.
 Peça a quem administra o ambiente caso precise recriá-las. Na tela de login do
 ambiente de treino, a pessoa não digita e-mail/senha: só seleciona o papel
