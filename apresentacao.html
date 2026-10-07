@@ -69,13 +69,15 @@ h2{font-size:clamp(22px,3vw,30px);font-weight:900;letter-spacing:-.01em;line-hei
 .ico{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--red-light);color:var(--red);font-weight:900;font-size:17px;margin-bottom:12px}
 
 /* ciclo de vida */
-.flow{display:flex;align-items:stretch;gap:10px;margin-top:28px;flex-wrap:wrap}
+.flow{display:flex;align-items:stretch;gap:10px;margin-top:12px;flex-wrap:wrap}
 .step{flex:1 1 150px;background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 16px;border-top:4px solid var(--red)}
 .step .k{font-size:11px;font-weight:800;color:var(--red);letter-spacing:.1em}
 .step h4{font-size:15px;font-weight:800;margin:4px 0 6px}
 .step p{font-size:12.5px;color:var(--muted)}
 .gate{flex:0 0 auto;align-self:center;background:var(--gold-soft);color:var(--gold);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border-radius:8px;text-align:center;line-height:1.3}
-.transv{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.transv{display:block;text-align:center}
+.transv-top{margin-top:28px}
+.transv-bottom{margin-top:12px}
 .transv div{background:#111;color:#fff;border-radius:var(--radius);padding:14px 16px;font-size:13px}
 .transv b{font-weight:800}
 
@@ -108,7 +110,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 @media(max-width:860px){
   .stats .grid{grid-template-columns:repeat(2,1fr)}
   .cols-3,.steps{grid-template-columns:1fr}
-  .cols-2,.transv{grid-template-columns:1fr}
+  .cols-2{grid-template-columns:1fr}
   .arts{grid-template-columns:repeat(2,1fr)}
   .gate{flex-basis:100%}
   .top nav{display:none}
@@ -176,6 +178,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="sec-eyebrow">A solução</div>
     <h2>Um ciclo de vida claro, com decisões nos momentos certos.</h2>
     <p class="sec-lead">Cada projeto percorre cinco etapas sequenciais, com dois gates de decisão formal. Governança e liderança atravessam todo o ciclo.</p>
+    <div class="transv transv-top">
+      <div><b>D06 · Governança e Tomada de Decisão</b> — as decisões certas, pelas pessoas certas, no momento certo.</div>
+    </div>
     <div class="flow">
       <div class="step"><div class="k">D01</div><h4>Demanda</h4><p>Recebe, avalia e prioriza o pedido antes de virar projeto.</p></div>
       <div class="gate">Gate 1<br>Triagem</div>
@@ -185,8 +190,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <div class="step"><div class="k">D04</div><h4>Controle</h4><p>Monitora a execução, identifica desvios e formaliza mudanças.</p></div>
       <div class="step"><div class="k">D05</div><h4>Encerramento</h4><p>Fecha formalmente e transforma a experiência em lições aprendidas.</p></div>
     </div>
-    <div class="transv">
-      <div><b>D06 · Governança e Tomada de Decisão</b> — as decisões certas, pelas pessoas certas, no momento certo.</div>
+    <div class="transv transv-bottom">
       <div><b>D07 · Liderança, Equipes e Cultura</b> — identificar, engajar, desenvolver e liderar pessoas.</div>
     </div>
 
