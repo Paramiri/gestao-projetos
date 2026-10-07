@@ -85,7 +85,7 @@ const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 const PRODUCAO_REF = "fiarntunpqteopwjkhjg";
 const SITE_URL = SUPABASE_URL && SUPABASE_URL.includes(PRODUCAO_REF)
-  ? "https://gestaoprojetos.alfa.br"
+  ? "https://paramiri.github.io/unialfa-gestao-projetos"
   : "https://paramiri.github.io/unialfa-gestao-projetos-treino";
 const MEU_PAINEL_URL = `${SITE_URL}/20%20-%20meu-painel.html`;
 // Link direto para o marco especifico (nao so o Meu Painel generico) — quem abre ja chega no
