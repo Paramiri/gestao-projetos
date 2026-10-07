@@ -156,10 +156,9 @@ body.auth-ready{padding-top:34px}
         <div class="eyebrow">acesso</div>
         <h2>Como fazer login</h2>
         <p>Todos os 12 formulários de registro e a página de Administração exigem login antes de carregar ou salvar qualquer dado. A página inicial (Mapa de Diretrizes) e o Validador de Projetos são as únicas que não exigem login.</p>
-        <p>O login pode ser feito de duas formas, sem necessidade de senha:</p>
+        <p>O login é feito sem necessidade de senha:</p>
         <ul>
           <li><b>Link mágico por e-mail</b> — digite seu e-mail e clique em <b>Enviar link de acesso</b>. Um link chega no seu e-mail; clique nele e a página de origem atualiza sozinha.</li>
-          <li><b>Microsoft (SSO)</b> — clique em <b>Entrar com Microsoft</b> e autentique com a sua conta institucional.</li>
         </ul>
         <div class="tip">No primeiro login, você recebe automaticamente o papel <b>Solicitante</b>. Para obter outro papel, peça a um Admin para alterá-lo em Administração &gt; Usuários.</div>
         <p>Depois de logado, uma barra preta no topo da página mostra <b>Conectado como [seu e-mail]</b> e o seu papel atual, com um botão <b>Sair</b>.</p>
@@ -282,7 +281,7 @@ body.auth-ready{padding-top:34px}
           <tr><th>Campo</th><th>Obrig.</th><th>Descrição</th></tr>
           <tr><td>Nome do projeto</td><td>Sim</td><td>Nome que vai identificar a iniciativa em todos os registros futuros</td></tr>
           <tr><td>Solicitante</td><td>Sim</td><td>Nome de quem está pedindo o projeto</td></tr>
-          <tr><td>Departamento / unidade</td><td>Sim</td><td>UNIALFA, FADISP, Colégio Alfa, TLA, Controladoria, TI ou Outro</td></tr>
+          <tr><td>Departamento / unidade</td><td>Sim</td><td>Lista de áreas da instituição (Reitoria, Diretorias, Coordenações, RH, Marketing, TI etc.)</td></tr>
           <tr><td>Justificativa / necessidade</td><td>Sim</td><td>Por que o projeto é necessário</td></tr>
           <tr><td>Objetivo / resultado esperado</td><td>Sim</td><td>O que deve ser entregue ao final</td></tr>
           <tr><td>Escopo</td><td>Sim</td><td>O que está incluído e o que não está</td></tr>
@@ -482,7 +481,7 @@ body.auth-ready{padding-top:34px}
         </ul>
         <p class="lead">Adicionar usuário (conta criada na hora, antes do primeiro login)</p>
         <p>No topo da aba Usuários, o Admin pode preencher nome, telefone (opcional), e-mail e papel e clicar em <b>+ Adicionar usuário</b> para cadastrar alguém que ainda não fez login. A conta é criada de verdade na hora — a pessoa já aparece na lista de usuários normalmente, com o papel e o nome definidos, e já pode ser adicionada à <a href="#equipe">equipe</a> de qualquer projeto sem precisar esperar ela logar.</p>
-        <div class="tip">Quando a pessoa eventualmente fizer o primeiro login (link mágico ou Microsoft), o sistema reconhece o e-mail e autentica direto na conta já criada — não gera conta duplicada, e o perfil (nome, telefone, papel) definido pelo Admin permanece do jeito que estava.</div>
+        <div class="tip">Quando a pessoa eventualmente fizer o primeiro login (link mágico), o sistema reconhece o e-mail e autentica direto na conta já criada — não gera conta duplicada, e o perfil (nome, telefone, papel) definido pelo Admin permanece do jeito que estava.</div>
         <div class="tip"><b>Pré-cadastros antigos:</b> antes de 15/09/2026, adicionar alguém aqui criava só um pré-cadastro pendente, que virava conta de verdade apenas no primeiro login da pessoa — por isso ela não podia ser adicionada a uma equipe antes disso. Um pré-cadastro feito daquele jeito (selo <b>Pendente — 1º login</b> na lista) continua funcionando normalmente, e ganhou um botão <b>Criar conta agora</b> para virar conta de verdade imediatamente, sem esperar o login.</div>
         <p class="lead">Histórico de alterações do usuário</p>
         <p>Cada usuário já cadastrado tem um link <b>Ver histórico</b>, que expande um painel logo abaixo da linha listando toda troca de papel e de telefone já feita nesse perfil — com o valor anterior, o novo valor, quando aconteceu e quem fez a alteração. Clicar de novo (<b>Fechar histórico</b>) recolhe o painel.</p>

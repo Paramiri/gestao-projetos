@@ -160,8 +160,8 @@ table.ro-t tbody tr:last-child td{border-bottom:none}
       <div style="text-align:center;margin:14px 0;color:var(--muted,#6B7280);font-size:11px;font-weight:600">— ou —</div>
     </div>
     <script>if(location.href.indexOf('treino')>-1){var _tb=document.getElementById('treinoLoginBloco');if(_tb)_tb.style.display='block';}</script>
-    <button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="unialfaAuthUI.signInWithAzure()">Entrar com Microsoft</button>
-    <div style="text-align:center;margin:14px 0;color:var(--muted,#6B7280);font-size:11px;font-weight:600">— ou —</div>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center;display:none" data-sso="azure" onclick="unialfaAuthUI.signInWithAzure()">Entrar com Microsoft</button>
+    <div data-sso="azure" style="display:none;text-align:center;margin:14px 0;color:var(--muted,#6B7280);font-size:11px;font-weight:600">— ou —</div>
     <p>Digite seu e-mail para receber um link de acesso — sem senha.</p>
     <div id="authStep1">
       <input type="email" id="authEmail" placeholder="seu.nome@email.com.br">
@@ -669,7 +669,7 @@ window.unialfaHistorico = {
         <h1>Termo de Encerramento de Projeto — TEP</h1>
         <p>Formalização do encerramento · Escritório de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=76#passo-8" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=77#passo-8" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
       <div><span>Código</span><b>FORALF00341</b></div>
