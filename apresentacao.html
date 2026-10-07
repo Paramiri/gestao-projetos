@@ -1,0 +1,284 @@
+<!doctype html>
+<!-- Página de apresentação do portfólio — Sistema de Gestão de Projetos (SGP) -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema de Gestão de Projetos — André Torres</title>
+<meta name="description" content="Plataforma web que estrutura o ciclo de vida completo de projetos em uma instituição de ensino — da demanda ao encerramento. Projeto de portfólio de André Torres.">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#B91D2E; --red-deep:#8E1322; --red-light:#FEF2F2;
+  --ink:#1A1A1A; --muted:#6A6A70; --paper:#FFFFFF; --surface:#F6F6F7;
+  --line:#E4E4E7; --gold:#A6790A; --gold-soft:#FBF3DE;
+  --radius:12px; --shadow:0 1px 2px rgba(20,20,20,.04), 0 8px 28px rgba(20,20,20,.06);
+  --font:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);color:var(--ink);background:var(--surface);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* topo */
+.top{background:#111;color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.seal{display:inline-block;background:var(--red);color:#fff;border-radius:6px;padding:6px 10px;font-weight:900;font-size:16px;letter-spacing:.06em;line-height:1}
+.brand small{font-size:10px;font-weight:600;letter-spacing:.2em;opacity:.7;text-transform:uppercase}
+.top nav{display:flex;gap:18px;font-size:12.5px;font-weight:600}
+.top nav a{text-decoration:none;opacity:.8}
+.top nav a:hover{opacity:1}
+
+/* hero */
+.hero{background:linear-gradient(135deg,var(--red) 0%,var(--red-deep) 100%);color:#fff;padding:64px 0 72px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;opacity:.85;margin-bottom:14px}
+.hero h1{font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1.12;letter-spacing:-.01em;max-width:780px}
+.hero p.lead{font-size:clamp(15px,2vw,18px);max-width:680px;margin-top:18px;opacity:.95}
+.author{margin-top:26px;font-size:14px;font-weight:600;opacity:.95}
+.author b{font-weight:800}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-weight:700;font-size:14px;padding:13px 20px;border-radius:10px;text-decoration:none;border:2px solid transparent;transition:transform .15s ease, box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.btn-white{background:#fff;color:var(--red)}
+.btn-ghost{border-color:rgba(255,255,255,.6);color:#fff}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-red{background:var(--red);color:#fff}
+
+/* faixa de números */
+.stats{margin-top:-36px}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 18px;text-align:center}
+.stat b{display:block;font-size:30px;font-weight:900;color:var(--red);line-height:1.1}
+.stat span{font-size:12px;font-weight:600;color:var(--muted)}
+
+/* seções */
+section{padding:64px 0 0}
+section:last-of-type{padding-bottom:64px}
+.sec-eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+h2{font-size:clamp(22px,3vw,30px);font-weight:900;letter-spacing:-.01em;line-height:1.2;max-width:760px}
+.sec-lead{color:var(--muted);font-size:15.5px;max-width:720px;margin-top:12px}
+.card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+.cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.cols-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.card h3{font-size:15.5px;font-weight:800;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted)}
+.ico{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--red-light);color:var(--red);font-weight:900;font-size:17px;margin-bottom:12px}
+
+/* ciclo de vida */
+.flow{display:flex;align-items:stretch;gap:10px;margin-top:28px;flex-wrap:wrap}
+.step{flex:1 1 150px;background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 16px;border-top:4px solid var(--red)}
+.step .k{font-size:11px;font-weight:800;color:var(--red);letter-spacing:.1em}
+.step h4{font-size:15px;font-weight:800;margin:4px 0 6px}
+.step p{font-size:12.5px;color:var(--muted)}
+.gate{flex:0 0 auto;align-self:center;background:var(--gold-soft);color:var(--gold);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border-radius:8px;text-align:center;line-height:1.3}
+.transv{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.transv div{background:#111;color:#fff;border-radius:var(--radius);padding:14px 16px;font-size:13px}
+.transv b{font-weight:800}
+
+/* artefatos */
+.arts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px}
+.art{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.art code{font-family:inherit;font-size:11px;font-weight:800;color:var(--red);letter-spacing:.06em}
+.art div{font-size:13px;font-weight:700;margin-top:2px}
+
+/* passos da demo */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.steps .card{position:relative;padding-top:52px}
+.steps .card::before{counter-increment:s;content:counter(s);position:absolute;top:18px;left:24px;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.demo-box{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--ink);color:#fff;border-radius:var(--radius);padding:22px 24px}
+.demo-box p{font-size:14px;opacity:.85;max-width:620px}
+
+/* tecnologia */
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-size:12px;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+
+/* autor */
+.about{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-top:28px}
+.avatar{width:84px;height:84px;border-radius:50%;background:var(--red);color:#fff;font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center;letter-spacing:.04em}
+.about h3{font-size:20px;font-weight:900}
+.about p{color:var(--muted);font-size:14.5px;margin-top:6px;max-width:640px}
+
+footer{background:#111;color:#fff;font-size:12.5px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:22px;padding-bottom:22px;opacity:.8}
+
+@media(max-width:860px){
+  .stats .grid{grid-template-columns:repeat(2,1fr)}
+  .cols-3,.steps{grid-template-columns:1fr}
+  .cols-2,.transv{grid-template-columns:1fr}
+  .arts{grid-template-columns:repeat(2,1fr)}
+  .gate{flex-basis:100%}
+  .top nav{display:none}
+}
+@media(max-width:520px){
+  .wrap{padding:0 16px}
+  .about{grid-template-columns:1fr}
+  .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="apresentacao.html"><span class="seal">SGP</span><small>Sistema de Gestão de Projetos</small></a>
+    <nav>
+      <a href="#problema">O problema</a>
+      <a href="#solucao">A solução</a>
+      <a href="#demo">Demonstração</a>
+      <a href="#autor">Autor</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Projeto de portfólio · Gestão de Projetos</div>
+    <h1>Um escritório de projetos inteiro, do pedido ao encerramento, num só sistema.</h1>
+    <p class="lead">Plataforma web que estrutura o ciclo de vida completo dos projetos de uma instituição de ensino — com diretrizes, artefatos padronizados, gates de aprovação, painéis de acompanhamento e apoio de IA.</p>
+    <div class="author">Concebido e implantado por <b>André Torres</b>, Gerente de Projetos</div>
+    <div class="ctas">
+      <a class="btn btn-white" href="https://paramiri.github.io/unialfa-gestao-projetos-treino/" target="_blank" rel="noopener">▶ Experimentar a demonstração</a>
+      <a class="btn btn-ghost" href="index.html">Ver o mapa de diretrizes</a>
+      <a class="btn btn-ghost" data-linkedin href="https://www.linkedin.com/in/andreluistorres" target="_blank" rel="noopener">in · LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="wrap grid">
+    <div class="stat"><b>7</b><span>diretrizes de gestão</span></div>
+    <div class="stat"><b>61</b><span>estratégias práticas</span></div>
+    <div class="stat"><b>12</b><span>artefatos padronizados</span></div>
+    <div class="stat"><b>2</b><span>gates de aprovação</span></div>
+  </div>
+</div>
+
+<main>
+<section id="problema">
+  <div class="wrap">
+    <div class="sec-eyebrow">O problema</div>
+    <h2>Projetos nasciam no corredor, viviam em planilhas soltas e morriam sem registro.</h2>
+    <p class="sec-lead">Em instituições de ensino, dezenas de iniciativas disputam os mesmos recursos — e quase nunca existe um caminho único para propor, aprovar, acompanhar e encerrar um projeto.</p>
+    <div class="cols-3">
+      <div class="card"><div class="ico">?</div><h3>Sem porta de entrada</h3><p>Demandas chegavam por e-mail, conversa ou reunião, sem critério de priorização nem alinhamento com a estratégia.</p></div>
+      <div class="card"><div class="ico">◐</div><h3>Sem visibilidade</h3><p>A gestão não enxergava o portfólio: o que estava atrasado, quem era responsável por cada entrega, onde estavam os riscos.</p></div>
+      <div class="card"><div class="ico">↻</div><h3>Sem aprendizado</h3><p>Projetos terminavam sem encerramento formal nem lições aprendidas — e os mesmos erros se repetiam no ciclo seguinte.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="solucao">
+  <div class="wrap">
+    <div class="sec-eyebrow">A solução</div>
+    <h2>Um ciclo de vida claro, com decisões nos momentos certos.</h2>
+    <p class="sec-lead">Cada projeto percorre cinco etapas sequenciais, com dois gates de decisão formal. Governança e liderança atravessam todo o ciclo.</p>
+    <div class="flow">
+      <div class="step"><div class="k">D01</div><h4>Demanda</h4><p>Recebe, avalia e prioriza o pedido antes de virar projeto.</p></div>
+      <div class="gate">Gate 1<br>Triagem</div>
+      <div class="step"><div class="k">D02</div><h4>Planejamento</h4><p>Transforma a demanda aprovada em plano concreto e executável.</p></div>
+      <div class="gate">Gate 2<br>Pactuação</div>
+      <div class="step"><div class="k">D03</div><h4>Execução</h4><p>Entregas concretas, equipe mobilizada, riscos tratados.</p></div>
+      <div class="step"><div class="k">D04</div><h4>Controle</h4><p>Monitora a execução, identifica desvios e formaliza mudanças.</p></div>
+      <div class="step"><div class="k">D05</div><h4>Encerramento</h4><p>Fecha formalmente e transforma a experiência em lições aprendidas.</p></div>
+    </div>
+    <div class="transv">
+      <div><b>D06 · Governança e Tomada de Decisão</b> — as decisões certas, pelas pessoas certas, no momento certo.</div>
+      <div><b>D07 · Liderança, Equipes e Cultura</b> — identificar, engajar, desenvolver e liderar pessoas.</div>
+    </div>
+
+    <h2 style="margin-top:56px">12 artefatos padronizados, com código controlado.</h2>
+    <p class="sec-lead">Cada etapa gera um documento com estrutura fixa, protocolo próprio, histórico de alterações e versão para impressão — todos ligados ao mesmo projeto.</p>
+    <div class="arts">
+      <div class="art"><code>SGP-01</code><div>Solicitação de Demanda</div></div>
+      <div class="art"><code>SGP-02</code><div>Canvas de Projeto</div></div>
+      <div class="art"><code>SGP-03</code><div>Termo de Abertura (TAP)</div></div>
+      <div class="art"><code>SGP-04</code><div>Planejamento e Desenvolvimento</div></div>
+      <div class="art"><code>SGP-05</code><div>Estrutura Analítica (EAP)</div></div>
+      <div class="art"><code>SGP-06</code><div>Solicitação de Mudança (SMP)</div></div>
+      <div class="art"><code>SGP-07</code><div>Ata de Reunião</div></div>
+      <div class="art"><code>SGP-08</code><div>Plano de Comunicação</div></div>
+      <div class="art"><code>SGP-09</code><div>Termo de Encerramento (TEP)</div></div>
+      <div class="art"><code>SGP-10</code><div>Lições Aprendidas (RLA)</div></div>
+      <div class="art"><code>SGP-11</code><div>Relatório de Situação</div></div>
+      <div class="art"><code>SGP-12</code><div>Relatório de Entregas e Benefícios</div></div>
+    </div>
+
+    <h2 style="margin-top:56px">Além dos formulários.</h2>
+    <div class="cols-3">
+      <div class="card"><div class="ico">▤</div><h3>Painéis de gestão</h3><p>Painel Executivo do portfólio, Painel de Prazos para a TV da sala de projetos, Meu Painel com as pendências de cada pessoa, Gestão de Atividades e Ficha consolidada de cada projeto.</p></div>
+      <div class="card"><div class="ico">✦</div><h3>Apoio de IA</h3><p>Importa uma demanda a partir de um documento em Word ou PDF, transforma a transcrição ou o áudio de uma reunião em ata estruturada e sugere o preenchimento de campos.</p></div>
+      <div class="card"><div class="ico">◎</div><h3>Governança embutida</h3><p>Papéis de usuário com permissões, gates com aprovação restrita, equipe por projeto e regras de edição aplicadas também no banco de dados.</p></div>
+      <div class="card"><div class="ico">⚑</div><h3>Alertas automáticos</h3><p>Avisos diários por e-mail e no celular quando um marco do cronograma se aproxima ou vence, e notificações a cada decisão de gate.</p></div>
+      <div class="card"><div class="ico">◈</div><h3>Indicadores de resultado</h3><p>Relatório de Resultados com metas e semáforo, exportado direto para uma apresentação em PowerPoint para a reunião de resultados.</p></div>
+      <div class="card"><div class="ico">⇄</div><h3>Trabalho em equipe</h3><p>Histórico de alterações por registro e avisos de edição simultânea, para várias pessoas trabalharem no mesmo projeto sem sobrescrever o trabalho umas das outras.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <div class="sec-eyebrow">Demonstração</div>
+    <h2>Experimente com dados fictícios, em 1 minuto.</h2>
+    <p class="sec-lead">O ambiente de demonstração tem 7 projetos de exemplo em fases diferentes do ciclo — de uma demanda aguardando triagem até um projeto encerrado com lições aprendidas.</p>
+    <div class="steps">
+      <div class="card"><h3>Abra a demonstração</h3><p>Use o botão abaixo. A página inicial mostra o mapa das diretrizes e o menu com todos os formulários e painéis.</p></div>
+      <div class="card"><h3>Escolha um papel</h3><p>Ao abrir um formulário, selecione um papel — Solicitante, Gerente de Projetos, Gestor, Dono do Negócio, Alta Gestão ou Administrador — e entre com um clique.</p></div>
+      <div class="card"><h3>Explore o ciclo</h3><p>Veja como cada papel enxerga o sistema: aprove um gate, abra a Ficha de um projeto, confira o Painel Executivo.</p></div>
+    </div>
+    <div class="demo-box">
+      <p>Todos os dados da demonstração são fictícios. O ambiente é reiniciado periodicamente — fique à vontade para criar, editar e aprovar o que quiser.</p>
+      <a class="btn btn-red" href="https://paramiri.github.io/unialfa-gestao-projetos-treino/" target="_blank" rel="noopener">▶ Abrir a demonstração</a>
+    </div>
+  </div>
+</section>
+
+<section id="tecnologia">
+  <div class="wrap">
+    <div class="sec-eyebrow">Como foi construído</div>
+    <h2>Simples de manter, sem servidor próprio.</h2>
+    <div class="cols-2">
+      <div class="card">
+        <h3>Arquitetura</h3>
+        <p>Site estático publicado no GitHub Pages, com banco de dados, autenticação e funções de servidor no Supabase. Login sem senha por link no e-mail e instalável no celular como aplicativo.</p>
+        <div class="tags"><span class="tag">HTML · CSS · JavaScript</span><span class="tag">GitHub Pages</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">PWA</span></div>
+      </div>
+      <div class="card">
+        <h3>Segurança e automação</h3>
+        <p>Regras de acesso aplicadas no próprio banco (Row Level Security), funções de servidor para e-mail, notificações push e IA, e uma rotina diária de verificação de prazos.</p>
+        <div class="tags"><span class="tag">Row Level Security</span><span class="tag">Edge Functions</span><span class="tag">Web Push</span><span class="tag">IA generativa</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="autor">
+  <div class="wrap">
+    <div class="sec-eyebrow">Autor</div>
+    <div class="card about">
+      <div class="avatar">AT</div>
+      <div>
+        <h3>André Torres</h3>
+        <p>Gerente de Projetos. Concebi a metodologia, os artefatos e as regras de governança deste sistema e conduzi sua implantação, para dar a uma instituição de ensino um caminho único e rastreável para todos os seus projetos.</p>
+        <div class="ctas" style="margin-top:16px">
+          <a class="btn btn-dark" data-linkedin href="https://www.linkedin.com/in/andreluistorres" target="_blank" rel="noopener">in · Conectar no LinkedIn</a>
+          <a class="btn btn-red" href="https://paramiri.github.io/unialfa-gestao-projetos-treino/" target="_blank" rel="noopener">▶ Experimentar a demonstração</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>SGP · Sistema de Gestão de Projetos</span>
+    <span>Projeto de portfólio de André Torres · dados de demonstração fictícios</span>
+  </div>
+</footer>
+
+</body>
+</html>

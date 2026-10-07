@@ -89,6 +89,9 @@
           <a class="nav-item" href="15 - central-ajuda.html?v=78" target="_blank" rel="noopener">
             <span class="tag">?</span><span class="lbl">Central de Ajuda</span>
           </a>
+          <a class="nav-item" href="apresentacao.html">
+            <span class="tag">★</span><span class="lbl">Sobre este projeto</span>
+          </a>
           <div class="sidebar-section-label">Gestão</div>
           <a class="nav-item" href="20 - meu-painel.html" target="_blank" rel="noopener">
             <span class="tag">◐</span><span class="lbl">Meu Painel</span>
