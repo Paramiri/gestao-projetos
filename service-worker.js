@@ -14,7 +14,7 @@ self.addEventListener('push', function (event) {
   var data = {};
   try { data = event.data ? event.data.json() : {}; } catch (e) {}
 
-  var title = data.title || 'UNIALFA - Gestão de Projetos';
+  var title = data.title || 'Sistema de Gestão de Projetos';
   var options = {
     body: data.body || '',
     icon: 'icons/icon-192.png',

@@ -113,7 +113,7 @@ textarea{resize:vertical;min-height:80px}
 <!-- ==== AUTH GATE (HTML) ==== -->
 <div class="auth-gate" id="authGate" style="display:none">
   <div class="auth-card">
-    <div class="auth-logo"><img src="icons/logo-alfa.png" alt="ALFA" style="height:40px;display:block"><small>GRUPO JOSÉ ALVES</small></div>
+    <div class="auth-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:7px 11px;font-weight:900;font-size:20px;letter-spacing:.06em;line-height:1">SGP</span><small>SISTEMA DE GESTÃO DE PROJETOS</small></div>
     <h2>Entrar</h2>
     <div id="treinoLoginBloco" style="display:none">
       <p style="font-size:11.5px;color:var(--muted,#6B7280);margin-bottom:8px">Ambiente de treinamento — selecione um papel para entrar:</p>
@@ -129,7 +129,7 @@ textarea{resize:vertical;min-height:80px}
       <div style="text-align:center;margin:14px 0;color:var(--muted,#6B7280);font-size:11px;font-weight:600">— ou —</div>
     </div>
     <script>if(location.href.indexOf('treino')>-1){var _tb=document.getElementById('treinoLoginBloco');if(_tb)_tb.style.display='block';}</script>
-    <button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="unialfaAuthUI.signInWithAzure()">Entrar com Microsoft - UNIALFA</button>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="unialfaAuthUI.signInWithAzure()">Entrar com Microsoft</button>
     <div style="text-align:center;margin:14px 0;color:var(--muted,#6B7280);font-size:11px;font-weight:600">— ou —</div>
     <p>Digite seu e-mail para receber um link de acesso — sem senha.</p>
     <div id="authStep1">
@@ -415,12 +415,12 @@ function ensureAuthenticated(){
 <div class="wrap">
 
   <div class="page-head">
-    <div class="head-logo"><img src="icons/logo-alfa.png" alt="ALFA" style="height:38px;display:block;background:#fff;border-radius:6px;padding:3px 8px"><small>GRUPO JOSÉ ALVES</small></div>
+    <div class="head-logo"><span style="display:inline-block;background:#fff;color:#B91D2E;border-radius:6px;padding:6px 10px;font-weight:900;font-size:18px;letter-spacing:.06em;line-height:1">SGP</span><small>SISTEMA DE GESTÃO DE PROJETOS</small></div>
     <div class="head-title">
       <h1>Plano de Comunicação de Projeto</h1>
       <p>Tipos de comunicação e o que é comunicado em cada uma · Escritório de Projetos</p>
     </div>
-    <a class="head-help" href="15 - central-ajuda.html?v=75#passo-10" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+    <a class="head-help" href="15 - central-ajuda.html?v=76#passo-10" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
   </div>
 
   <div class="view-tabs">
@@ -434,7 +434,7 @@ function ensureAuthenticated(){
     <div id="editRestritoMsg" style="display:none;padding:14px 18px;margin-bottom:18px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);font-size:12.5px;color:var(--muted)">🔒 A edição deste plano é restrita a PMO/Admin. Você pode visualizar e imprimir normalmente.</div>
     <div class="action-bar" style="border-radius:var(--radius);border:1px solid var(--line)">
       <button class="btn btn-ghost" onclick="window.print()">🖨 Imprimir</button>
-      <div class="ml" style="font-size:11px;color:var(--muted)">UNIALFA</div>
+      <div class="ml" style="font-size:11px;color:var(--muted)">Sistema de Gestão de Projetos</div>
     </div>
   </div>
 

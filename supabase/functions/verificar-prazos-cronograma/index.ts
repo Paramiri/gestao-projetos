@@ -166,7 +166,7 @@ function emailTemplate(opts: {
       : "") +
     `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F4F6;padding:24px 0"><tr><td>` +
     `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;margin:0 auto;background:#FFFFFF;border-radius:10px;overflow:hidden;border:1px solid #E4E4E7;font-family:Arial,Helvetica,sans-serif">` +
-    `<tr><td style="background:#B91D2E;padding:16px 24px"><span style="color:#FFFFFF;font-size:12.5px;font-weight:800;letter-spacing:.05em">UNIALFA · GESTÃO DE PROJETOS</span></td></tr>` +
+    `<tr><td style="background:#B91D2E;padding:16px 24px"><span style="color:#FFFFFF;font-size:12.5px;font-weight:800;letter-spacing:.05em">SISTEMA DE GESTÃO DE PROJETOS</span></td></tr>` +
     `<tr><td style="padding:26px 24px 8px">` +
     (opts.saudacao ? `<p style="margin:0 0 14px;font-size:13px;color:#52525B">${opts.saudacao}</p>` : "") +
     `<span style="display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:20px;margin-bottom:14px;background:${c.bg};color:${c.fg}">${opts.badgeTexto}</span>` +

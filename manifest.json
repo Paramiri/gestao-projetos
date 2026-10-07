@@ -1,7 +1,7 @@
 {
-  "name": "UNIALFA - Gestão de Projetos",
-  "short_name": "UNIALFA GP",
-  "description": "Sistema de Gestão de Projetos da UNIALFA",
+  "name": "Sistema de Gestão de Projetos",
+  "short_name": "Gestão de Projetos",
+  "description": "Sistema de Gestão de Projetos",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
