@@ -251,7 +251,7 @@ H1 "2. Inventario - tudo que existe hoje em producao e precisa ser levado"
 P "Antes de comecar, confirmar que esta lista bate com a realidade atual do projeto Supabase de producao (nao presumir - conferir cada item no proprio painel do Supabase e no repositorio GitHub)."
 $rInv = @(
   @("O que e","Onde esta hoje","O que precisa acontecer na migracao"),
-  @("Codigo do site (18 paginas HTML + app.js/app.css)","Repositorio GitHub Paramiri/unialfa-gestao-projetos","Publicar no servidor da empresa; trocar a URL/chave do Supabase em cada arquivo (Fase 8)"),
+  @("Codigo do site (18 paginas HTML + app.js/app.css)","Repositorio GitHub Paramiri/gestao-projetos","Publicar no servidor da empresa; trocar a URL/chave do Supabase em cada arquivo (Fase 8)"),
   @("Banco de dados (10 tabelas, politicas de RLS, funcao is_admin)","Postgres do projeto Supabase fiarntunpqteopwjkhjg","Exportar e importar no Postgres do servidor novo (Fase 3)"),
   @("Contas de usuario ja cadastradas (perfis, autenticacao)","Supabase Auth do projeto de producao","Migram junto com o banco; cada pessoa precisa entrar de novo uma vez (Fase 3 e 6)"),
   @("Configuracao de login por e-mail (SMTP Resend)","Supabase Auth > Emails > SMTP Settings","Reconfigurar as mesmas credenciais no ambiente novo (Fase 6)"),
