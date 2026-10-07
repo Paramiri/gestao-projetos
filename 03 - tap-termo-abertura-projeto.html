@@ -779,10 +779,10 @@ window.unialfaEquipe = {
         <h1>Termo de Abertura de Projeto — TAP</h1>
         <p>Autorização formal e diretrizes iniciais do projeto · Escritório de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=77#passo-3" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=78#passo-3" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
-      <div><span>Código</span><b>FORALF00338</b></div>
+      <div><span>Código</span><b>SGP-03</b></div>
       <div><span>Revisão</span><b>00</b></div>
       <div><span>Homologação</span><b>07/05/2026</b></div>
       <div class="hide-sm"><span>Aprovação</span><b>Via status do registro</b></div>
@@ -2096,7 +2096,7 @@ async function loadAll(){
 async function nextProtocol(){
   const year=new Date().getFullYear();
   const seq=String(cache.length+1).padStart(3,'0');
-  return `FORALF00338-${year}-${seq}`;
+  return `SGP-03-${year}-${seq}`;
 }
 
 function clearError(id){ const f=document.querySelector(`.field[data-for="${id}"]`); if(f) f.classList.remove('error'); }
@@ -2132,11 +2132,11 @@ async function submitForm(){
   TABLE_KEYS.forEach(k=>{ rec[k]=readTable(k); });
   rec.projetoId=projetoId;
   try{
-    await unialfaProjeto.sincronizarSeMudou(projetoId, 'TAP - Termo de Abertura de Projeto (FORALF00338)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
+    await unialfaProjeto.sincronizarSeMudou(projetoId, 'TAP - Termo de Abertura de Projeto (SGP-03)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
     if(registroAntigo){
       const camposParaHistorico={};
       Object.keys(HIST_LABELS).forEach(k=>{camposParaHistorico[k]=rec[k];});
-      await unialfaHistorico.registrar(realKey(rec), 'TAP - Termo de Abertura de Projeto (FORALF00338)', registroAntigo, camposParaHistorico);
+      await unialfaHistorico.registrar(realKey(rec), 'TAP - Termo de Abertura de Projeto (SGP-03)', registroAntigo, camposParaHistorico);
     }
     const key=realKey(rec);
     const toSave=Object.assign({},rec); delete toSave.__key;
@@ -2350,7 +2350,7 @@ async function deleteCurrent(){
 }
 
 
-/* ---------- Impressao / exportacao no formato homologado (FORALF00338) ---------- */
+/* ---------- Impressao / exportacao no formato homologado (SGP-03) ---------- */
 function docTableRowsTap(name,rows){
   const cfg=TABLES[name];
   const cols=cfg.cols.map(c=>'<th>'+esc(c.label)+'</th>').join('');
@@ -2409,7 +2409,7 @@ async function buildTapDocumentoHtml(r){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF00338 &mdash; TERMO DE ABERTURA DE PROJETO - TAP</div>'
+    +'<div class="ttl">SGP-03 &mdash; TERMO DE ABERTURA DE PROJETO - TAP</div>'
     +'<table><tr>'
     +'<td><b>00</b>Revisao</td>'
     +'<td><b>07/05/2026</b>Homologacao</td>'

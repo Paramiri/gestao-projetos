@@ -1,4 +1,4 @@
-<!-- Planejamento e Desenvolvimento de Projeto — FORALF00325 / UNIALFA -->
+<!-- Planejamento e Desenvolvimento de Projeto — SGP-04 / UNIALFA -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -732,10 +732,10 @@ window.unialfaHistorico = {
         <h1>Planejamento e Desenvolvimento de Projeto</h1>
         <p>Dossiê de ciclo de vida do projeto · Gerência de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=77#passo-4" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=78#passo-4" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
-      <div><span>Código</span><b>FORALF00325</b></div>
+      <div><span>Código</span><b>SGP-04</b></div>
       <div><span>Versão</span><b>V.00 / 2025</b></div>
       <div class="hide-sm"><span>Aprovação</span><b>Via status do registro</b></div>
     </div>
@@ -2139,7 +2139,7 @@ async function loadAll(){
 async function nextProtocol(){
   const year=new Date().getFullYear();
   const seq=String(cache.length+1).padStart(3,'0');
-  return `FORALF00325-${year}-${seq}`;
+  return `SGP-04-${year}-${seq}`;
 }
 
 function clearError(id){ const f=document.querySelector(`.field[data-for="${id}"]`); if(f) f.classList.remove('error'); }
@@ -2178,11 +2178,11 @@ async function submitForm(){
   rec.viaAnexosArquivos=viaAnexosArquivos.slice();
   rec.projetoId=projetoId;
   try{
-    await unialfaProjeto.sincronizarSeMudou(projetoId, 'Planejamento e Desenvolvimento de Projeto (FORALF00325)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gestor });
+    await unialfaProjeto.sincronizarSeMudou(projetoId, 'Planejamento e Desenvolvimento de Projeto (SGP-04)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gestor });
     if(registroAntigo){
       const camposParaHistorico={};
       Object.keys(HIST_LABELS).forEach(k=>{camposParaHistorico[k]=rec[k];});
-      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'Planejamento e Desenvolvimento de Projeto (FORALF00325)', registroAntigo, camposParaHistorico);
+      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'Planejamento e Desenvolvimento de Projeto (SGP-04)', registroAntigo, camposParaHistorico);
     }
     const r=await window.storage.set(KEY_PREFIX+rec.id, JSON.stringify(rec), editId?editBaseUpdatedAt:null);
     if(!r) throw new Error('no result');
@@ -2383,7 +2383,7 @@ async function deleteCurrent(){
 }
 
 
-/* ---------- Impressao / exportacao no formato de dossie do sistema (FORALF00325) ---------- */
+/* ---------- Impressao / exportacao no formato de dossie do sistema (SGP-04) ---------- */
 function docTableRowsPlan(key,rows){
   const t=TABLE_DEFS[key];
   const cols=t.cols.map(c=>'<th>'+esc(c.label)+'</th>').join('');
@@ -2458,7 +2458,7 @@ function buildPlanejamentoDocumentoHtml(r){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF00325 &mdash; PLANEJAMENTO E DESENVOLVIMENTO DE PROJETO</div>'
+    +'<div class="ttl">SGP-04 &mdash; PLANEJAMENTO E DESENVOLVIMENTO DE PROJETO</div>'
     +'<table><tr>'
     +'<td><b>V.00 / 2025</b>Versao</td>'
     +'<td><b>'+esc(r.protocolo)+'</b>Protocolo</td>'

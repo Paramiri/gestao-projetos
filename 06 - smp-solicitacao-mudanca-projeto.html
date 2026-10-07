@@ -715,10 +715,10 @@ window.unialfaAnexos = {
         <h1>Solicitação de Mudança de Projeto — SMP</h1>
         <p>Controle de mudanças · Escritório de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=77#passo-7" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=78#passo-7" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
-      <div><span>Código</span><b>FORALF00343</b></div>
+      <div><span>Código</span><b>SGP-06</b></div>
       <div><span>Revisão</span><b>00</b></div>
       <div><span>Homologação</span><b>19/05/2026</b></div>
       <div class="hide-sm"><span>Aprovação</span><b>Via campo decisão + status</b></div>
@@ -1388,7 +1388,7 @@ async function submitForm(){
   } else {
     const year=new Date().getFullYear();
     const seq=String(cache.length+1).padStart(3,'0');
-    rec={id:'s_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),protocolo:`FORALF00343-${year}-${seq}`,status:'Pendente de avaliação',createdAt:Date.now(),criadoPorEmail:window.currentUser?window.currentUser.email:null};
+    rec={id:'s_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),protocolo:`SGP-06-${year}-${seq}`,status:'Pendente de avaliação',createdAt:Date.now(),criadoPorEmail:window.currentUser?window.currentUser.email:null};
   }
   SIMPLE_FIELDS.forEach(id=>{const el=document.getElementById(id);if(el)rec[id]=(el.value||'').trim();});
   rec.decisao=dec?dec.value:'Pendente de avaliação';
@@ -1398,16 +1398,16 @@ async function submitForm(){
   rec.projetoId=projetoId;
   rec.anexosArquivos=anexosArquivos.slice();
   try{
-    await unialfaProjeto.sincronizarSeMudou(projetoId, 'SMP - Solicitação de Mudança de Projeto (FORALF00343)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
+    await unialfaProjeto.sincronizarSeMudou(projetoId, 'SMP - Solicitação de Mudança de Projeto (SGP-06)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
     if(registroAntigo){
       const antigoSemArquivos = Object.assign({}, registroAntigo); delete antigoSemArquivos.anexosArquivos;
       const novoSemArquivos = Object.assign({}, rec); delete novoSemArquivos.anexosArquivos;
-      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'SMP - Solicitação de Mudança de Projeto (FORALF00343)', antigoSemArquivos, novoSemArquivos);
+      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'SMP - Solicitação de Mudança de Projeto (SGP-06)', antigoSemArquivos, novoSemArquivos);
     }
     const r=await window.storage.set(KEY_PREFIX+rec.id,JSON.stringify(rec), editId?editBaseUpdatedAt:null);
     if(!r)throw new Error();
     if(rec.status!==statusAntigo && (rec.status==='Aprovada'||rec.status==='Não aprovada')){
-      await unialfaProjeto.registrarEvento(projetoId, 'SMP: '+(rec.tituloMudanca||rec.protocolo), statusAntigo||'—', rec.status, 'SMP - Solicitação de Mudança de Projeto (FORALF00343)');
+      await unialfaProjeto.registrarEvento(projetoId, 'SMP: '+(rec.tituloMudanca||rec.protocolo), statusAntigo||'—', rec.status, 'SMP - Solicitação de Mudança de Projeto (SGP-06)');
       notificarDecisaoSMP(rec);
     }
     if(editId){
@@ -1586,7 +1586,7 @@ async function changeStatus(){
       await window.storage.set(KEY_PREFIX+r.id,JSON.stringify(r));
     }
     if(r.projetoId && r.status!==statusAntigo && (r.status==='Aprovada'||r.status==='Não aprovada')){
-      await unialfaProjeto.registrarEvento(r.projetoId, 'SMP: '+(r.tituloMudanca||r.protocolo), statusAntigo, r.status, 'SMP - Solicitação de Mudança de Projeto (FORALF00343)');
+      await unialfaProjeto.registrarEvento(r.projetoId, 'SMP: '+(r.tituloMudanca||r.protocolo), statusAntigo, r.status, 'SMP - Solicitação de Mudança de Projeto (SGP-06)');
       notificarDecisaoSMP(r);
     }
     renderList();toast('Status atualizado para "'+r.status+'"');
@@ -1606,7 +1606,7 @@ async function deleteCurrent(){
 }
 
 
-/* ---------- Impressao / exportacao no formato homologado (FORALF00343) ---------- */
+/* ---------- Impressao / exportacao no formato homologado (SGP-06) ---------- */
 function buildSmpDocumentoHtml(r){
   const hoje=new Date().toLocaleDateString('pt-BR');
   const style=[
@@ -1644,7 +1644,7 @@ function buildSmpDocumentoHtml(r){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF00343 &mdash; SOLICITACAO DE MUDANCA DE PROJETO - SMP</div>'
+    +'<div class="ttl">SGP-06 &mdash; SOLICITACAO DE MUDANCA DE PROJETO - SMP</div>'
     +'<table><tr>'
     +'<td><b>00</b>Revisao</td>'
     +'<td><b>19/05/2026</b>Homologacao</td>'

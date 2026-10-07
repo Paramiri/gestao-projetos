@@ -1,4 +1,4 @@
-<!-- Solicitação de Demanda de Projetos — FORALF00339 / UNIALFA -->
+<!-- Solicitação de Demanda de Projetos — SGP-01 / UNIALFA -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -862,10 +862,10 @@ window.unialfaAnexos = {
         <h1>Solicitação de Demanda de Projetos</h1>
         <p>Formulário de entrada de demandas · Escritório de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=77#passo-1" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=78#passo-1" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
-      <div><span>Código</span><b>FORALF00339</b></div>
+      <div><span>Código</span><b>SGP-01</b></div>
       <div><span>Revisão</span><b>00</b></div>
       <div><span>Homologação</span><b>07/05/2026</b></div>
       <div class="hide-sm"><span>Aprovação</span><b>Via status do registro</b></div>
@@ -883,7 +883,7 @@ window.unialfaAnexos = {
   <!-- ====== FORM VIEW ====== -->
   <div id="view-new">
     <div class="card" id="cardImportarIA" style="display:none;margin-bottom:18px">
-      <div class="section-h"><div class="n ai">✦</div><h2>Importar documento preenchido</h2><p>Extrai os dados do FORALF00339 em Word ou PDF</p></div>
+      <div class="section-h"><div class="n ai">✦</div><h2>Importar documento preenchido</h2><p>Extrai os dados do SGP-01 em Word ou PDF</p></div>
       <div class="ai-panel">
         <div class="field">
           <label>Cole aqui o texto do documento preenchido, ou anexe o arquivo</label>
@@ -1446,7 +1446,7 @@ async function loadAll(){
 async function nextProtocol(){
   const year=new Date().getFullYear();
   const seq=String(cache.length+1).padStart(3,'0');
-  return `FORALF00339-${year}-${seq}`;
+  return `SGP-01-${year}-${seq}`;
 }
 
 /* ---------- form ---------- */
@@ -1510,12 +1510,12 @@ async function submitForm(){
       const proj = await unialfaProjeto.criar({ nome: rec.projeto, unidade: rec.departamento, status:'Em avaliação', solicitacao_id: rec.id, criado_por: window.currentUser?window.currentUser.id:null });
       if(proj) rec.projetoId = proj.id;
     } else {
-      await unialfaProjeto.sincronizarSeMudou(rec.projetoId, 'Solicitação de Demanda (FORALF00339)', camposAntigos, { nome: rec.projeto, unidade: rec.departamento });
+      await unialfaProjeto.sincronizarSeMudou(rec.projetoId, 'Solicitação de Demanda (SGP-01)', camposAntigos, { nome: rec.projeto, unidade: rec.departamento });
     }
     if(registroAntigo){
       const antigoSemArquivos = Object.assign({}, registroAntigo); delete antigoSemArquivos.anexosArquivos;
       const novoSemArquivos = Object.assign({}, rec); delete novoSemArquivos.anexosArquivos;
-      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'Solicitação de Demanda (FORALF00339)', antigoSemArquivos, novoSemArquivos);
+      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'Solicitação de Demanda (SGP-01)', antigoSemArquivos, novoSemArquivos);
     }
     const r=await window.storage.set(KEY_PREFIX+rec.id, JSON.stringify(rec), editId?editBaseUpdatedAt:null);
     if(!r) throw new Error('no result');
@@ -1778,7 +1778,7 @@ async function deleteCurrent(){
 }
 
 
-/* ---------- Impressao / exportacao no formato homologado (FORALF00339) ---------- */
+/* ---------- Impressao / exportacao no formato homologado (SGP-01) ---------- */
 function buildDemandaDocumentoHtml(r){
   const hoje=new Date().toLocaleDateString('pt-BR');
   const style=[
@@ -1810,7 +1810,7 @@ function buildDemandaDocumentoHtml(r){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF00339 &mdash; SOLICITACAO DE DEMANDA DE PROJETOS</div>'
+    +'<div class="ttl">SGP-01 &mdash; SOLICITACAO DE DEMANDA DE PROJETOS</div>'
     +'<table><tr>'
     +'<td><b>00</b>Revisao</td>'
     +'<td><b>07/05/2026</b>Homologacao</td>'

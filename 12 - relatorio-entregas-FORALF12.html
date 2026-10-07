@@ -1,4 +1,4 @@
-<!-- Relatório de Entregas e Benefícios — FORALF12 / UNIALFA -->
+<!-- Relatório de Entregas e Benefícios — SGP-12 / UNIALFA -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -558,8 +558,8 @@ function ensureAuthenticated(){
       <h1>Relatório de Entregas e Benefícios</h1>
       <p>Ficha de programa e projetos vinculados · Escritório de Projetos</p>
     </div>
-    <a class="head-help" href="15 - central-ajuda.html?v=77#relatorio-entregas" target="_blank" rel="noopener" title="Ajuda sobre este relatório">?</a>
-    <div class="head-badge">FORALF12</div>
+    <a class="head-help" href="15 - central-ajuda.html?v=78#relatorio-entregas" target="_blank" rel="noopener" title="Ajuda sobre este relatório">?</a>
+    <div class="head-badge">SGP-12</div>
   </div>
 
   <!-- Banner de versão histórica -->
@@ -592,7 +592,7 @@ function ensureAuthenticated(){
       <button class="btn btn-ghost" onclick="imprimirEntregas()">🖨 Imprimir</button>
       <button class="btn btn-ghost" onclick="exportarEntregasWord()">⬇ Exportar Word</button>
       <button class="btn btn-ghost" onclick="toggleHistVersoes()">🕓 Histórico de versões</button>
-      <div class="ml" style="font-size:11px;color:var(--muted)">FORALF12</div>
+      <div class="ml" style="font-size:11px;color:var(--muted)">SGP-12</div>
     </div>
     <div id="hist-versoes-panel" style="display:none;margin-top:10px"></div>
   </div>
@@ -1553,7 +1553,7 @@ async function saveAndPreview(){
 }
 
 
-/* ---------- Impressao / exportacao no formato de dossie do sistema (FORALF12) ---------- */
+/* ---------- Impressao / exportacao no formato de dossie do sistema (SGP-12) ---------- */
 function docTableRowsEnt(cols,rows,mapper){
   const ths=cols.map(c=>'<th>'+esc(c)+'</th>').join('');
   const body=(rows||[]).map(r=>'<tr>'+mapper(r).map(v=>'<td>'+(esc(v)||'&nbsp;')+'</td>').join('')+'</tr>').join('');
@@ -1612,7 +1612,7 @@ function buildEntregasDocumentoHtml(){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF12 &mdash; CADERNO DE ENTREGAS E BENEFICIOS</div>'
+    +'<div class="ttl">SGP-12 &mdash; CADERNO DE ENTREGAS E BENEFICIOS</div>'
     +'<table><tr>'
     +'<td><b>'+esc(p.cod||'—')+'</b>Codigo</td>'
     +'<td><b>'+esc(g.status)+'</b>Gate 2</td>'

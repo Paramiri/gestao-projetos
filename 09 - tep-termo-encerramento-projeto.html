@@ -669,10 +669,10 @@ window.unialfaHistorico = {
         <h1>Termo de Encerramento de Projeto — TEP</h1>
         <p>Formalização do encerramento · Escritório de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=77#passo-8" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=78#passo-8" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
-      <div><span>Código</span><b>FORALF00341</b></div>
+      <div><span>Código</span><b>SGP-09</b></div>
       <div><span>Revisão</span><b>00</b></div>
       <div><span>Homologação</span><b>07/05/2026</b></div>
       <div class="hide-sm"><span>Aprovação</span><b>Via status do registro</b></div>
@@ -1251,18 +1251,18 @@ async function submitForm(){
     camposAntigos = { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente };
   } else {
     const year=new Date().getFullYear();const seq=String(cache.length+1).padStart(3,'0');
-    rec={id:'tep_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),protocolo:`FORALF00341-${year}-${seq}`,status:'Pendente de aprovação',createdAt:Date.now(),criadoPorEmail:window.currentUser?window.currentUser.email:null};
+    rec={id:'tep_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),protocolo:`SGP-09-${year}-${seq}`,status:'Pendente de aprovação',createdAt:Date.now(),criadoPorEmail:window.currentUser?window.currentUser.email:null};
   }
   rec.tipo=tipoSelecionado||'(não selecionado)';
   SIMPLE.forEach(id=>{const el=document.getElementById(id);if(el)rec[id]=(el.value||'').trim();});
   rec.entregas=readEntregas();
   rec.projetoId=projetoId;
   try{
-    await unialfaProjeto.sincronizarSeMudou(projetoId, 'TEP - Termo de Encerramento de Projeto (FORALF00341)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
+    await unialfaProjeto.sincronizarSeMudou(projetoId, 'TEP - Termo de Encerramento de Projeto (SGP-09)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
     if(registroAntigo){
       const camposSimplesAntigos={}, camposSimplesNovos={};
       Object.keys(HIST_LABELS).forEach(k=>{ camposSimplesAntigos[k]=registroAntigo[k]; camposSimplesNovos[k]=rec[k]; });
-      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'TEP - Termo de Encerramento de Projeto (FORALF00341)', camposSimplesAntigos, camposSimplesNovos);
+      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'TEP - Termo de Encerramento de Projeto (SGP-09)', camposSimplesAntigos, camposSimplesNovos);
     }
     const r=await window.storage.set(KEY_PREFIX+rec.id,JSON.stringify(rec), editId?editBaseUpdatedAt:null);
     if(!r) throw new Error();
@@ -1273,7 +1273,7 @@ async function submitForm(){
     } else {
       cache.unshift(rec);
       toast('TEP '+rec.protocolo+' registrado');
-      unialfaProjeto.atualizarCampo(rec.projetoId, 'status', rec.tipo, 'Aprovado', 'TEP - Termo de Encerramento de Projeto (FORALF00341)').catch(()=>{});
+      unialfaProjeto.atualizarCampo(rec.projetoId, 'status', rec.tipo, 'Aprovado', 'TEP - Termo de Encerramento de Projeto (SGP-09)').catch(()=>{});
       Promise.all([unialfaNotificar.emailsEquipe(rec.projetoId), unialfaNotificar.emailsAdmins()]).then(([equipe,admins])=>{
         unialfaNotificar.enviar([rec.criadoPorEmail].concat(equipe,admins),
           'Projeto encerrado ('+rec.tipo+') — '+(rec.nomeProjeto||rec.protocolo),
@@ -1492,7 +1492,7 @@ async function deleteCurrent(){
 }
 
 
-/* ---------- Impressao / exportacao no formato homologado (FORALF00341) ---------- */
+/* ---------- Impressao / exportacao no formato homologado (SGP-09) ---------- */
 function buildTepDocumentoHtml(r){
   const hoje=new Date().toLocaleDateString('pt-BR');
   const style=[
@@ -1527,7 +1527,7 @@ function buildTepDocumentoHtml(r){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF00341 &mdash; TERMO DE ENCERRAMENTO DE PROJETO - TEP</div>'
+    +'<div class="ttl">SGP-09 &mdash; TERMO DE ENCERRAMENTO DE PROJETO - TEP</div>'
     +'<table><tr>'
     +'<td><b>00</b>Revisao</td>'
     +'<td><b>07/05/2026</b>Homologacao</td>'
