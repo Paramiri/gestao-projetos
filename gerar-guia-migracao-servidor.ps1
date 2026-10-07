@@ -1,7 +1,7 @@
-param([string]$OutPath = (Join-Path $PSScriptRoot "Guia de Migracao para Servidor Proprio - Sistema UNIALFA GP.docx"))
+param([string]$OutPath = (Join-Path $PSScriptRoot "Guia de Migracao para Servidor Proprio - SGP.docx"))
 $ErrorActionPreference = "Stop"
 
-# Gera "Guia de Migracao para Servidor Proprio - Sistema UNIALFA GP.docx" via automacao COM do Microsoft Word
+# Gera "Guia de Migracao para Servidor Proprio - SGP.docx" via automacao COM do Microsoft Word
 # (Node.js/pandoc/LibreOffice nao estao disponiveis neste ambiente de geracao do documento).
 # Documento de planejamento: como levar o sistema, como ele esta hoje (site + banco de dados +
 # autenticacao + storage + funcoes de IA), da nuvem (GitHub Pages + Supabase Cloud) para um
@@ -26,7 +26,7 @@ $sec.PageSetup.PageHeight = $word.CentimetersToPoints(27.94)
 $footer = $sec.Footers.Item(1)
 $footer.Range.Font.Size = 8.5
 $footer.Range.Font.Color = $colMuted
-$footer.Range.Text = "UNIALFA - Guia de Migracao para Servidor Proprio | Pagina "
+$footer.Range.Text = "SGP - Guia de Migracao para Servidor Proprio | Pagina "
 $footer.Range.Collapse(0) | Out-Null
 $footer.Range.Fields.Add($footer.Range, 33) | Out-Null  # wdFieldPage = 33
 
@@ -188,17 +188,16 @@ function TableSimple($rows, $colWidthsCm){
 # ============================================================
 # CAPA
 # ============================================================
-P "UNIALFA - GERENCIA DE PROJETOS" 10 $true $false $colRed "left" 4
+P "SGP - SISTEMA DE GESTAO DE PROJETOS" 10 $true $false $colRed "left" 4
 $sel.Style = $doc.Styles.Item(-1)
 $sel.Font.Name="Montserrat"; $sel.Font.Size = 25; $sel.Font.Bold = $true; $sel.Font.Color = $colInk
 $sel.ParagraphFormat.SpaceAfter = 4
 $sel.TypeText("GUIA DE MIGRACAO PARA SERVIDOR PROPRIO")
 $sel.TypeParagraph()
 $sel.Font.Bold = $false
-P "Sistema de Gestao de Projetos - UNIALFA" 15 $false $false $colInk "left" 4
+P "Sistema de Gestao de Projetos (SGP)" 15 $false $false $colInk "left" 4
 P "Como levar o sistema, exatamente como esta hoje - site, banco de dados, autenticacao, arquivos anexados e funcoes de IA - da nuvem (GitHub Pages + Supabase Cloud) para um servidor da propria empresa, preservando o mesmo comportamento." 12 $false $true $colMuted "left" 30
-P "UNIALFA - Gerencia de Projetos" 11 $false $false $colMuted "left" 2
-P "Grupo Jose Alves" 11 $false $false $colMuted "left" 2
+P "Andre Torres - Gerente de Projetos" 11 $false $false $colMuted "left" 2
 P "Documento de planejamento tecnico - versao 1.0 - 09 de setembro de 2026" 11 $false $false $colMuted "left" 2
 
 $sel.InsertBreak(7) | Out-Null
@@ -227,7 +226,7 @@ P "Hoje o sistema roda inteiramente em servicos de terceiros: o site (as paginas
 P "Esta e a opcao de maior escopo entre as duas formas possiveis de migrar o sistema. A alternativa mais simples - mover so a hospedagem do site e manter o banco de dados na nuvem - nao e o que este documento cobre, pois foi decidido levar o backend completo tambem para o servidor da empresa."
 
 H2 "1.2 O que continua igual, do ponto de vista de quem usa o sistema"
-Bul "O mesmo endereco (gestaoprojetos.alfa.br), as mesmas telas, os mesmos formularios, exatamente como sao hoje - nenhuma tela precisa ser redesenhada ou reescrita."
+Bul "O mesmo endereco (gestaoprojetos.suaempresa.com.br), as mesmas telas, os mesmos formularios, exatamente como sao hoje - nenhuma tela precisa ser redesenhada ou reescrita."
 Bul "O mesmo login (link magico por e-mail e Entrar com Microsoft), os mesmos usuarios e papeis ja cadastrados."
 Bul "Os mesmos projetos, registros e historico ja existentes hoje - nada e perdido, tudo e migrado junto."
 Bul "Os mesmos anexos ja enviados em Solicitacoes de Demanda e SMPs."
@@ -259,7 +258,7 @@ $rInv = @(
   @("Configuracao de login com Microsoft (Azure AD)","Supabase Auth > Providers > Azure","Reconfigurar com um novo Redirect URI apontando pro servidor novo (Fase 6)"),
   @("Arquivos anexados (buckets anexos-demanda e anexos-smp)","Supabase Storage do projeto de producao","Baixar todos os arquivos e reenviar no Storage novo (Fase 4)"),
   @("6 funcoes de servidor (Edge Functions) e seus segredos","Supabase Functions do projeto de producao","Copiar o codigo e reconfigurar os segredos no ambiente novo (Fase 5)"),
-  @("Dominio proprio (gestaoprojetos.alfa.br)","DNS apontando para o GitHub Pages","Reapontar o DNS para o servidor da empresa (Fase 9)"),
+  @("Dominio proprio (gestaoprojetos.suaempresa.com.br)","DNS apontando para o GitHub Pages","Reapontar o DNS para o servidor da empresa (Fase 9)"),
   @("Ambiente de treinamento (repositorio + projeto Supabase separados)","GitHub + Supabase Cloud (projeto uuxvdulunrwppbmofyux)","Decisao em aberto - ver nota abaixo")
 )
 TableSimple $rInv @(4.8,5,6.2)
@@ -289,9 +288,9 @@ Bul "Um servidor web para publicar o site: IIS (se o servidor for Windows) ou Ng
 Bul "Um proxy reverso com certificado HTTPS na frente de tudo (pode ser o proprio IIS/Nginx, ou uma ferramenta dedicada como Caddy) - ver Fase 9"
 
 H2 "3.3 Rede"
-Bul "Um dominio (o mesmo gestaoprojetos.alfa.br ja usado hoje, ou um novo) apontando para o IP do servidor."
+Bul "Um dominio (o mesmo gestaoprojetos.suaempresa.com.br ja usado hoje, ou um novo) apontando para o IP do servidor."
 Bul "Portas liberadas no firewall da empresa para acesso externo: 443 (HTTPS) obrigatoria; 80 (HTTP) recomendada so para redirecionar automaticamente para 443."
-Bul "Se o Supabase auto-hospedado ficar num endereco/porta separada do site (comum no kit oficial, que expoe tudo por padrao na porta 8000), decidir se ele fica acessivel so pela rede interna ou tambem pela internet (o site publico PRECISA conseguir alcanca-lo para funcionar, entao normalmente fica exposto atras do mesmo dominio, num subcaminho ou subdominio dedicado - ex.: api.gestaoprojetos.alfa.br)."
+Bul "Se o Supabase auto-hospedado ficar num endereco/porta separada do site (comum no kit oficial, que expoe tudo por padrao na porta 8000), decidir se ele fica acessivel so pela rede interna ou tambem pela internet (o site publico PRECISA conseguir alcanca-lo para funcionar, entao normalmente fica exposto atras do mesmo dominio, num subcaminho ou subdominio dedicado - ex.: api.gestaoprojetos.suaempresa.com.br)."
 
 # ============================================================
 # 4. FASE 1
@@ -325,9 +324,9 @@ $rEnv = @(
   @("Variavel","O que colocar"),
   @("POSTGRES_PASSWORD","Uma senha nova e forte, so letras e numeros (evita problema de codificacao)"),
   @("SUPABASE_PUBLISHABLE_KEY / SUPABASE_SECRET_KEY","Geradas pelos scripts acima - substituem a chave publica e a chave secreta usadas hoje no projeto Supabase Cloud"),
-  @("SUPABASE_PUBLIC_URL","O endereco publico do backend novo (ex.: https://api.gestaoprojetos.alfa.br)"),
+  @("SUPABASE_PUBLIC_URL","O endereco publico do backend novo (ex.: https://api.gestaoprojetos.suaempresa.com.br)"),
   @("API_EXTERNAL_URL","O mesmo endereco publico, seguido de /auth/v1 (usado no fluxo de login)"),
-  @("SITE_URL","O endereco do site (ex.: https://gestaoprojetos.alfa.br) - para onde o login redireciona por padrao"),
+  @("SITE_URL","O endereco do site (ex.: https://gestaoprojetos.suaempresa.com.br) - para onde o login redireciona por padrao"),
   @("DASHBOARD_USERNAME / DASHBOARD_PASSWORD","Login de acesso ao Studio (painel administrativo do banco, equivalente ao painel do Supabase Cloud)"),
   @("SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS","As MESMAS credenciais do Resend ja usadas hoje (Fase 6)")
 )
@@ -418,13 +417,13 @@ P "Antes de seguir, chamar cada uma das 6 funcoes manualmente (por exemplo, via 
 H1 "9. Fase 6 - Reconfigurar a autenticacao"
 
 H2 "9.1 Login por e-mail (SMTP)"
-P "Como o SMTP ja foi preenchido no .env na Fase 2.2 com as mesmas credenciais do Resend, o login por link magico deve funcionar sem nenhuma mudanca adicional de configuracao - o dominio de envio (sistemas.alfa.br) ja esta verificado no Resend e nao precisa ser verificado de novo, pois a verificacao e do lado do Resend, nao do Supabase."
+P "Como o SMTP ja foi preenchido no .env na Fase 2.2 com as mesmas credenciais do Resend, o login por link magico deve funcionar sem nenhuma mudanca adicional de configuracao - o dominio de envio (ex.: sistemas.suaempresa.com.br) ja esta verificado no Resend e nao precisa ser verificado de novo, pois a verificacao e do lado do Resend, nao do Supabase."
 Bul "Conferir, no Studio novo, em Authentication > Templates, se os templates em portugues (Confirm signup, Magic Link) precisam ser recriados manualmente - eles nao vem automaticamente do banco de dados migrado, pois ficam configurados a parte."
 
 H2 "9.2 Login com Microsoft (Azure AD)"
 P "O login com Microsoft precisa de um Redirect URI novo, ja que o endereco de callback do backend mudou de <ref>.supabase.co para o dominio do servidor da empresa."
 Bul "No Azure Portal, no mesmo app registration ja usado hoje (ou um novo, se a organizacao preferir separar), adicionar um Redirect URI adicional apontando para o endereco novo:"
-Exemplo "https://api.gestaoprojetos.alfa.br/auth/v1/callback"
+Exemplo "https://api.gestaoprojetos.suaempresa.com.br/auth/v1/callback"
 Bul "No .env do ambiente novo, preencher AZURE_ENABLED=true, AZURE_CLIENT_ID e AZURE_SECRET com os mesmos valores ja usados hoje (o Client ID nao muda; o Client Secret pode ser reaproveitado se ainda estiver valido, ou gerado um novo em Certificates and secrets)."
 Bul "Reiniciar o servico de autenticacao para aplicar (sh run.sh recreate auth, ou o comando equivalente indicado pelo kit baixado)."
 Nota "Manter o Redirect URI antigo (apontando para o Supabase Cloud) cadastrado no Azure ate a migracao estar totalmente concluida e validada - assim o login com Microsoft continua funcionando nos dois ambientes durante o periodo de testes em paralelo (secao 1.4)."
@@ -443,8 +442,8 @@ Bul "Configurar a vinculacao (binding) HTTPS na porta 443 com o certificado do d
 
 H2 "10.2 Opcao Linux (Nginx)"
 P "Instalar o Nginx e criar um arquivo de configuracao de site apontando para a pasta com os arquivos do repositorio, por exemplo:"
-Exemplo "server { listen 443 ssl; server_name gestaoprojetos.alfa.br; root /var/www/unialfa-gp; index index.html; }"
-Bul "Copiar todos os arquivos do repositorio para o caminho definido em root (ex.: /var/www/unialfa-gp)."
+Exemplo "server { listen 443 ssl; server_name gestaoprojetos.suaempresa.com.br; root /var/www/sgp; index index.html; }"
+Bul "Copiar todos os arquivos do repositorio para o caminho definido em root (ex.: /var/www/sgp)."
 Bul "Apontar o certificado HTTPS (Fase 9) nas diretivas ssl_certificate / ssl_certificate_key."
 Bul "Recarregar o Nginx apos qualquer mudanca de configuracao (nginx -s reload)."
 
@@ -458,7 +457,7 @@ H1 "11. Fase 8 - Trocar as credenciais do Supabase no codigo do site"
 P "Cada uma das 18 paginas HTML do sistema, mais o arquivo push-notifications.js, tem a URL e a chave publica do Supabase escritas diretamente no codigo (nao ha um arquivo de configuracao central). Apos concluir as Fases 2 a 6, e preciso substituir, em TODOS esses arquivos, o endereco antigo pelo endereco novo:"
 $rTroca = @(
   @("Onde estava (producao na nuvem)","Onde passa a apontar (servidor da empresa)"),
-  @("https://fiarntunpqteopwjkhjg.supabase.co","https://api.gestaoprojetos.alfa.br  (ou o endereco escolhido para o backend novo)"),
+  @("https://fiarntunpqteopwjkhjg.supabase.co","https://api.gestaoprojetos.suaempresa.com.br  (ou o endereco escolhido para o backend novo)"),
   @("sb_publishable_RO-UPexCYhZ0rVZiIYWunA_a7YqodnQ","A nova SUPABASE_PUBLISHABLE_KEY gerada na Fase 2.2")
 )
 TableSimple $rTroca @(8,8)
@@ -471,8 +470,8 @@ Nota "O endereco e a chave do ambiente de TREINAMENTO (a outra metade do if/else
 H1 "12. Fase 9 - Dominio e HTTPS"
 
 H2 "12.1 Redirecionar o dominio"
-P "No provedor de DNS do dominio gestaoprojetos.alfa.br, trocar o registro que hoje aponta para o GitHub Pages por um registro apontando para o IP publico do servidor da empresa (registro A) ou para o nome do servidor (registro CNAME, se aplicavel)."
-Bul "Se o backend novo ficar num subdominio proprio (ex.: api.gestaoprojetos.alfa.br), criar tambem esse registro apontando para o mesmo servidor (ou outro, se o backend rodar numa maquina separada do site)."
+P "No provedor de DNS do dominio gestaoprojetos.suaempresa.com.br, trocar o registro que hoje aponta para o GitHub Pages por um registro apontando para o IP publico do servidor da empresa (registro A) ou para o nome do servidor (registro CNAME, se aplicavel)."
+Bul "Se o backend novo ficar num subdominio proprio (ex.: api.gestaoprojetos.suaempresa.com.br), criar tambem esse registro apontando para o mesmo servidor (ou outro, se o backend rodar numa maquina separada do site)."
 
 H2 "12.2 Certificado HTTPS"
 P "Diferente do GitHub Pages (onde o certificado e emitido e renovado automaticamente), no servidor proprio isso precisa ser configurado:"
@@ -481,7 +480,7 @@ Bul "Alternativa: usar um certificado ja emitido pela propria empresa (se a orga
 Nota "O guia oficial da Supabase para producao recomenda colocar um proxy reverso (Nginx ou Caddy, por exemplo) na frente do gateway do backend self-hosted para lidar com o HTTPS - especialmente importante aqui, ja que o login com Microsoft (OAuth) exige HTTPS valido para funcionar."
 
 H2 "12.3 Atualizar a configuracao de URL no Supabase novo"
-P "Em Authentication > URL Configuration do Studio novo, confirmar que Site URL e a lista de Redirect URLs apontam para o dominio definitivo do site (https://gestaoprojetos.alfa.br), do mesmo jeito que ja e feito hoje no projeto da nuvem."
+P "Em Authentication > URL Configuration do Studio novo, confirmar que Site URL e a lista de Redirect URLs apontam para o dominio definitivo do site (https://gestaoprojetos.suaempresa.com.br), do mesmo jeito que ja e feito hoje no projeto da nuvem."
 
 # ============================================================
 # 13. FASE 10

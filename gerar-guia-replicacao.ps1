@@ -1,7 +1,7 @@
-param([string]$OutPath = (Join-Path $PSScriptRoot "Guia de Replicacao Tecnica - Sistema UNIALFA GP.docx"))
+param([string]$OutPath = (Join-Path $PSScriptRoot "Guia de Replicacao Tecnica - SGP.docx"))
 $ErrorActionPreference = "Stop"
 
-# Gera "Guia de Replicacao Tecnica - Sistema UNIALFA GP.docx" via automacao COM do Microsoft Word
+# Gera "Guia de Replicacao Tecnica - SGP.docx" via automacao COM do Microsoft Word
 # (Node.js/pandoc/LibreOffice nao estao disponiveis neste ambiente).
 # Documento de analise tecnica: o que foi usado neste projeto e o passo a passo cronologico
 # para construir do zero uma aplicacao semelhante.
@@ -25,7 +25,7 @@ $sec.PageSetup.PageHeight = $word.CentimetersToPoints(27.94)
 $footer = $sec.Footers.Item(1)
 $footer.Range.Font.Size = 8.5
 $footer.Range.Font.Color = $colMuted
-$footer.Range.Text = "UNIALFA - Guia de Replicacao Tecnica | Pagina "
+$footer.Range.Text = "SGP - Guia de Replicacao Tecnica | Pagina "
 $footer.Range.Collapse(0) | Out-Null
 $footer.Range.Fields.Add($footer.Range, 33) | Out-Null  # wdFieldPage = 33
 
@@ -187,17 +187,16 @@ function TableSimple($rows, $colWidthsCm){
 # ============================================================
 # CAPA
 # ============================================================
-P "UNIALFA - GERENCIA DE PROJETOS" 10 $true $false $colRed "left" 4
+P "SGP - SISTEMA DE GESTAO DE PROJETOS" 10 $true $false $colRed "left" 4
 $sel.Style = $doc.Styles.Item(-1)
 $sel.Font.Name="Montserrat"; $sel.Font.Size = 26; $sel.Font.Bold = $true; $sel.Font.Color = $colInk
 $sel.ParagraphFormat.SpaceAfter = 4
 $sel.TypeText("GUIA DE REPLICACAO TECNICA")
 $sel.TypeParagraph()
 $sel.Font.Bold = $false
-P "Sistema de Gestao de Projetos - UNIALFA" 15 $false $false $colInk "left" 4
+P "Sistema de Gestao de Projetos (SGP)" 15 $false $false $colInk "left" 4
 P "Analise da arquitetura atual e passo a passo cronologico para construir do zero uma aplicacao semelhante (mesmo modelo: site estatico + Supabase + GitHub Pages)." 12 $false $true $colMuted "left" 30
-P "UNIALFA - Gerencia de Projetos" 11 $false $false $colMuted "left" 2
-P "Grupo Jose Alves" 11 $false $false $colMuted "left" 2
+P "Andre Torres - Gerente de Projetos" 11 $false $false $colMuted "left" 2
 P "Documento de analise tecnica - versao 1.0 - 09 de setembro de 2026" 11 $false $false $colMuted "left" 2
 
 $sel.InsertBreak(7) | Out-Null
@@ -220,7 +219,7 @@ $sel.InsertBreak(7) | Out-Null
 # 1. VISAO GERAL
 # ============================================================
 H1 "1. Visao geral - o que e este sistema, por baixo do capo"
-P "Este documento descreve, de forma tecnica, tudo o que foi utilizado para construir e publicar o Sistema de Gestao de Projetos da UNIALFA, e apresenta o passo a passo, em ordem cronologica, de como construir uma aplicacao semelhante do zero. E um documento de analise e planejamento, nao um manual de uso do sistema (esse ja existe: `Manual de Uso - Ferramenta de Gestao de Projetos.docx`)."
+P "Este documento descreve, de forma tecnica, tudo o que foi utilizado para construir e publicar o Sistema de Gestao de Projetos (SGP), e apresenta o passo a passo, em ordem cronologica, de como construir uma aplicacao semelhante do zero. E um documento de analise e planejamento, nao um manual de uso do sistema (esse ja existe: `Manual de Uso - Ferramenta de Gestao de Projetos.docx`)."
 
 H2 "1.1 Resumo da arquitetura"
 P "O sistema e um site estatico (sem framework, sem etapa de build/compilacao) publicado no GitHub Pages, com todo o backend fornecido pelo Supabase (banco de dados Postgres, autenticacao, armazenamento de arquivos e funcoes de servidor). Nao existe servidor proprio: tudo o que precisa rodar `no servidor` (chamadas a IA, envio de e-mail, notificacao push) roda em Funcoes de Borda (Edge Functions) do proprio Supabase."
@@ -228,7 +227,7 @@ $rArq = @(
   @("Camada","Tecnologia usada neste projeto"),
   @("Frontend","HTML + CSS + JavaScript puro, um arquivo por formulario/pagina, sem framework e sem build step"),
   @("Hospedagem do site","GitHub Pages, publicado automaticamente por GitHub Actions a cada push na branch main"),
-  @("Dominio proprio","gestaoprojetos.alfa.br, apontado via DNS (CNAME) para o GitHub Pages"),
+  @("Dominio proprio","gestaoprojetos.suaempresa.com.br, apontado via DNS (CNAME) para o GitHub Pages"),
   @("Banco de dados","Supabase (Postgres gerenciado), acessado direto via API REST (PostgREST), sem SDK"),
   @("Autenticacao","Supabase Auth - link magico por e-mail (OTP) e login com Microsoft (Azure AD/SSO)"),
   @("E-mail transacional","Resend, usado como SMTP customizado do Supabase Auth e chamado pelas Edge Functions"),
