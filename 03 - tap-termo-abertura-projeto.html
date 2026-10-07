@@ -252,7 +252,7 @@
 <!-- ==== AUTH GATE (HTML) ==== -->
 <div class="auth-gate" id="authGate" style="display:none">
   <div class="auth-card">
-    <div class="auth-logo"><img src="icons/logo-alfa.png" alt="ALFA" style="height:40px;display:block"><small>GRUPO JOSÉ ALVES</small></div>
+    <div class="auth-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:7px 11px;font-weight:900;font-size:20px;letter-spacing:.06em;line-height:1">SGP</span><small>SISTEMA DE GESTÃO DE PROJETOS</small></div>
     <h2>Entrar</h2>
     <div id="treinoLoginBloco" style="display:none">
       <p style="font-size:11.5px;color:var(--muted,#6B7280);margin-bottom:8px">Ambiente de treinamento — selecione um papel para entrar:</p>
@@ -268,7 +268,7 @@
       <div style="text-align:center;margin:14px 0;color:var(--muted,#6B7280);font-size:11px;font-weight:600">— ou —</div>
     </div>
     <script>if(location.href.indexOf('treino')>-1){var _tb=document.getElementById('treinoLoginBloco');if(_tb)_tb.style.display='block';}</script>
-    <button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="unialfaAuthUI.signInWithAzure()">Entrar com Microsoft - UNIALFA</button>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="unialfaAuthUI.signInWithAzure()">Entrar com Microsoft</button>
     <div style="text-align:center;margin:14px 0;color:var(--muted,#6B7280);font-size:11px;font-weight:600">— ou —</div>
     <p>Digite seu e-mail para receber um link de acesso — sem senha.</p>
     <div id="authStep1">
@@ -522,7 +522,7 @@ function emailTemplate(o){
   }).join('');
   return '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F4F6;padding:24px 0"><tr><td>'
     +'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;margin:0 auto;background:#FFFFFF;border-radius:10px;overflow:hidden;border:1px solid #E4E4E7;font-family:Arial,Helvetica,sans-serif">'
-    +'<tr><td style="background:#B91D2E;padding:16px 24px"><span style="color:#FFFFFF;font-size:12.5px;font-weight:800;letter-spacing:.05em">UNIALFA · GESTÃO DE PROJETOS</span></td></tr>'
+    +'<tr><td style="background:#B91D2E;padding:16px 24px"><span style="color:#FFFFFF;font-size:12.5px;font-weight:800;letter-spacing:.05em">SISTEMA DE GESTÃO DE PROJETOS</span></td></tr>'
     +'<tr><td style="padding:26px 24px 8px">'
     +'<span style="display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:20px;margin-bottom:14px;background:'+c.bg+';color:'+c.fg+'">'+o.badgeTexto+'</span>'
     +'<p style="margin:0 0 4px;font-size:19px;color:#1A1A1A;font-weight:700">'+o.titulo+'</p>'
@@ -774,12 +774,12 @@ window.unialfaEquipe = {
 
   <div class="doc-head">
     <div class="doc-band">
-      <div class="doc-logo"><img src="icons/logo-alfa.png" alt="ALFA" style="height:38px;display:block;background:#fff;border-radius:6px;padding:3px 8px"><small>GRUPO JOSÉ ALVES</small></div>
+      <div class="doc-logo"><span style="display:inline-block;background:#fff;color:#B91D2E;border-radius:6px;padding:6px 10px;font-weight:900;font-size:18px;letter-spacing:.06em;line-height:1">SGP</span><small>SISTEMA DE GESTÃO DE PROJETOS</small></div>
       <div class="doc-title">
         <h1>Termo de Abertura de Projeto — TAP</h1>
         <p>Autorização formal e diretrizes iniciais do projeto · Escritório de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=75#passo-3" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=76#passo-3" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
       <div><span>Código</span><b>FORALF00338</b></div>
@@ -2349,7 +2349,6 @@ async function deleteCurrent(){
   catch(e){ toast(mensagemErroSalvar(e,'excluir este registro'), false); }
 }
 
-const ATA_LOGO_DATAURI='data:image/png;base64,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';
 
 /* ---------- Impressao / exportacao no formato homologado (FORALF00338) ---------- */
 function docTableRowsTap(name,rows){
@@ -2387,7 +2386,7 @@ async function buildTapDocumentoHtml(r){
     'body{font-family:Calibri,Arial,sans-serif;color:#1A1A1A;margin:24px;font-size:12px}',
     '.doc-head{display:flex;border:1px solid #1A1A1A;margin-bottom:14px}',
     '.doc-logo{width:150px;background:#fff;display:flex;align-items:center;justify-content:center;padding:10px;border-right:1px solid #1A1A1A}',
-    '.doc-logo img{max-width:130px;display:block}',
+    
     '.doc-headinfo{flex:1}',
     '.doc-headinfo .ttl{text-align:center;font-weight:700;padding:6px;border-bottom:1px solid #1A1A1A;background:#F6F6F7}',
     '.doc-headinfo table{width:100%;border-collapse:collapse}',
@@ -2408,7 +2407,7 @@ async function buildTapDocumentoHtml(r){
   ].join('\n');
   return '<!doctype html><html><head><meta charset="utf-8"><title>TAP - '+esc(r.protocolo)+'</title><style>'+style+'</style></head><body>'
     +'<div class="doc-head">'
-    +'<div class="doc-logo"><img src="'+ATA_LOGO_DATAURI+'" alt="ALFA"></div>'
+    +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
     +'<div class="ttl">FORALF00338 &mdash; TERMO DE ABERTURA DE PROJETO - TAP</div>'
     +'<table><tr>'
@@ -2441,7 +2440,7 @@ async function buildTapDocumentoHtml(r){
     +'<div class="doc-box"><div class="lbl">12.2 - Equipe do projeto</div><div class="val">'+docTableRowsTap('equipe',r.equipe)+'</div></div>'
     +'<div class="doc-box"><div class="lbl">13 - Indicadores de resultado</div><div class="val">'+docTableRowsTap('indicadores',r.indicadores)+'</div></div>'
     +'<div class="doc-foot">GRUPO JOSE ALVES</div>'
-    +'<div class="doc-gen">Documento gerado pelo Sistema de Gestao de Projetos UNIALFA em '+hoje+' &mdash; Status: '+esc(r.status)+'</div>'
+    +'<div class="doc-gen">Documento gerado pelo Sistema de Gestão de Projetos em '+hoje+' &mdash; Status: '+esc(r.status)+'</div>'
     +'</body></html>';
 }
 async function imprimirTap(){

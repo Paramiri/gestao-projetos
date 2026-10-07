@@ -71,7 +71,7 @@
     return `
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-          <div class="logo">UNIALFA<small>GERÊNCIA DE PROJETOS</small></div>
+          <div class="logo">SGP<small>SISTEMA DE GESTÃO DE PROJETOS</small></div>
           <p>Diretrizes, Estratégias e Práticas</p>
         </div>
         <nav class="sidebar-nav">
@@ -86,7 +86,7 @@
           <a class="nav-item" href="14 - validador-projetos.html" target="_blank" rel="noopener">
             <span class="tag">◈</span><span class="lbl">Validador de Projetos</span>
           </a>
-          <a class="nav-item" href="15 - central-ajuda.html?v=75" target="_blank" rel="noopener">
+          <a class="nav-item" href="15 - central-ajuda.html?v=76" target="_blank" rel="noopener">
             <span class="tag">?</span><span class="lbl">Central de Ajuda</span>
           </a>
           <div class="sidebar-section-label">Gestão</div>
@@ -114,7 +114,7 @@
       <div class="scrim" id="scrim"></div>
       <div class="mobile-bar">
         <button id="menuBtn" aria-label="Abrir menu">☰</button>
-        <span class="mb-title">UNIALFA · DIRETRIZES</span>
+        <span class="mb-title">SGP · DIRETRIZES</span>
       </div>`;
   }
 
@@ -166,8 +166,8 @@
 
     return `
       <div class="hero">
-        <h1>Diretrizes para a Gestão de Projetos — UNIALFA</h1>
-        <p>7 diretrizes (D01–D07), 61 estratégias e 12 artefatos institucionais que orientam o ciclo de vida de um projeto na UNIALFA — da demanda ao encerramento, com governança e liderança presentes o tempo todo. Clique em qualquer etapa do mapa para ver o detalhe.</p>
+        <h1>Diretrizes para a Gestão de Projetos</h1>
+        <p>7 diretrizes (D01–D07), 61 estratégias e 12 artefatos institucionais que orientam o ciclo de vida de um projeto na instituição — da demanda ao encerramento, com governança e liderança presentes o tempo todo. Clique em qualquer etapa do mapa para ver o detalhe.</p>
       </div>
 
       <div class="comm-band">Comunicação <span>— atravessa todas as diretrizes, do D01 ao D07</span></div>

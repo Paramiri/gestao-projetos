@@ -1,4 +1,4 @@
-/* Dados das Diretrizes para a Gestão de Projetos — UNIALFA
+/* Dados das Diretrizes para a Gestão de Projetos
    Fonte: "Diretrizes para a Gestão de Projetos" (Gerência de Projetos, 121 slides)
    e "Arquitetura Demandas de Projetos v2" (correções de Gates e catálogo de artefatos). */
 
@@ -44,7 +44,7 @@ const DIRETRIZES = [
   {
     id: 'D01', titulo: 'Demanda', tipo: 'sequencial', ordem: 1,
     resumo: 'Ponto de entrada de todo projeto: recebe, avalia e prioriza a demanda antes de virar projeto.',
-    oQueE: 'Ponto de entrada de todo e qualquer projeto na UNIALFA: a etapa em que uma necessidade, ideia ou problema institucional é identificado, registrado, avaliado e priorizado antes de ser formalizado como projeto. É um mecanismo de triagem.',
+    oQueE: 'Ponto de entrada de todo e qualquer projeto na instituição: a etapa em que uma necessidade, ideia ou problema institucional é identificado, registrado, avaliado e priorizado antes de ser formalizado como projeto. É um mecanismo de triagem.',
     porQue: 'Nem toda demanda deve virar projeto. A D01 protege a organização contra desperdício de recursos, confere foco às equipes e promove transparência nas decisões — um projeto mal iniciado tende a gerar retrabalho e desgastar a credibilidade da gestão de projetos.',
     entrega: ['Uma demanda avaliada, priorizada e aprovada, pronta para avançar para o planejamento.', 'Ou rejeitada, com justificativa clara e comunicada ao solicitante.'],
     pessoas: ['Solicitante da demanda', 'Gerente de Projetos', 'Gestor responsável pela aprovação'],
@@ -60,7 +60,7 @@ const DIRETRIZES = [
         'Se a inviabilidade for manifesta, a demanda é rejeitada nesse momento, com justificativa documentada.',
       ], artefatos: [] },
       { id: 'D01.3', titulo: 'Avaliação de Alinhamento Estratégico', pontos: [
-        'Viabilidade técnica não é suficiente: a demanda precisa estar alinhada aos objetivos e prioridades institucionais da UNIALFA.',
+        'Viabilidade técnica não é suficiente: a demanda precisa estar alinhada aos objetivos e prioridades institucionais.',
         'Iniciativas viáveis mas sem aderência estratégica podem ser postergadas, redirecionadas ou descartadas — recursos são finitos.',
         'A análise também verifica sobreposição com outros projetos em andamento no portfólio.',
       ], artefatos: [] },
@@ -152,7 +152,7 @@ const DIRETRIZES = [
       ], artefatos: ['FORALF00340', 'FORALF00325'] },
       { id: 'D03.2', titulo: 'Gerenciamento do Conhecimento do Projeto', pontos: [
         'Todo projeto gera conhecimento — sobre processos, organização, pessoas e soluções — que precisa ser capturado, organizado e disponibilizado para uso futuro.',
-        'O Gerente de Projetos deve estimular o registro contínuo de decisões e lições aprendidas parciais ao longo da execução, alimentando a base de conhecimento da UNIALFA.',
+        'O Gerente de Projetos deve estimular o registro contínuo de decisões e lições aprendidas parciais ao longo da execução, alimentando a base de conhecimento da instituição.',
       ], artefatos: ['FORALF00340', 'FORALF00325'] },
       { id: 'D03.3', titulo: 'Gerenciamento da Qualidade', pontos: [
         'Verificar continuamente se as entregas atendem aos requisitos definidos no planejamento — qualidade não se avalia só no final.',
@@ -271,7 +271,7 @@ const DIRETRIZES = [
       ]},
       { id: 'D05.2', titulo: 'Gerir Metodologia e Melhoria', estrategias: [
         { id: 'D05.2.1', titulo: 'Definição e Manutenção da Metodologia', pontos: [
-          'A metodologia da UNIALFA não é um documento estático: precisa ser continuamente revisada à luz da experiência acumulada. A Gerência de Projetos é responsável por mantê-la atualizada e relevante.',
+          'A metodologia da instituição não é um documento estático: precisa ser continuamente revisada à luz da experiência acumulada. A Gerência de Projetos é responsável por mantê-la atualizada e relevante.',
           'Inclui revisão periódica das diretrizes e incorporação de melhorias identificadas nas lições aprendidas.',
         ], artefatos: ['FORALF00340'] },
         { id: 'D05.2.2', titulo: 'Desenvolvimento e Manutenção de Templates', pontos: [
@@ -315,7 +315,7 @@ const DIRETRIZES = [
     oQueE: 'Diretriz transversal que atravessa todas as demais fases do ciclo de vida, do D01 ao D05, sem se restringir a um momento específico. Define o direcionamento estratégico da gestão de projetos e busca conquistar e preservar a confiança das partes interessadas. Concentra-se em quem toma as decisões (papéis e autoridade) e em como elas são tomadas (processos para mudanças, entraves e encaminhamentos).',
     porQue: 'Projetos sem governança tendem a acumular decisões postergadas, entraves não resolvidos e mudanças não formalizadas, até que o peso dessas pendências comprometa irreversivelmente o resultado. A governança não é controle pelo controle — é o mecanismo que protege o projeto e a organização.',
     entrega: ['Um modelo de governança estruturado, com papéis definidos, reuniões periódicas e fluxo de informações claro entre todos os níveis de decisão.', 'Entraves resolvidos, encaminhamentos monitorados e resultados reportados com transparência e regularidade.'],
-    pessoas: ['Gerente de Projetos', 'Dono do Negócio', 'Gestor Responsável', 'Alta Gestão da UNIALFA', 'Todas as partes interessadas com papel de decisão nos projetos'],
+    pessoas: ['Gerente de Projetos', 'Dono do Negócio', 'Gestor Responsável', 'Alta Gestão', 'Todas as partes interessadas com papel de decisão nos projetos'],
     grupos: [{ titulo: null, estrategias: [
       { id: 'D06.1', titulo: 'Elaboração do Relatório de Entregas e Benefícios', pontos: [
         'Documento que consolida o planejamento do projeto numa visão executiva: responsáveis, justificativa, objetivo, alinhamento estratégico, indicadores, previsão financeira, parceiros e entregas previstas.',
@@ -353,7 +353,7 @@ const DIRETRIZES = [
     oQueE: 'Diretriz transversal, presente em todas as fases do ciclo de vida, do D01 ao D05. Reconhece que projetos são realizados por pessoas e que o sucesso de qualquer iniciativa depende da capacidade de identificar, engajar, desenvolver e liderar as pessoas envolvidas. Trata da dimensão humana que nenhuma ferramenta ou documento substitui.',
     porQue: 'Um dos maiores riscos em qualquer projeto não está no escopo, cronograma ou orçamento, mas nas pessoas. Pessoas desengajadas não entregam; pessoas sem desenvolvimento não evoluem; e uma organização sem cultura de projetos repete os mesmos erros, independentemente da qualidade de seus processos.',
     entrega: ['Uma rede de pessoas envolvidas nos projetos identificada, mapeada e gerida de forma estruturada.', 'Pessoas engajadas, comprometidas e continuamente desenvolvidas.', 'Uma cultura organizacional orientada para o pensamento por projetos e para a entrega de valor.'],
-    pessoas: ['Gerente de Projetos', 'Dono do Negócio', 'Equipe do projeto', 'Todas as partes interessadas que impactam ou são impactadas pelos projetos da UNIALFA'],
+    pessoas: ['Gerente de Projetos', 'Dono do Negócio', 'Equipe do projeto', 'Todas as partes interessadas que impactam ou são impactadas pelos projetos da instituição'],
     grupos: [{ titulo: null, estrategias: [
       { id: 'D07.1', titulo: 'Criação da Rede de Pessoas Envolvidas nos Projetos', pontos: [
         'A rede reúne todos os indivíduos que, de alguma forma, impactam ou são impactados por um projeto, positiva ou negativamente, direta ou indiretamente — identificá-los desde o início antecipa resistências e mobiliza apoiadores.',

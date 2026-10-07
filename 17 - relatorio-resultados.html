@@ -91,7 +91,7 @@
 <!-- ==== AUTH GATE (HTML) ==== -->
 <div class="auth-gate" id="authGate" style="display:none">
   <div class="auth-card">
-    <div class="auth-logo"><img src="icons/logo-alfa.png" alt="ALFA" style="height:40px;display:block"><small>GRUPO JOSÉ ALVES</small></div>
+    <div class="auth-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:7px 11px;font-weight:900;font-size:20px;letter-spacing:.06em;line-height:1">SGP</span><small>SISTEMA DE GESTÃO DE PROJETOS</small></div>
     <h2>Entrar</h2>
     <div id="treinoLoginBloco" style="display:none">
       <p style="font-size:11.5px;color:var(--muted,#6B7280);margin-bottom:8px">Ambiente de treinamento — selecione um papel para entrar:</p>
@@ -107,7 +107,7 @@
       <div style="text-align:center;margin:14px 0;color:var(--muted,#6B7280);font-size:11px;font-weight:600">— ou —</div>
     </div>
     <script>if(location.href.indexOf('treino')>-1){var _tb=document.getElementById('treinoLoginBloco');if(_tb)_tb.style.display='block';}</script>
-    <button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="unialfaAuthUI.signInWithAzure()">Entrar com Microsoft - UNIALFA</button>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="unialfaAuthUI.signInWithAzure()">Entrar com Microsoft</button>
     <div style="text-align:center;margin:14px 0;color:var(--muted,#6B7280);font-size:11px;font-weight:600">— ou —</div>
     <p>Digite seu e-mail para receber um link de acesso — sem senha.</p>
     <div id="authStep1">
@@ -367,12 +367,12 @@ function ensureAuthenticated(){
 <div class="wrap">
   <div class="doc-head">
     <div class="doc-band">
-      <div class="doc-logo"><img src="icons/logo-alfa.png" alt="ALFA" style="height:38px;display:block;background:#fff;border-radius:6px;padding:3px 8px"><small>GRUPO JOSÉ ALVES</small></div>
+      <div class="doc-logo"><span style="display:inline-block;background:#fff;color:#B91D2E;border-radius:6px;padding:6px 10px;font-weight:900;font-size:18px;letter-spacing:.06em;line-height:1">SGP</span><small>SISTEMA DE GESTÃO DE PROJETOS</small></div>
       <div class="doc-title">
         <h1>Relatório de Resultados</h1>
         <p>Reunião de Resultados · Indicadores estratégicos e plano de ação</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=75#relatorio-resultados" target="_blank" rel="noopener" title="Ajuda sobre este relatório">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=76#relatorio-resultados" target="_blank" rel="noopener" title="Ajuda sobre este relatório">?</a>
     </div>
   </div>
 
@@ -768,7 +768,7 @@ async function gerarApresentacaoPPTX(){
   btn.disabled = true; btn.textContent = 'Gerando…';
   try{
     await carregarScript('https://cdn.jsdelivr.net/npm/pptxgenjs@4.0.1/dist/pptxgen.bundle.js', 'PptxGenJS');
-    var logoDataUri = await imagemParaDataUri('icons/logo-alfa.png');
+    var logoDataUri = null; // sem logo institucional: os slides saem só com o nome do sistema
 
     var pres = new window.PptxGenJS();
     pres.layout = 'LAYOUT_WIDE';
@@ -784,7 +784,7 @@ async function gerarApresentacaoPPTX(){
       s1.addShape('roundRect', { x:0.7, y:6.6, w:1.15, h:0.62, rectRadius:0.06, fill:{color:'FFFFFF'}, line:{type:'none'} });
       s1.addImage({ data: logoDataUri, x:0.78, y:6.68, w:1.0, h:0.46 });
     }
-    s1.addText('GRUPO JOSÉ ALVES', { x:2.05, y:6.75, w:4, h:0.4, fontFace:'Arial', fontSize:11, bold:true, color:'FFFFFF', charSpacing:1 });
+    s1.addText('SISTEMA DE GESTÃO DE PROJETOS', { x:2.05, y:6.75, w:4, h:0.4, fontFace:'Arial', fontSize:11, bold:true, color:'FFFFFF', charSpacing:1 });
 
     // ---- Slide 2: Indicadores estratégicos ----
     var s2 = pres.addSlide();
