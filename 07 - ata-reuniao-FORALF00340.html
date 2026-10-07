@@ -1,4 +1,4 @@
-<!-- Ata de Reunião — FORALF00340 / UNIALFA — com importação de transcrição por IA (Claude) -->
+<!-- Ata de Reunião — SGP-07 / UNIALFA — com importação de transcrição por IA (Claude) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -648,10 +648,10 @@ window.unialfaHistorico = {
         <h1>Ata de Reunião para Projetos</h1>
         <p>Registro de reuniões · Escritório de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=77#passo-6" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=78#passo-6" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
-      <div><span>Código</span><b>FORALF00340</b></div>
+      <div><span>Código</span><b>SGP-07</b></div>
       <div><span>Revisão</span><b>00</b></div>
       <div><span>Homologação</span><b>07/05/2026</b></div>
       <div class="hide-sm"><span>IA</span><b>Análise de transcrição</b></div>
@@ -1542,7 +1542,7 @@ async function submitForm(){
     registroAntigo = Object.assign({}, rec);
   } else {
     const year=new Date().getFullYear(); const seq=String(cache.length+1).padStart(3,'0');
-    rec={ id:'a_'+Date.now()+'_'+Math.random().toString(36).slice(2,7), protocolo:`FORALF00340-${year}-${seq}`, status:'Rascunho', createdAt:Date.now(), criadoPorEmail: window.currentUser?window.currentUser.email:null };
+    rec={ id:'a_'+Date.now()+'_'+Math.random().toString(36).slice(2,7), protocolo:`SGP-07-${year}-${seq}`, status:'Rascunho', createdAt:Date.now(), criadoPorEmail: window.currentUser?window.currentUser.email:null };
   }
   rec.unidades=getUnidades();
   rec.pauta=document.getElementById('pauta').value.trim();
@@ -1568,7 +1568,7 @@ async function submitForm(){
     if(registroAntigo){
       const camposSimplesAntigos={}, camposSimplesNovos={};
       Object.keys(HIST_LABELS).forEach(k=>{ camposSimplesAntigos[k]=registroAntigo[k]; camposSimplesNovos[k]=rec[k]; });
-      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'Ata de Reunião para Projetos (FORALF00340)', camposSimplesAntigos, camposSimplesNovos);
+      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'Ata de Reunião para Projetos (SGP-07)', camposSimplesAntigos, camposSimplesNovos);
     }
     const r=await window.storage.set(KEY_PREFIX+rec.id,JSON.stringify(rec), editId?editBaseUpdatedAt:null);
     if(!r) throw new Error();
@@ -1781,7 +1781,7 @@ async function deleteCurrent(){
   try{await window.storage.delete(KEY_PREFIX+r.id);cache=cache.filter(x=>x.id!==currentId);document.getElementById('count').textContent=cache.length;closeDrawer();renderList();toast('Ata excluída');}
   catch(e){toast(mensagemErroSalvar(e,'excluir este registro'),false);}
 }
-/* ---------- Impressao / exportacao no formato homologado (FORALF00340) ---------- */
+/* ---------- Impressao / exportacao no formato homologado (SGP-07) ---------- */
 function docTableRows(name,rows,withAssinatura){
   const cfg=TABLES[name];
   const cols=cfg.cols.map(c=>'<th>'+esc(c.label)+'</th>').join('') + (withAssinatura?'<th>Assinatura/Rubrica</th>':'');
@@ -1824,7 +1824,7 @@ function buildAtaDocumentoHtml(r){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF00340 &mdash; ATA DE REUNIAO PARA PROJETOS</div>'
+    +'<div class="ttl">SGP-07 &mdash; ATA DE REUNIAO PARA PROJETOS</div>'
     +'<table><tr>'
     +'<td><b>00</b>Revisao</td>'
     +'<td><b>07/05/2026</b>Homologacao</td>'

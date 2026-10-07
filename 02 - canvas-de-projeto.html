@@ -675,10 +675,10 @@ window.unialfaEquipe = {
         <h1>Canvas de Projeto</h1>
         <p>Planejamento do projeto em uma página · Escritório de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=77#passo-2" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=78#passo-2" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
-      <div><span>Código</span><b>FORALF00344</b></div>
+      <div><span>Código</span><b>SGP-02</b></div>
       <div><span>Revisão</span><b>00</b></div>
       <div><span>Homologação</span><b>19/05/2026</b></div>
       <div class="hide-sm"><span>Aprovação</span><b>Via status do registro</b></div>
@@ -1248,7 +1248,7 @@ async function loadAll(){
 async function nextProtocol(){
   const year=new Date().getFullYear();
   const seq=String(cache.length+1).padStart(3,'0');
-  return `FORALF00344-${year}-${seq}`;
+  return `SGP-02-${year}-${seq}`;
 }
 
 function clearError(id){ const f=document.querySelector(`.field[data-for="${id}"]`); if(f) f.classList.remove('error'); }
@@ -1283,8 +1283,8 @@ async function submitForm(){
   FIELDS.forEach(id=>{ rec[id]=document.getElementById(id).value.trim?document.getElementById(id).value.trim():document.getElementById(id).value; });
   rec.projetoId=projetoId;
   try{
-    await unialfaProjeto.sincronizarSeMudou(projetoId, 'Canvas de Projeto (FORALF00344)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
-    if(registroAntigo){ await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'Canvas de Projeto (FORALF00344)', registroAntigo, rec); }
+    await unialfaProjeto.sincronizarSeMudou(projetoId, 'Canvas de Projeto (SGP-02)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
+    if(registroAntigo){ await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'Canvas de Projeto (SGP-02)', registroAntigo, rec); }
     const r=await window.storage.set(KEY_PREFIX+rec.id, JSON.stringify(rec), editId?editBaseUpdatedAt:null);
     if(!r) throw new Error('no result');
     if(editId){
@@ -1457,7 +1457,7 @@ async function deleteCurrent(){
 }
 
 
-/* ---------- Impressao / exportacao no formato homologado (FORALF00344) ---------- */
+/* ---------- Impressao / exportacao no formato homologado (SGP-02) ---------- */
 function buildCanvasDocumentoHtml(r){
   const hoje=new Date().toLocaleDateString('pt-BR');
   const style=[
@@ -1483,7 +1483,7 @@ function buildCanvasDocumentoHtml(r){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF00344 &mdash; CANVAS DE PROJETO</div>'
+    +'<div class="ttl">SGP-02 &mdash; CANVAS DE PROJETO</div>'
     +'<table><tr>'
     +'<td><b>00</b>Revisao</td>'
     +'<td><b>19/05/2026</b>Homologacao</td>'

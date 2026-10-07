@@ -613,10 +613,10 @@ window.unialfaHistorico = {
         <h1>Registro de Lições Aprendidas — RLA</h1>
         <p>Aprendizado organizacional · Escritório de Projetos</p>
       </div>
-      <a class="doc-help" href="15 - central-ajuda.html?v=77#passo-9" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
+      <a class="doc-help" href="15 - central-ajuda.html?v=78#passo-9" target="_blank" rel="noopener" title="Ajuda sobre este formulário">?</a>
     </div>
     <div class="doc-meta">
-      <div><span>Código</span><b>FORALF00342</b></div>
+      <div><span>Código</span><b>SGP-10</b></div>
       <div><span>Revisão</span><b>00</b></div>
       <div><span>Homologação</span><b>07/05/2026</b></div>
       <div class="hide-sm"><span>Aprovação</span><b>Via status do registro</b></div>
@@ -1223,7 +1223,7 @@ async function submitForm(){
     camposAntigos = { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente };
   } else {
     const year=new Date().getFullYear();const seq=String(cache.length+1).padStart(3,'0');
-    rec={id:'rla_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),protocolo:`FORALF00342-${year}-${seq}`,status:'Pendente de aprovação',createdAt:Date.now(),criadoPorEmail:window.currentUser?window.currentUser.email:null};
+    rec={id:'rla_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),protocolo:`SGP-10-${year}-${seq}`,status:'Pendente de aprovação',createdAt:Date.now(),criadoPorEmail:window.currentUser?window.currentUser.email:null};
   }
   SIMPLE_FIELDS.forEach(id=>{const el=document.getElementById(id);if(el)rec[id]=(el.value||'').trim();});
   rec.licoes=readLicoes();
@@ -1233,11 +1233,11 @@ async function submitForm(){
   rec.scoreGlobal=totalCount?Math.round((totalSim/totalCount)*100):null;
   rec.projetoId=projetoId;
   try{
-    await unialfaProjeto.sincronizarSeMudou(projetoId, 'RLA - Registro de Lições Aprendidas (FORALF00342)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
+    await unialfaProjeto.sincronizarSeMudou(projetoId, 'RLA - Registro de Lições Aprendidas (SGP-10)', camposAntigos, { nome: rec.nomeProjeto, unidade: rec.unidade, gerente: rec.gerente });
     if(registroAntigo){
       const camposParaHistorico={};
       Object.keys(HIST_LABELS).forEach(k=>{camposParaHistorico[k]=rec[k];});
-      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'RLA - Registro de Lições Aprendidas (FORALF00342)', registroAntigo, camposParaHistorico);
+      await unialfaHistorico.registrar(KEY_PREFIX+rec.id, 'RLA - Registro de Lições Aprendidas (SGP-10)', registroAntigo, camposParaHistorico);
     }
     const r=await window.storage.set(KEY_PREFIX+rec.id,JSON.stringify(rec), editId?editBaseUpdatedAt:null);if(!r)throw new Error();
     if(editId){
@@ -1427,7 +1427,7 @@ async function deleteCurrent(){
   catch(e){toast(mensagemErroSalvar(e,'excluir este registro'),false);}
 }
 
-/* ---------- Impressao / exportacao no formato homologado (FORALF00342) ---------- */
+/* ---------- Impressao / exportacao no formato homologado (SGP-10) ---------- */
 function rlaLicoesTable(r,sec){
   const items=(LICOES[sec]||[]).filter(l=>l!=='Comentários adicionais');
   const dados=(r.licoes&&r.licoes[sec])?r.licoes[sec]:[];
@@ -1470,7 +1470,7 @@ function buildRlaDocumentoHtml(r){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF00342 &mdash; REGISTRO DE LICOES APRENDIDAS - RLA</div>'
+    +'<div class="ttl">SGP-10 &mdash; REGISTRO DE LICOES APRENDIDAS - RLA</div>'
     +'<table><tr>'
     +'<td><b>00</b>Revisao</td>'
     +'<td><b>07/05/2026</b>Homologacao</td>'

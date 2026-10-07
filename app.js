@@ -86,7 +86,7 @@
           <a class="nav-item" href="14 - validador-projetos.html" target="_blank" rel="noopener">
             <span class="tag">◈</span><span class="lbl">Validador de Projetos</span>
           </a>
-          <a class="nav-item" href="15 - central-ajuda.html?v=77" target="_blank" rel="noopener">
+          <a class="nav-item" href="15 - central-ajuda.html?v=78" target="_blank" rel="noopener">
             <span class="tag">?</span><span class="lbl">Central de Ajuda</span>
           </a>
           <div class="sidebar-section-label">Gestão</div>
@@ -217,9 +217,9 @@
         <div class="info-card">
           <h3>Artefatos sempre acessíveis</h3>
           <ul>
-            <li><b>Ata de Reunião</b> (FORALF00340) — qualquer interação formal, do D01 ao D07.</li>
-            <li><b>SMP</b> (FORALF00343) — solicitação de mudança, a qualquer momento da execução/controle.</li>
-            <li><b>Relatório de Situação de Projetos</b> (FORALF11) — cobre também o Reporte de Resultados, recorrente, ligado à governança (D06.5–D06.7).</li>
+            <li><b>Ata de Reunião</b> (SGP-07) — qualquer interação formal, do D01 ao D07.</li>
+            <li><b>SMP</b> (SGP-06) — solicitação de mudança, a qualquer momento da execução/controle.</li>
+            <li><b>Relatório de Situação de Projetos</b> (SGP-11) — cobre também o Reporte de Resultados, recorrente, ligado à governança (D06.5–D06.7).</li>
           </ul>
           <p style="margin-top:10px;font-size:11px;color:var(--muted-2)">Esses três não pertencem à esteira sequencial D01→D05 — não bloqueiam nem são bloqueados por ela.</p>
         </div>

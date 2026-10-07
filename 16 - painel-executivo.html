@@ -382,7 +382,7 @@ function ensureAuthenticated(){
         </div>
       </div>
 
-      <div class="sec-title">Governança (Relatório de Situação — FORALF11)</div>
+      <div class="sec-title">Governança (Relatório de Situação — SGP-11)</div>
       <div class="kpi-row">
         <div class="kpi bad">
           <div class="kpi-label">Entraves abertos</div>
@@ -488,15 +488,15 @@ function ensureAuthenticated(){
 <script>
 /* ---- Formulários de registro (10 artefatos com múltiplos registros) ---- */
 const FORM_DEFS = [
-  { prefix:'demanda:', nome:'Solicitação de Demanda', codigo:'FORALF00339' },
-  { prefix:'canvas:',  nome:'Canvas de Projeto',       codigo:'FORALF00344' },
-  { prefix:'tap:',     nome:'TAP — Termo de Abertura',  codigo:'FORALF00338' },
-  { prefix:'plan:',    nome:'Planejamento e Desenvolvimento', codigo:'FORALF00325' },
-  { prefix:'eap:',     nome:'EAP — Estrutura Analítica', codigo:'—' },
-  { prefix:'smp:',     nome:'SMP — Solicitação de Mudança', codigo:'FORALF00343' },
-  { prefix:'ata:',     nome:'Ata de Reunião',           codigo:'FORALF00340' },
-  { prefix:'tep:',     nome:'TEP — Termo de Encerramento', codigo:'FORALF00341' },
-  { prefix:'rla:',     nome:'RLA — Lições Aprendidas',  codigo:'FORALF00342' },
+  { prefix:'demanda:', nome:'Solicitação de Demanda', codigo:'SGP-01' },
+  { prefix:'canvas:',  nome:'Canvas de Projeto',       codigo:'SGP-02' },
+  { prefix:'tap:',     nome:'TAP — Termo de Abertura',  codigo:'SGP-03' },
+  { prefix:'plan:',    nome:'Planejamento e Desenvolvimento', codigo:'SGP-04' },
+  { prefix:'eap:',     nome:'EAP — Estrutura Analítica', codigo:'SGP-05' },
+  { prefix:'smp:',     nome:'SMP — Solicitação de Mudança', codigo:'SGP-06' },
+  { prefix:'ata:',     nome:'Ata de Reunião',           codigo:'SGP-07' },
+  { prefix:'tep:',     nome:'TEP — Termo de Encerramento', codigo:'SGP-09' },
+  { prefix:'rla:',     nome:'RLA — Lições Aprendidas',  codigo:'SGP-10' },
 ];
 
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
@@ -573,14 +573,14 @@ async function carregarPainel(){
   document.getElementById('g1-total').textContent = demandaRegistros.length;
   renderBreakdown('g1-breakdown', g1counts);
 
-  // 3) Gate 2 — documento único do Relatório de Entregas (FORALF12)
+  // 3) Gate 2 — documento único do Relatório de Entregas (SGP-12)
   var relent = await buscarDocumentoUnico('relent_data');
   var g2status = (relent && relent.gate2 && relent.gate2.status) || 'Sem relatório registrado';
   document.getElementById('g2-status').textContent = g2status;
   document.getElementById('g2-sub').textContent = (relent && relent.prog && relent.prog.nome) ? relent.prog.nome : '—';
   document.getElementById('kpi-gate2').className = 'kpi ' + (g2status === 'Pactuado' ? 'ok' : 'warn');
 
-  // 4) Entraves / Encaminhamentos / Resultados — documento único do Relatório de Situação (FORALF11)
+  // 4) Entraves / Encaminhamentos / Resultados — documento único do Relatório de Situação (SGP-11)
   var relsit = await buscarDocumentoUnico('relsit_data');
   var entraves = (relsit && relsit.entraves) || [];
   var encaminhamentos = (relsit && relsit.encaminhamentos) || [];

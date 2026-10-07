@@ -3,18 +3,18 @@
    e "Arquitetura Demandas de Projetos v2" (correções de Gates e catálogo de artefatos). */
 
 const ARTEFATOS = {
-  'FORALF00339': { nome: 'Solicitação de Demanda', codigo: 'FORALF00339', arquivo: '01- solicitacao-demanda.html' },
-  'FORALF00344': { nome: 'Canvas de Projeto', codigo: 'FORALF00344', arquivo: '02 - canvas-de-projeto.html' },
-  'FORALF00338': { nome: 'TAP — Termo de Abertura do Projeto', codigo: 'FORALF00338', arquivo: '03 - tap-termo-abertura-projeto.html' },
-  'FORALF00325': { nome: 'Planejamento e Desenvolvimento de Projeto', codigo: 'FORALF00325', arquivo: '04 - planejamento-desenvolvimento-projeto.html' },
+  'SGP-01': { nome: 'Solicitação de Demanda', codigo: 'SGP-01', arquivo: '01- solicitacao-demanda.html' },
+  'SGP-02': { nome: 'Canvas de Projeto', codigo: 'SGP-02', arquivo: '02 - canvas-de-projeto.html' },
+  'SGP-03': { nome: 'TAP — Termo de Abertura do Projeto', codigo: 'SGP-03', arquivo: '03 - tap-termo-abertura-projeto.html' },
+  'SGP-04': { nome: 'Planejamento e Desenvolvimento de Projeto', codigo: 'SGP-04', arquivo: '04 - planejamento-desenvolvimento-projeto.html' },
   'EAP':         { nome: 'EAP — Estrutura Analítica do Projeto', codigo: '— (sem código)', arquivo: '05 - eap-estrutura-analitica-projeto.html' },
-  'FORALF00343': { nome: 'SMP — Solicitação de Mudança do Projeto', codigo: 'FORALF00343', arquivo: '06 - smp-solicitacao-mudanca-projeto.html' },
-  'FORALF00340': { nome: 'Ata de Reunião', codigo: 'FORALF00340', arquivo: '07 - ata-reuniao-FORALF00340.html' },
-  'FORALF00308': { nome: 'Plano de Comunicação de Projeto', codigo: 'FORALF00308', arquivo: '08 - plano-comunicacao-projeto.html' },
-  'FORALF00341': { nome: 'TEP — Termo de Encerramento do Projeto', codigo: 'FORALF00341', arquivo: '09 - tep-termo-encerramento-projeto.html' },
-  'FORALF00342': { nome: 'RLA — Registro de Lições Aprendidas', codigo: 'FORALF00342', arquivo: '10 - rla-licoes-aprendidas-FORALF00342.html' },
-  'FORALF11':    { nome: 'Relatório de Situação de Projetos', codigo: 'FORALF11', arquivo: '11 - relatorio-situacao-FORALF11.html', extra: true },
-  'FORALF12':    { nome: 'Relatório de Entregas e Benefícios', codigo: 'FORALF12', arquivo: '12 - relatorio-entregas-FORALF12.html' },
+  'SGP-06': { nome: 'SMP — Solicitação de Mudança do Projeto', codigo: 'SGP-06', arquivo: '06 - smp-solicitacao-mudanca-projeto.html' },
+  'SGP-07': { nome: 'Ata de Reunião', codigo: 'SGP-07', arquivo: '07 - ata-reuniao-FORALF00340.html' },
+  'SGP-08': { nome: 'Plano de Comunicação de Projeto', codigo: 'SGP-08', arquivo: '08 - plano-comunicacao-projeto.html' },
+  'SGP-09': { nome: 'TEP — Termo de Encerramento do Projeto', codigo: 'SGP-09', arquivo: '09 - tep-termo-encerramento-projeto.html' },
+  'SGP-10': { nome: 'RLA — Registro de Lições Aprendidas', codigo: 'SGP-10', arquivo: '10 - rla-licoes-aprendidas-FORALF00342.html' },
+  'SGP-11':    { nome: 'Relatório de Situação de Projetos', codigo: 'SGP-11', arquivo: '11 - relatorio-situacao-FORALF11.html', extra: true },
+  'SGP-12':    { nome: 'Relatório de Entregas e Benefícios', codigo: 'SGP-12', arquivo: '12 - relatorio-entregas-FORALF12.html' },
 };
 
 const GATES = {
@@ -23,7 +23,7 @@ const GATES = {
     nome: 'Gate 1 — Triagem',
     quando: 'D01.4 / D01.5, logo após o registro da demanda',
     quemDecide: 'Gestor Responsável',
-    sobreArtefato: 'Solicitação de Demanda (FORALF00339)',
+    sobreArtefato: 'Solicitação de Demanda (SGP-01)',
     efeito: 'Aprova ou rejeita a entrada da demanda no portfólio.',
     apos: 'D01.5',
     diretriz: 'D01',
@@ -51,9 +51,9 @@ const DIRETRIZES = [
     grupos: [{ titulo: null, estrategias: [
       { id: 'D01.1', titulo: 'Recebimento e Registro de Demandas', pontos: [
         'Toda demanda deve ser formalmente registrada — nada pode subsistir apenas na forma verbal ou em comunicações informais.',
-        'Usa-se a Solicitação de Demanda (FORALF00339): nome do projeto, solicitante, justificativa, objetivo, escopo preliminar, prazo, orçamento e partes interessadas.',
+        'Usa-se a Solicitação de Demanda (SGP-01): nome do projeto, solicitante, justificativa, objetivo, escopo preliminar, prazo, orçamento e partes interessadas.',
         'Preenchimento é responsabilidade do solicitante, com apoio do Gerente de Projetos quando necessário. Demandas não registradas não entram no fluxo de avaliação.',
-      ], artefatos: ['FORALF00339'] },
+      ], artefatos: ['SGP-01'] },
       { id: 'D01.2', titulo: 'Análise de Viabilidade Preliminar', pontos: [
         'O Gerente de Projetos conduz uma avaliação inicial não exaustiva, apenas para decidir se a demanda pode avançar.',
         'Analisa: existência de problema/oportunidade concreta, disponibilidade de recursos, razoabilidade do prazo e clareza do objetivo.',
@@ -78,7 +78,7 @@ const DIRETRIZES = [
         'O Canvas é o primeiro documento estruturado de um projeto aprovado: reúne problema, objetivo, benefícios esperados, produto, parcerias, restrições, riscos e custos estimados numa visão única.',
         'Elaboração colaborativa, com solicitante, Gerente de Projetos e principais interessados — reduz risco de rejeição e baixo engajamento adiante.',
         'É instrumento de alinhamento, não de detalhamento: assegura entendimento comum antes do planejamento formal (D02).',
-      ], artefatos: ['FORALF00340', 'FORALF00344'] },
+      ], artefatos: ['SGP-07', 'SGP-02'] },
     ]}],
   },
   {
@@ -93,48 +93,48 @@ const DIRETRIZES = [
         'O Termo de Abertura autoriza formalmente a existência do projeto — transforma o Canvas (alinhamento) em compromisso formal, assinado pelo Gerente de Projetos, Dono do Negócio e Gestor Responsável.',
         'Consolida: identificação, justificativa, objetivo, escopo preliminar, premissas, restrições, riscos iniciais, equipe, marcos, orçamento e critérios de sucesso.',
         'Um projeto sem TAP aprovado não deve avançar para execução.',
-      ], artefatos: ['FORALF00340', 'FORALF00338'] },
+      ], artefatos: ['SGP-07', 'SGP-03'] },
       { id: 'D02.2', titulo: 'Identificação e Análise de Stakeholders', pontos: [
         'Stakeholders são todas as pessoas, grupos ou organizações que podem afetar ou ser afetados pelo projeto — identificá-los cedo antecipa resistências e engaja apoiadores.',
         'A análise vai além de listar: mapeia grau de influência, nível de interesse e postura de cada parte.',
         'É atividade contínua, revisada ao longo de todo o projeto, não apenas uma vez.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D02.3', titulo: 'Coleta e Documentação de Requisitos', pontos: [
         'Requisitos são as condições que o projeto deve atender para satisfazer as partes interessadas — evita que o projeto seja construído sobre suposições.',
         'Coleta feita por entrevistas, reuniões e consultas diretas aos stakeholders identificados.',
         'Requisitos mal definidos tendem a ressurgir como mudanças de escopo durante a execução, com impacto em prazo e custo.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D02.4', titulo: 'Definição e Detalhamento do Escopo', pontos: [
         'Com os requisitos coletados, define-se com precisão o que está incluído no projeto e, igualmente importante, o que não está.',
         'Escopo claro previne crescimento não controlado por acréscimo de demandas não planejadas.',
         'Tudo que não estiver no escopo aprovado e for solicitado depois passa pelo processo formal de mudança (D04).',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D02.5', titulo: 'Definição e Sequenciamento de Atividades', pontos: [
         'As entregas do escopo são decompostas em atividades concretas, sequenciadas conforme suas dependências.',
         'Cada atividade tem responsável, duração estimada e dependências mapeadas — insumo direto para o cronograma.',
         'Categorização: fase, marco, atividade e tarefa (detalhamento opcional).',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D02.6', titulo: 'Estimativa de Recursos e Duração', pontos: [
         'Com atividades definidas, estimam-se recursos necessários (pessoas, equipamentos, materiais, serviços) e a duração de cada uma.',
         'Estimativa deve considerar a disponibilidade real da equipe, não a disponibilidade ideal — uma das etapas que mais exige honestidade do Gerente de Projetos.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D02.7', titulo: 'Desenvolvimento do Cronograma', pontos: [
         'Consolida, para cada atividade: responsável, data de início prevista, data de término prevista e dependências.',
         'É o produto direto das estratégias anteriores (atividades, recursos e durações já estimados).',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D02.8', titulo: 'Estimativa de Custos e Orçamento', pontos: [
         'A partir de atividades, recursos e cronograma, estima-se o custo de cada atividade e consolida-se o orçamento total do projeto.',
         'Serve de referência para o controle de custos ao longo da execução (D04).',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D02.9', titulo: 'Desenvolvimento da EAP', pontos: [
         'A Estrutura Analítica do Projeto organiza hierarquicamente todas as entregas e pacotes de trabalho do projeto.',
         'Funciona como mapa visual do escopo total, facilitando o controle e a comunicação sobre o que precisa ser entregue.',
-      ], artefatos: ['FORALF00340', 'EAP'] },
+      ], artefatos: ['SGP-07', 'EAP'] },
       { id: 'D02.10', titulo: 'Consolidar e Comunicar o Plano de Gerenciamento', pontos: [
         'Todo o planejamento (escopo, cronograma, custos, recursos, riscos, comunicação) é consolidado num plano único.',
         'O plano é comunicado a todos os envolvidos, garantindo que o projeto inicie com alinhamento e comprometimento institucional.',
         'É sobre este momento que incide o Gate 2 — Pactuação, antes do início da execução (D03).',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
     ]}],
   },
   {
@@ -149,35 +149,35 @@ const DIRETRIZES = [
         'Dirigir e coordenar todas as atividades previstas no plano, assegurando execução dentro do escopo, prazo e recursos alocados — é a estratégia central da execução.',
         'O Gerente de Projetos deve manter proximidade constante com a equipe e identificar desvios antes que virem entraves. A execução não se gerencia à distância.',
         'Toda interação formal de acompanhamento deve ser registrada, garantindo rastreabilidade.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D03.2', titulo: 'Gerenciamento do Conhecimento do Projeto', pontos: [
         'Todo projeto gera conhecimento — sobre processos, organização, pessoas e soluções — que precisa ser capturado, organizado e disponibilizado para uso futuro.',
         'O Gerente de Projetos deve estimular o registro contínuo de decisões e lições aprendidas parciais ao longo da execução, alimentando a base de conhecimento da instituição.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D03.3', titulo: 'Gerenciamento da Qualidade', pontos: [
         'Verificar continuamente se as entregas atendem aos requisitos definidos no planejamento — qualidade não se avalia só no final.',
         'O Gerente de Projetos deve estabelecer critérios claros de aceite para cada entrega antes de iniciar o trabalho. Entregas fora do critério não devem ser aceitas, independentemente da pressão de prazo.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D03.4', titulo: 'Gerenciamento da Equipe', pontos: [
         'A equipe é o principal ativo do projeto: acompanhar desempenho individual e coletivo, identificar necessidades de desenvolvimento e resolver conflitos com agilidade.',
         'Garantir que as pessoas tenham recursos e informações necessárias, e reconhecer contribuições ao longo do processo — não só ao final.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D03.5', titulo: 'Gerenciamento das Comunicações', pontos: [
         'Garantir que as informações certas cheguem às pessoas certas, no momento adequado, pelos canais apropriados — conforme o Plano de Comunicação elaborado no planejamento.',
         'Falhas de comunicação geram retrabalho, conflitos e perda de engajamento. Deve ser prática regular, não apenas reativa a problemas.',
-      ], artefatos: ['FORALF00340', 'FORALF00308'] },
+      ], artefatos: ['SGP-07', 'SGP-08'] },
       { id: 'D03.6', titulo: 'Implementação das Respostas aos Riscos', pontos: [
         'Riscos identificados no planejamento devem ser monitorados ativamente. Quando um risco se materializa, a resposta prevista deve ser implementada sem demora.',
         'Novos riscos que surgem na execução devem ser identificados, avaliados e registrados imediatamente — gestão de riscos é atividade contínua.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D03.7', titulo: 'Condução das Aquisições', pontos: [
         'Quando o projeto envolve contratação de fornecedores, serviços ou materiais externos, o processo deve ser conduzido de forma estruturada, dentro de prazos e valores orçados.',
         'Inclui acompanhamento de contratos em andamento e registro formal de qualquer desvio — aquisições mal geridas são causa comum de atraso e estouro de orçamento.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D03.8', titulo: 'Gerenciamento do Engajamento dos Stakeholders', pontos: [
         'Manter o engajamento ao longo da execução é tão importante quanto planejar bem: acompanhar continuamente o nível de comprometimento e agir proativamente diante de sinais de desmotivação ou resistência.',
         'Constrói-se com comunicação clara, reconhecimento de contribuições e participação nas decisões relevantes.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
     ]}],
   },
   {
@@ -191,32 +191,32 @@ const DIRETRIZES = [
       { id: 'D04.1', titulo: 'Monitoramento e Controle do Trabalho', pontos: [
         'Acompanhar, revisar e registrar o progresso do projeto em relação aos objetivos do plano de gerenciamento, dando visibilidade para agir antes que desvios se agravem.',
         'Deve ser contínuo, orientado por dados concretos: % de execução física dos marcos, situação das entregas, consumo de recursos e indicadores.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D04.2', titulo: 'Análise de Desempenho', pontos: [
         'Confronta o que foi realizado com o que foi planejado, avaliando se o projeto cumpre seus objetivos de prazo, custo, escopo e qualidade — insumo principal para decisões de correção de rumo.',
         'Deve ser conduzida com regularidade, com resultados comunicados com transparência, incluindo pontos de destaque e de atenção.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D04.3', titulo: 'Elaboração de Relatórios', pontos: [
         'Os relatórios de situação são o principal instrumento de comunicação do desempenho do projeto às partes interessadas — devem ser objetivos e periódicos.',
         'Um relatório deve ser instrumento de decisão, não apenas de registro. Um relatório que ninguém lê não cumpre sua função.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF11'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-11'] },
       { id: 'D04.4', titulo: 'Controle Integrado de Mudanças', pontos: [
         'Mudanças são inevitáveis; o que diferencia projetos bem gerenciados é como elas são tratadas — de forma formal, estruturada e com avaliação de impacto antes de aprovadas ou rejeitadas.',
         'Toda solicitação de mudança é registrada via SMP (Solicitação de Mudança do Projeto), com descrição, justificativa e análise de impacto. Aprovação é do Gestor Responsável, com subsídio técnico do Gerente de Projetos.',
         'Mudanças não formalizadas não devem ser implementadas.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF00343'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-06'] },
       { id: 'D04.5', titulo: 'Validação do Escopo', pontos: [
         'Aceitação formal das entregas concluídas pelo Dono do Negócio — não basta estar tecnicamente pronta, precisa ser formalmente aceita.',
         'Deve ser conduzida de forma sistemática ao longo da execução, não concentrada no final, o que aumenta o risco de rejeições tardias e retrabalho caro.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D04.6', titulo: 'Controle de Escopo, Cronograma, Custos, Qualidade e Recursos', pontos: [
         'Controle integrado das principais dimensões do projeto: qualquer desvio deve ser identificado, registrado e tratado a tempo. As dimensões estão interligadas — um desvio em uma tende a impactar as demais.',
         'Erro comum a evitar: controlar apenas o cronograma enquanto custo e qualidade se deterioram silenciosamente.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF00343'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-06'] },
       { id: 'D04.7', titulo: 'Monitoramento das Comunicações, Riscos, Aquisições e Demais Aspectos', pontos: [
         'Garante que dimensões frequentemente negligenciadas na execução permaneçam sob controle: comunicações verificadas quanto à efetividade, riscos reavaliados periodicamente, aquisições acompanhadas quanto a prazo, custo e qualidade.',
         'Problemas não identificados nessas áreas tendem a virar entraves nas fases finais, quando o custo de correção é maior.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF00308', 'FORALF00343'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-08', 'SGP-06'] },
     ]}],
   },
   {
@@ -231,81 +231,81 @@ const DIRETRIZES = [
         { id: 'D05.1.1', titulo: 'Obtenção da Aceitação Final', pontos: [
           'Reconhecimento formal, pelo Dono do Negócio e Gestor Responsável, de que todas as entregas foram realizadas conforme os critérios de aceite. Sem essa formalização, o projeto permanece tecnicamente aberto.',
           'Divergências identificadas nessa etapa devem ser tratadas antes do encerramento definitivo.',
-        ], artefatos: ['FORALF00340', 'FORALF00325'] },
+        ], artefatos: ['SGP-07', 'SGP-04'] },
         { id: 'D05.1.2', titulo: 'Encerramento de Contratos e Aquisições', pontos: [
           'Todos os contratos e aquisições vinculados ao projeto devem ser formalmente encerrados: cumprimento das obrigações, liquidação de pendências financeiras e recebimento definitivo dos produtos/serviços.',
           'Contratos não encerrados formalmente representam passivos financeiros, jurídicos ou operacionais para a organização.',
-        ], artefatos: ['FORALF00340', 'FORALF00325'] },
+        ], artefatos: ['SGP-07', 'SGP-04'] },
         { id: 'D05.1.3', titulo: 'Encerramento Financeiro e Administrativo', pontos: [
           'Liquidação de obrigações financeiras pendentes, reconciliação dos custos realizados com o orçamento aprovado e encerramento de centros de custo.',
           'Essencial para que a organização compare o investimento realizado com os benefícios alcançados e alimente estimativas de projetos futuros.',
-        ], artefatos: ['FORALF00340', 'FORALF00325'] },
+        ], artefatos: ['SGP-07', 'SGP-04'] },
         { id: 'D05.1.4', titulo: 'Desmobilização da Equipe e Recursos', pontos: [
           'Deve ser conduzida de forma ordenada e respeitosa: cada membro formalmente desvinculado, recursos liberados, contribuições reconhecidas.',
           'Uma desmobilização bem conduzida preserva o engajamento das pessoas para projetos futuros e evita ambiguidade sobre responsabilidades remanescentes.',
-        ], artefatos: ['FORALF00340', 'FORALF00341'] },
+        ], artefatos: ['SGP-07', 'SGP-09'] },
         { id: 'D05.1.5', titulo: 'Consolidação e Arquivamento da Documentação', pontos: [
           'Toda a documentação gerada, da Solicitação de Demanda aos relatórios finais, deve ser consolidada e arquivada de forma acessível — registro histórico da iniciativa.',
           'Documentação dispersa ou incompleta compromete a rastreabilidade e a capacidade de aprendizado da organização.',
-        ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF00341'] },
+        ], artefatos: ['SGP-07', 'SGP-04', 'SGP-09'] },
         { id: 'D05.1.6', titulo: 'Condução de Lições Aprendidas', pontos: [
           'Principal mecanismo de aprendizado organizacional gerado pelos projetos. Deve ocorrer ao final e, preferencialmente, também em momentos intermediários.',
           'Conduzida de forma aberta e construtiva, sem julgamento. Lições não registradas e compartilhadas não geram aprendizado — ficam só na memória de quem participou.',
-        ], artefatos: ['FORALF00340', 'FORALF00342'] },
+        ], artefatos: ['SGP-07', 'SGP-10'] },
         { id: 'D05.1.7', titulo: 'Elaboração e Distribuição do Relatório Final', pontos: [
           'Consolida resultados alcançados, benefícios entregues, desempenho em relação a escopo/cronograma/orçamento, decisões relevantes e lições aprendidas — é a prestação de contas do projeto.',
           'Distribuição deve alcançar todas as partes interessadas relevantes, não só quem participou da execução. Um projeto sem relatório final é um projeto que não prestou contas.',
-        ], artefatos: ['FORALF00340', 'FORALF00341', 'FORALF00342', 'FORALF00325'] },
+        ], artefatos: ['SGP-07', 'SGP-09', 'SGP-10', 'SGP-04'] },
         { id: 'D05.1.8', titulo: 'Atualização da Base de Conhecimento', pontos: [
           'Metodologias aplicadas, soluções encontradas, boas práticas e lições aprendidas devem ser incorporadas à base de conhecimento da Gerência de Projetos.',
           'É o que transforma a experiência individual de cada projeto em patrimônio coletivo da organização.',
-        ], artefatos: ['FORALF00340', 'FORALF00342'] },
+        ], artefatos: ['SGP-07', 'SGP-10'] },
         { id: 'D05.1.9', titulo: 'Emissão do Termo de Encerramento', pontos: [
           'O TEP formaliza oficialmente o encerramento da iniciativa, seja por conclusão bem-sucedida ou cancelamento justificado — libera formalmente recursos e responsabilidades.',
           'Assinado pelo Gerente de Projetos, Dono do Negócio e Gestor Responsável. Sem TEP emitido, o projeto permanece formalmente aberto.',
-        ], artefatos: ['FORALF00340', 'FORALF00341'] },
+        ], artefatos: ['SGP-07', 'SGP-09'] },
         { id: 'D05.1.10', titulo: 'Comunicação das Entregas e Benefícios', pontos: [
           'Momento de comunicar amplamente os resultados alcançados a toda a organização e demais partes interessadas — ato de transparência e reconhecimento do esforço coletivo.',
           'Benefícios que não são comunicados são benefícios que não existem na percepção da organização.',
-        ], artefatos: ['FORALF00340', 'FORALF00341', 'FORALF00308'] },
+        ], artefatos: ['SGP-07', 'SGP-09', 'SGP-08'] },
       ]},
       { id: 'D05.2', titulo: 'Gerir Metodologia e Melhoria', estrategias: [
         { id: 'D05.2.1', titulo: 'Definição e Manutenção da Metodologia', pontos: [
           'A metodologia da instituição não é um documento estático: precisa ser continuamente revisada à luz da experiência acumulada. A Gerência de Projetos é responsável por mantê-la atualizada e relevante.',
           'Inclui revisão periódica das diretrizes e incorporação de melhorias identificadas nas lições aprendidas.',
-        ], artefatos: ['FORALF00340'] },
+        ], artefatos: ['SGP-07'] },
         { id: 'D05.2.2', titulo: 'Desenvolvimento e Manutenção de Templates', pontos: [
           'Templates, formulários e artefatos padronizados são os instrumentos que tornam a metodologia aplicável no dia a dia. Devem ser revisados periodicamente, orientados pela praticidade.',
           'Templates desatualizados ou de difícil uso comprometem a adesão à metodologia.',
-        ], artefatos: ['FORALF00340'] },
+        ], artefatos: ['SGP-07'] },
         { id: 'D05.2.3', titulo: 'Definição de Métricas e KPIs', pontos: [
           'Instrumentos para avaliar objetivamente o desempenho da gestão de projetos, não apenas de projetos individuais, mas do portfólio como um todo — foco em prazo, custo, qualidade e entrega de valor.',
           'Conjunto enxuto de indicadores mensuráveis, revisados periodicamente para continuar refletindo as prioridades estratégicas.',
-        ], artefatos: ['FORALF00340'] },
+        ], artefatos: ['SGP-07'] },
         { id: 'D05.2.4', titulo: 'Auditorias de Processos', pontos: [
           'Verificam se os projetos em andamento ou encerrados seguem as diretrizes e a metodologia estabelecidas — instrumento de qualidade, não de punição, com postura construtiva.',
           'Resultados alimentam diretamente a revisão da metodologia, atualização de templates e identificação de necessidades de capacitação.',
-        ], artefatos: ['FORALF00340'] },
+        ], artefatos: ['SGP-07'] },
         { id: 'D05.2.5', titulo: 'Gestão da Base de Conhecimento', pontos: [
           'Repositório central de lições aprendidas, boas práticas, templates, relatórios finais e referências metodológicas — precisa ser alimentada, organizada e efetivamente utilizada.',
           'Uma base que ninguém consulta não gera valor, é apenas um arquivo.',
-        ], artefatos: ['FORALF00340', 'FORALF00342'] },
+        ], artefatos: ['SGP-07', 'SGP-10'] },
         { id: 'D05.2.6', titulo: 'Treinamento e Desenvolvimento da Equipe', pontos: [
           'A qualidade da gestão de projetos depende diretamente da capacidade das pessoas que a praticam — ações contínuas de treinamento, técnicas e comportamentais.',
           'Planejado com base nas lacunas identificadas em auditorias, lições aprendidas e evolução da metodologia. Não é evento pontual.',
-        ], artefatos: ['FORALF00340'] },
+        ], artefatos: ['SGP-07'] },
         { id: 'D05.2.7', titulo: 'Análise de Desempenho do Portfólio', pontos: [
           'Visão consolidada de todos os projetos em andamento e encerrados, avaliados em conjunto quanto a prazo, custo, qualidade e entrega de valor — indispensável para decisões estratégicas de priorização e alocação de recursos.',
           'Conduzida com periodicidade definida, apresentada aos gestores responsáveis de forma clara.',
-        ], artefatos: ['FORALF00340', 'FORALF00325'] },
+        ], artefatos: ['SGP-07', 'SGP-04'] },
         { id: 'D05.2.8', titulo: 'Identificação e Implementação de Melhorias', pontos: [
           'Resultado natural da análise de portfólio, auditorias, lições aprendidas e uso cotidiano da metodologia — cada oportunidade deve ser avaliada, priorizada e implementada com responsável e prazo.',
           'Melhorias não implementadas são oportunidades perdidas.',
-        ], artefatos: ['FORALF00340'] },
+        ], artefatos: ['SGP-07'] },
         { id: 'D05.2.9', titulo: 'Comunicação das Ações', pontos: [
           'Revisões de processos, atualizações de templates, novos treinamentos, resultados de auditorias e melhorias implementadas devem ser comunicados de forma clara a todos os envolvidos.',
           'Uma metodologia que evolui em silêncio não evolui na prática.',
-        ], artefatos: ['FORALF00340'] },
+        ], artefatos: ['SGP-07'] },
       ]},
     ],
   },
@@ -320,31 +320,31 @@ const DIRETRIZES = [
       { id: 'D06.1', titulo: 'Elaboração do Relatório de Entregas e Benefícios', pontos: [
         'Documento que consolida o planejamento do projeto numa visão executiva: responsáveis, justificativa, objetivo, alinhamento estratégico, indicadores, previsão financeira, parceiros e entregas previstas.',
         'Elaborado ao final do planejamento, antes do início da execução, pelo Gerente de Projetos em conjunto com o Dono do Negócio.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF12'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-12'] },
       { id: 'D06.2', titulo: 'Pactuação do Relatório de Entregas e Benefícios', pontos: [
         'Após elaborado, o relatório deve ser formalmente pactuado: os compromissos nele contidos são assumidos pelo Dono do Negócio perante as instâncias hierarquicamente superiores.',
         'Este é o momento do Gate 2 — a autorização institucional para que todo o trabalho previsto seja prosseguido.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF12'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-12'] },
       { id: 'D06.3', titulo: 'Gestão do Relatório de Entregas e Benefícios', pontos: [
         'Uma vez pactuado, o relatório é um instrumento vivo, gerido continuamente ao longo da execução, sensível a mudanças de diretrizes, novos cenários e decisões das reuniões de governança.',
         'Um relatório desatualizado perde sua função como instrumento de governança.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF12'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-12'] },
       { id: 'D06.4', titulo: 'Realização de Reuniões de Governança', pontos: [
         'Mecanismo central pelo qual informações, decisões e encaminhamentos percorrem todos os níveis hierárquicos — do operacional ao estratégico. Reuniões estruturadas, com pauta definida, foco em decisão, não em relato.',
         'Recomenda-se organizar por níveis: reuniões de equipe mais frequentes, gerenciais quinzenais e estratégicas mensais. Cada nível resolve o que está em sua governabilidade e encaminha ao nível superior só o que exige decisão maior.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF12'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-12'] },
       { id: 'D06.5', titulo: 'Reporte de Resultados', pontos: [
         'Momento em que o Gerente de Projetos e o Dono do Negócio apresentam às instâncias de decisão o desempenho do projeto — não apenas o que foi feito, mas o que foi alcançado em indicadores, entregas e benefícios.',
         'Reporte objetivo e orientado para decisão: destaca entraves que não puderam ser resolvidos em níveis anteriores e pontos que requerem deliberação superior.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF11'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-11'] },
       { id: 'D06.6', titulo: 'Gestão de Entraves', pontos: [
         'Entraves são obstáculos que, se não tratados com agilidade, comprometem o alcance dos resultados. Todo entrave identificado deve ser registrado imediatamente, classificado e encaminhado para resolução na instância competente.',
         'Três situações de acompanhamento: Aberto, Resolvido e Cancelado. A relação entre entraves abertos e resolvidos é um dos principais indicadores da saúde da governança do projeto.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF11'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-11'] },
       { id: 'D06.7', titulo: 'Gestão de Encaminhamentos', pontos: [
         'Encaminhamentos são deliberações tomadas para resolver entraves ou avançar em aspectos que requerem ação específica. Todo encaminhamento precisa de um único responsável, prazo definido e situação acompanhada nas reuniões seguintes.',
         'Três situações: Aberto, Resolvido e Cancelado. Encaminhamentos sem responsável ou prazo não devem ser aceitos — a indefinição é inimiga da governança.',
-      ], artefatos: ['FORALF00340', 'FORALF00325', 'FORALF11'] },
+      ], artefatos: ['SGP-07', 'SGP-04', 'SGP-11'] },
     ]}],
   },
   {
@@ -358,19 +358,19 @@ const DIRETRIZES = [
       { id: 'D07.1', titulo: 'Criação da Rede de Pessoas Envolvidas nos Projetos', pontos: [
         'A rede reúne todos os indivíduos que, de alguma forma, impactam ou são impactados por um projeto, positiva ou negativamente, direta ou indiretamente — identificá-los desde o início antecipa resistências e mobiliza apoiadores.',
         'Pode ser extensa e heterogênea: solicitantes, gestores, equipe, parceiros e fornecedores. Toda nova pessoa identificada deve ser incorporada e registrada.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D07.2', titulo: 'Gestão da Rede de Pessoas Envolvidas nos Projetos', pontos: [
         'Identificar é só o primeiro passo: a rede precisa ser gerida continuamente, promovendo participação, coletando feedbacks e reduzindo riscos relacionados a pessoas.',
         'Recomenda-se analisar grau de influência, nível de interesse e postura de cada parte — de empreendedores que adotam o projeto como próprio até fortes opositores que requerem ação mais direta.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D07.3', titulo: 'Engajamento das Pessoas Envolvidas nos Projetos', pontos: [
         'Engajamento é o estado em que as pessoas estão genuinamente comprometidas, contribuindo ativamente para o sucesso — uma das responsabilidades centrais do Gerente de Projetos.',
         'Promovido por propósito, emoções positivas e redução de barreiras (custo, incerteza, capacidade). Alavancas: apelo social, incentivos, linguagem direta, simplificação e experimentação.',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
       { id: 'D07.4', titulo: 'Orientação e Realização de Capacitações', pontos: [
         'A qualidade da gestão de projetos depende diretamente da capacidade das pessoas que a praticam — não basta ter processos e ferramentas, é preciso saber usá-los.',
         'Capacitações planejadas com base em lacunas reais, cobrindo competências técnicas (planejamento, controle de mudanças, riscos) e comportamentais (liderança, comunicação, negociação, resiliência, empatia).',
-      ], artefatos: ['FORALF00340', 'FORALF00325'] },
+      ], artefatos: ['SGP-07', 'SGP-04'] },
     ]}],
   },
 ];

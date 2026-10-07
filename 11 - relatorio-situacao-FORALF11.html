@@ -1,4 +1,4 @@
-<!-- Relatório de Situação de Projetos — FORALF11 / UNIALFA -->
+<!-- Relatório de Situação de Projetos — SGP-11 / UNIALFA -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -589,12 +589,12 @@ function ensureAuthenticated(){
       <h1>Relatório de Situação de Projetos</h1>
       <p>Escritório de Projetos · Visão geral e por programa/projeto</p>
     </div>
-    <a class="head-help" href="15 - central-ajuda.html?v=77#relatorio-situacao" target="_blank" rel="noopener" title="Ajuda sobre este relatório">?</a>
+    <a class="head-help" href="15 - central-ajuda.html?v=78#relatorio-situacao" target="_blank" rel="noopener" title="Ajuda sobre este relatório">?</a>
     <div class="head-meta">
       <div class="head-meta-item"><span>Referência</span><b id="hd-ref">—</b></div>
       <div class="head-meta-item"><span>Responsável</span><b id="hd-resp">—</b></div>
     </div>
-    <div class="head-ref" id="hd-code">FORALF11</div>
+    <div class="head-ref" id="hd-code">SGP-11</div>
   </div>
 
   <!-- Banner de versão histórica -->
@@ -667,7 +667,7 @@ function ensureAuthenticated(){
       <button class="btn btn-ghost" onclick="imprimirRelatorio()">🖨 Imprimir</button>
       <button class="btn btn-ghost" onclick="exportarRelatorioWord()">⬇ Exportar Word</button>
       <button class="btn btn-ghost" onclick="toggleHistVersoes()">🕓 Histórico de versões</button>
-      <div class="ml" style="font-size:11px;color:var(--muted)">Relatório FORALF11</div>
+      <div class="ml" style="font-size:11px;color:var(--muted)">Relatório SGP-11</div>
     </div>
     <div id="hist-versoes-panel" style="display:none;margin-top:10px"></div>
   </div>
@@ -2367,7 +2367,7 @@ async function confirmImport(){
 function cancelImport(){document.getElementById('import-preview').style.display='none';importedRows=[];}
 
 
-/* ---------- Impressao / exportacao no formato de dossie do sistema (FORALF11) ---------- */
+/* ---------- Impressao / exportacao no formato de dossie do sistema (SGP-11) ---------- */
 function docTableRowsRel(cols,rows,mapper){
   const ths=cols.map(c=>'<th>'+esc(c)+'</th>').join('');
   const body=(rows||[]).map(r=>'<tr>'+mapper(r).map(v=>'<td>'+(esc(v)||'&nbsp;')+'</td>').join('')+'</tr>').join('');
@@ -2423,7 +2423,7 @@ function buildRelatorioDocumentoHtml(){
     +'<div class="doc-head">'
     +'<div class="doc-logo"><span style="display:inline-block;background:#B91D2E;color:#fff;border-radius:6px;padding:8px 12px;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1;font-family:Arial,sans-serif">SGP</span></div>'
     +'<div class="doc-headinfo">'
-    +'<div class="ttl">FORALF11 &mdash; RELATORIO DE SITUACAO DE PROJETOS</div>'
+    +'<div class="ttl">SGP-11 &mdash; RELATORIO DE SITUACAO DE PROJETOS</div>'
     +'<table><tr>'
     +'<td><b>'+esc(fmtRef(data.ref))+'</b>Referencia</td>'
     +'<td><b>'+esc(data.resp||'—')+'</b>Responsavel</td>'
