@@ -1,8 +1,8 @@
 # Scripts do ambiente de treinamento
 
 Scripts SQL usados para popular e resetar o banco do **ambiente de treinamento**
-(projeto Supabase `unialfa-treinamento`, ref `uuxvdulunrwppbmofyux`), que é
-totalmente separado do banco de produção (`unialfa-projetos`, ref
+(projeto Supabase `treinamento`, ref `uuxvdulunrwppbmofyux`), que é
+totalmente separado do banco de produção (`projetos`, ref
 `fiarntunpqteopwjkhjg`). Não afetam produção de forma alguma.
 
 - **`treino_seed.sql`** — cria 7 projetos fictícios cobrindo todo o ciclo de

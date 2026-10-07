@@ -3,7 +3,7 @@
 // pelo botão "Resetar ambiente de treinamento" na aba Administração
 // (13 - administracao-usuarios.html), visível só em produção e só para quem
 // tem papel = 'admin'. Ao ser chamada, apaga todos os projetos/formulários
-// do ambiente de treinamento (projeto Supabase separado unialfa-treinamento,
+// do ambiente de treinamento (projeto Supabase separado treinamento,
 // ref uuxvdulunrwppbmofyux) e repopula com os 7 projetos de exemplo — mesmo
 // conteúdo de treino/treino_reset.sql + treino/treino_seed.sql neste
 // repositório (mantenha os três em sincronia se editar um deles).
@@ -17,7 +17,7 @@
 // Segredos necessários (definidos via `supabase secrets set NOME=valor`,
 // no projeto de PRODUÇÃO):
 //   TREINO_DB_URL - connection string Postgres do projeto de treinamento
-//                   (unialfa-treinamento). Usada só para conectar LÁ e
+//                   (treinamento). Usada só para conectar LÁ e
 //                   rodar o reset+seed — nunca usada para nada em produção.
 // SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY são injetados automaticamente
 // pelo runtime das Edge Functions (do projeto onde a function está implantada
@@ -52,7 +52,7 @@ function json(body: unknown, status = 200) {
 
 const RESET_SQL = `-- =====================================================================
 -- UNIALFA - Reset do ambiente de TREINAMENTO
--- Projeto Supabase: unialfa-treinamento (ref uuxvdulunrwppbmofyux)
+-- Projeto Supabase: treinamento (ref uuxvdulunrwppbmofyux)
 -- =====================================================================
 -- Apaga TODOS os dados de projetos/formularios do ambiente de treino
 -- (para rodar entre turmas) e reaplica o seed de 7 projetos de exemplo
@@ -79,7 +79,7 @@ delete from public.projetos;
 
 const SEED_SQL = `-- =====================================================================
 -- UNIALFA - Seed de dados de exemplo para o ambiente de TREINAMENTO
--- Projeto Supabase: unialfa-treinamento (ref uuxvdulunrwppbmofyux)
+-- Projeto Supabase: treinamento (ref uuxvdulunrwppbmofyux)
 -- =====================================================================
 -- Fase 2 do ambiente de treinamento: popula o banco (ate entao vazio,
 -- so com as 6 contas fixas de treino) com 7 projetos ficticios da

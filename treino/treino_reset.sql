@@ -1,6 +1,6 @@
 -- =====================================================================
 -- UNIALFA - Reset do ambiente de TREINAMENTO
--- Projeto Supabase: unialfa-treinamento (ref uuxvdulunrwppbmofyux)
+-- Projeto Supabase: treinamento (ref uuxvdulunrwppbmofyux)
 -- =====================================================================
 -- Apaga TODOS os dados de projetos/formularios do ambiente de treino
 -- (para rodar entre turmas) e reaplica o seed de 7 projetos de exemplo

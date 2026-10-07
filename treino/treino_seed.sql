@@ -1,6 +1,6 @@
 -- =====================================================================
 -- UNIALFA - Seed de dados de exemplo para o ambiente de TREINAMENTO
--- Projeto Supabase: unialfa-treinamento (ref uuxvdulunrwppbmofyux)
+-- Projeto Supabase: treinamento (ref uuxvdulunrwppbmofyux)
 -- =====================================================================
 -- Fase 2 do ambiente de treinamento: popula o banco (ate entao vazio,
 -- so com as 6 contas fixas de treino) com 7 projetos ficticios da
