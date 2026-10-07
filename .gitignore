@@ -1,4 +1,4 @@
-# Documentos-fonte institucionais — não fazem parte do app web, ficam só locais
+# Documentos-fonte — não fazem parte do app web, ficam só locais
 *.docx
 *.doc
 *.DOC
@@ -10,14 +10,14 @@
 *.png
 
 # Exceção: documento oficial e versionado de regras de acesso do sistema (ver CLAUDE.md)
-!Regras de Acesso e Permissoes - Sistema UNIALFA.docx
+!Regras de Acesso e Permissoes - SGP.docx
 
 # Exceção: manual de uso da ferramenta, versionado a pedido do usuário
 !Manual de Uso - Ferramenta de Gestao de Projetos.docx
 
 # Exceção: guias técnicos de replicação/migração de infraestrutura, versionados a pedido do usuário
-!Guia de Replicacao Tecnica - Sistema UNIALFA GP.docx
-!Guia de Migracao para Servidor Proprio - Sistema UNIALFA GP.docx
+!Guia de Replicacao Tecnica - SGP.docx
+!Guia de Migracao para Servidor Proprio - SGP.docx
 
 # Exceção: ícones do app (PWA/manifest, notificações push) — fazem parte do app web
 !icons/
