@@ -625,7 +625,7 @@ $r4 = @(
 )
 TableSimple $r4 @(3.0,13.0)
 Img "19_f04_novo.png" "Capa de identificacao do dossie, com a barra das 8 abas no rodape visivel." 5.6
-Img "20_f04_lista.png" "Projetos cadastrados (estado vazio, antes do primeiro dossie ser salvo)." 5.6
+Img "20_f04_lista.png" "Projetos cadastrados, com o status de cada dossie de planejamento." 5.6
 P "Como salvar: preencha a capa (nome do projeto, unidade e gestor sao obrigatorios) e navegue pelas 8 abas. Clique em `Registrar dossie`. E este documento que alimenta, junto com o Canvas, a elaboracao do Relatorio de Entregas e Beneficios (Passo 12)."
 Bul "No rodape do painel de detalhes de um dossie, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-04, com as 8 abas em sequencia, pronto para impressao ou para abrir no Word."
 P "Cronograma de entregas macro (aba 3): cada marco recebe automaticamente um numero sequencial (Nº) assim que o campo Marco/Entrega e preenchido - renumerado ao vivo ao reordenar, adicionar ou remover linhas. Alem de Inicio e Termino previstos, cada marco tem um campo `Conclusao real`. E este cronograma que aparece, so leitura, no TAP (Passo 3) e no Relatorio de Situacao (secao 4.1) do mesmo projeto, e que alimenta o calculo de Saude do projeto (secao 6.4.1) e o indicador Marcos no prazo (secao 6.7)."
@@ -643,7 +643,7 @@ Bul "Assistente de preenchimento por IA: apos selecionar o Projeto vinculado, o 
 H2 "Passo 5 - EAP, Estrutura Analitica do Projeto"
 P "Quando usar: em paralelo ao planejamento, para decompor visualmente o escopo em pacotes de trabalho."
 Img "21_f05_novo.png" "Construtor hierarquico de 3 niveis: Pacote de trabalho, Entrega e Atividade." 5.6
-Img "22_f05_lista.png" "EAPs cadastradas (estado vazio)." 5.6
+Img "22_f05_lista.png" "EAPs cadastradas, com o status de cada uma." 5.6
 Bul "Informe o nome do projeto (obrigatorio), a unidade e o gerente."
 Bul "Use o construtor hierarquico de 3 niveis: `+ Adicionar pacote de trabalho`, depois `+ Adicionar entrega` dentro do pacote, depois `+ Atividade` dentro da entrega."
 Bul "Clique em `Visualizar arvore` a qualquer momento para conferir o diagrama antes de salvar."
@@ -658,7 +658,7 @@ Bul "Importar do Cronograma: apos selecionar o Projeto vinculado, o botao `Impor
 H2 "Passo 6 - Ata de Reuniao (SGP-07) - uso recorrente"
 P "Quando usar: a qualquer momento do projeto, para registrar formalmente qualquer reuniao - nao faz parte da esteira sequencial, fica sempre disponivel. Pode ser preenchida com login normal ou, se a opcao estiver ativa, sem login (ver secao 2.6)."
 Img "25_f07_novo.png" "Tela de nova ata, com o painel `Importar transcricao da reuniao` para preenchimento automatico por IA." 5.6
-Img "26_f07_lista.png" "Atas cadastradas (estado vazio)." 5.6
+Img "26_f07_lista.png" "Atas cadastradas, com o status de cada uma." 5.6
 Bul "Selecione a(s) unidade(s) envolvidas, preencha Pauta e Projeto (obrigatorios), participantes, resumo, encaminhamentos e entraves."
 Bul "Nas tabelas de Encaminhamentos e Entraves, a coluna SEQ e preenchida automaticamente - numera em sequencia (01, 02...) assim que o Encaminhamento/Entrave da linha e digitado, sem precisar informar o numero manualmente. Uma linha ainda vazia nao entra na contagem; reordenar (`▲`/`▼`) ou remover uma linha renumera as demais automaticamente."
 Bul "Opcional, quando habilitado pelo Admin: em `Importar transcricao da reuniao`, cole o texto, anexe um arquivo `.txt`/`.docx`/`.pdf`, ou anexe o audio da gravacao (`.mp3`/`.m4a`/`.aac`/`.wav`/`.ogg`) para transcricao automatica (secao 2.11), depois clique em `Analisar e preencher` - a IA sugere pauta, data/horario (se mencionados), participantes, resumo, encaminhamentos e entraves. Revise sempre os dados sugeridos antes de registrar (secao 2.10)."
@@ -668,21 +668,21 @@ Bul "Na lista `Atas cadastradas`, clique numa ata para abri-la e usar os botoes 
 H2 "Passo 7 - SMP, Solicitacao de Mudanca de Projeto (SGP-06) - uso condicional"
 P "Quando usar: sempre que for necessario alterar escopo, cronograma, custo ou qualidade de um projeto ja em andamento. Nenhuma mudanca deve ser feita sem passar por este formulario."
 Img "23_f06_novo.png" "Tela de nova SMP." 5.6
-Img "24_f06_lista.png" "SMPs cadastradas (estado vazio)." 5.6
+Img "24_f06_lista.png" "SMPs cadastradas, com o status de cada uma." 5.6
 Bul "Identifique o projeto e a mudanca (titulo e solicitante sao obrigatorios); descreva a mudanca, os beneficios e o impacto de nao implementa-la."
 Bul "Preencha a analise de impactos nas 8 dimensoes: objetivo, cronograma, escopo, custo, alinhamento estrategico, qualidade, riscos e outros impactos."
 Bul "Marque a decisao: Aprovada, Nao aprovada ou Pendente de avaliacao, com justificativa."
 Bul "Assistente de preenchimento por IA: apos selecionar o Projeto vinculado, o botao `Sugerir com IA` procura nas Atas de Reuniao mais recentes alguma mudanca sendo discutida em relacao ao combinado no TAP/Planejamento, e sugere a descricao da mudanca e a analise de impactos - se nao houver mudanca clara sendo discutida, nenhum campo e preenchido (secao 2.12)."
 P "Clique em `Registrar SMP` - o status do registro acompanha automaticamente a decisao marcada."
 Bul "Anexos: mesmo recurso ja usado na Solicitacao de Demanda (Passo 1) - o botao `Anexar arquivo`, na secao Anexos, envia o arquivo direto para um repositorio proprio do sistema (ate 15 MB, .txt/.docx/.pdf), com opcoes `Baixar` e `Remover` tanto no formulario quanto no painel de detalhes do registro. O campo de texto Links de documentos continua disponivel a parte, para links que nao sao um arquivo enviado."
-Img "58_smp_anexos.png" "Secao Anexos da SMP: arquivo enviado, com opcoes de baixar/remover, e o campo Links de documentos." 5.6
+Img "58_smp_anexos.png" "Secao Anexos da SMP: botao Anexar arquivo e o campo Links de documentos." 5.6
 Bul "No rodape do painel de detalhes de uma SMP, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-06 (incluindo a analise das 8 dimensoes de impacto), pronto para impressao ou para abrir no Word."
 Nota "Propagacao para o projeto vinculado: sempre que a decisao da SMP e finalizada como `Aprovada` ou `Nao aprovada` (seja ao registrar/editar a SMP ou ao trocar o Status na tela de detalhes), o sistema grava automaticamente um evento no historico compartilhado do projeto vinculado (o mesmo historico acessivel pelo botao `Ver historico` em qualquer formulario com `Projeto vinculado` - secao 2.5). Isso torna as decisoes de mudanca visiveis para quem estiver no Canvas, TAP, Planejamento, EAP, TEP ou RLA daquele projeto, sem precisar abrir a SMP. Essa propagacao apenas registra o evento no historico - ela nao altera o Status do projeto usado no Gate 1 (Aprovado/Reprovado). A mesma decisao (Aprovada ou Nao aprovada) tambem dispara um e-mail de notificacao (secao 2.8)."
 
 H2 "Passo 8 - TEP, Termo de Encerramento de Projeto (SGP-09)"
 P "Quando usar: ao encerrar o projeto, seja por conclusao, paralisacao ou cancelamento."
 Img "28_f09_novo.png" "Tela de novo TEP." 5.6
-Img "29_f09_lista.png" "TEPs cadastrados (estado vazio)." 5.6
+Img "29_f09_lista.png" "TEPs cadastrados, com o status de cada um." 5.6
 Bul "Preencha a identificacao e o programa vinculado, se houver; selecione o tipo de encerramento (Concluido, Paralisado ou Cancelado)."
 Bul "Se Paralisado ou Cancelado, o campo Justificativa aparece automaticamente."
 Bul "Registre entregas de resultados, atividades encerradas, o link da pasta do projeto e a analise de efetividade."
@@ -694,7 +694,7 @@ Bul "No rodape do painel de detalhes de um TEP, os botoes `Imprimir` e `Exportar
 H2 "Passo 9 - RLA, Registro de Licoes Aprendidas (SGP-10)"
 P "Quando usar: junto com o TEP, ao final do projeto (ou tambem em pontos intermediarios), para capturar o aprendizado organizacional."
 Img "30_f10_novo.png" "Tela de novo RLA." 5.6
-Img "31_f10_lista.png" "RLAs cadastrados (estado vazio)." 5.6
+Img "31_f10_lista.png" "RLAs cadastrados, com o status de cada um." 5.6
 Bul "Responda as perguntas abertas dos blocos Visao geral, Destaques, Desafios e Pos-projeto."
 Bul "Nos blocos de avaliacao estruturada, marque Sim/Nao/Parcial/N-A para cada afirmacao - cada bloco calcula automaticamente um placar percentual."
 Bul "Assistente de preenchimento por IA: apos selecionar o Projeto vinculado, o botao `Sugerir com IA` le o TEP, as Atas e todas as SMPs do projeto para sugerir as respostas das 4 secoes de texto livre - Visao geral, Destaques, Desafios e Tarefas pos-projeto. Os blocos de avaliacao estruturada Sim/Nao/Parcial (secoes 6 a 9, com placar percentual) nao sao preenchidos pela IA - continuam sendo uma autoavaliacao manual da equipe (secao 2.12)."
@@ -725,7 +725,7 @@ P "Esta secao detalha os dois relatorios que fecham o ciclo de uso da ferramenta
 
 H2 "4.1 Relatorio de Situacao de Projetos (SGP-11)"
 P "Visao consolidada de todos os projetos do portfolio: status, percentual de execucao, marcos e pontos de atencao. Tem tres abas: Painel, Editar dados e Importar Project."
-Img "32_f11_painel.png" "Painel do Relatorio de Situacao (estado vazio, antes do primeiro preenchimento)." 5.6
+Img "32_f11_painel.png" "Painel do Relatorio de Situacao: visao geral do portfolio e status dos projetos." 5.6
 Img "33_f11_editar.png" "Aba Editar dados: cabecalho do relatorio e botao para adicionar projetos/marcos." 5.6
 Img "34_f11_importar.png" "Aba Importar Project: arraste uma exportacao do MS Project (Excel ou CSV) para preencher em lote." 5.6
 Bul "Preencha o cabecalho (mes/ano de referencia, responsavel, previsao financeira, entregas planejadas)."
@@ -756,7 +756,7 @@ Nota "Este relatorio nao tem aprovacao/status formal - e uma ferramenta viva de 
 
 H2 "4.2 Relatorio de Entregas e Beneficios (SGP-12)"
 P "O relatorio mais importante do ponto de vista de governanca: e sobre ele que ocorre o Gate 2 - Pactuacao, quando o Dono do Negocio assume formalmente, perante a Alta Gestao, o compromisso de que todo o trabalho planejado sera executado."
-Img "35_f12_painel.png" "Painel do Relatorio de Entregas e Beneficios (estado vazio)." 5.6
+Img "35_f12_painel.png" "Painel do Relatorio de Entregas e Beneficios, com o Gate 2 pactuado e a Ficha do Programa." 5.6
 Img "36_f12_editar.png" "Aba Editar dados: Ficha do Programa, o primeiro bloco a preencher." 5.6
 Bul "Preencha a Ficha do Programa (codigo, nome, unidade, responsavel, justificativa, objetivo, alinhamento estrategico)."
 Bul "Cadastre indicadores e valores estimados do programa, depois cada projeto vinculado (com suas proprias entregas, indicadores e valores)."
@@ -784,7 +784,7 @@ P "Mostra a matriz analitica entre 7 fatores criticos de sucesso (F1-F7) e 5 dim
 Img "05_validador_quadro.png" "Quadro de conexoes com o fator F1 selecionado - o painel a direita mostra os beneficios que ele habilita." 5.8
 H2 "5.2 Simulador - e se...?"
 P "Ajuste o quanto cada fator esta presente no seu projeto (0-100%) e veja o potencial estimado de cada dimensao de beneficio recalcular em tempo real."
-Img "06_validador_simulador.png" "Simulador de fatores x beneficios. Abaixo dele, o aviso de login para quem quiser vincular a um projeto." 5.8
+Img "06_validador_simulador.png" "Simulador de fatores x beneficios, com o cenario pronto Sem patrocinio aplicado." 5.8
 H2 "5.3 Assistente de decisao em 8 perguntas"
 P "Responda a oito perguntas do semaforo de decisao, uma de cada vez. Ao final, o painel devolve um veredito com a regra aplicada."
 Img "07_validador_assistente.png" "Primeira pergunta do assistente de decisao." 5.8
@@ -810,7 +810,7 @@ Nota "Remover aqui apaga so o perfil (papel, nome, telefone) do sistema - nao im
 Nota "A propria remocao tambem fica registrada: antes de excluir o perfil, o sistema grava no historico de alteracoes (a mesma tabela usada pelo `Ver historico`) quem removeu quem, com qual papel a pessoa estava e quando - mesmo que o perfil nao exista mais para abrir o historico depois pela tela."
 H2 "6.2 Equipes"
 P "Define quem faz parte da equipe de cada projeto - a base da restricao por equipe descrita na secao 2.5. Selecione um projeto, escolha uma pessoa na lista e clique em `+ Adicionar a equipe`."
-Img "10_admin_equipes.png" "Aba Equipes, com um projeto selecionado e um membro ja cadastrado." 5.8
+Img "10_admin_equipes.png" "Aba Equipes, com um projeto selecionado e seus membros ja cadastrados." 5.8
 Nota "A lista de `+ Adicionar a equipe` so mostra contas de verdade (secao 6.1), sem contar quem ja esta na equipe daquele projeto - se alguem que deveria aparecer nao estiver na lista, confira se essa pessoa ja tem conta criada (nao um pre-cadastro antigo ainda pendente) e se ela ja nao faz parte da equipe."
 H2 "6.3 Configuracoes"
 P "Controla os dois interruptores de acesso sem login (Solicitacao de Demanda e Ata de Reuniao), descritos na secao 2.6."
