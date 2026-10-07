@@ -14,7 +14,7 @@
 :root{
   --red:#B91D2E; --red-deep:#8E1322; --red-light:#FEF2F2;
   --ink:#1A1A1A; --muted:#6A6A70; --paper:#FFFFFF; --surface:#F6F6F7;
-  --line:#E4E4E7; --gold:#A6790A; --gold-soft:#FBF3DE;
+  --line:#E4E4E7; --line-strong:#D4D4D8; --surface-2:#FAFAFB; --muted-2:#9CA3AF; --gold:#A6790A; --gold-soft:#FBF3DE; --radius-sm:8px;
   --radius:12px; --shadow:0 1px 2px rgba(20,20,20,.04), 0 8px 28px rgba(20,20,20,.06);
   --font:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 }
@@ -24,14 +24,14 @@ a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
 /* topo */
-.top{background:#111;color:#fff}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.topbar{background:#111;color:#fff}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .seal{display:inline-block;background:var(--red);color:#fff;border-radius:6px;padding:6px 10px;font-weight:900;font-size:16px;letter-spacing:.06em;line-height:1}
 .brand small{font-size:10px;font-weight:600;letter-spacing:.2em;opacity:.7;text-transform:uppercase}
-.top nav{display:flex;gap:18px;font-size:12.5px;font-weight:600}
-.top nav a{text-decoration:none;opacity:.8}
-.top nav a:hover{opacity:1}
+.topbar nav{display:flex;gap:18px;font-size:12.5px;font-weight:600}
+.topbar nav a{text-decoration:none;opacity:.8}
+.topbar nav a:hover{opacity:1}
 
 /* hero */
 .hero{background:linear-gradient(135deg,var(--red) 0%,var(--red-deep) 100%);color:#fff;padding:64px 0 72px}
@@ -69,15 +69,61 @@ h2{font-size:clamp(22px,3vw,30px);font-weight:900;letter-spacing:-.01em;line-hei
 .ico{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--red-light);color:var(--red);font-weight:900;font-size:17px;margin-bottom:12px}
 
 /* ciclo de vida */
-.flow{display:flex;align-items:stretch;gap:10px;margin-top:28px;flex-wrap:wrap}
-.step{flex:1 1 150px;background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 16px;border-top:4px solid var(--red)}
-.step .k{font-size:11px;font-weight:800;color:var(--red);letter-spacing:.1em}
-.step h4{font-size:15px;font-weight:800;margin:4px 0 6px}
-.step p{font-size:12.5px;color:var(--muted)}
-.gate{flex:0 0 auto;align-self:center;background:var(--gold-soft);color:var(--gold);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border-radius:8px;text-align:center;line-height:1.3}
-.transv{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.transv div{background:#111;color:#fff;border-radius:var(--radius);padding:14px 16px;font-size:13px}
-.transv b{font-weight:800}
+/* ciclo de vida: mesmo mapa da pagina inicial do sistema (CSS copiado de app.css) */
+.map-wrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;margin-top:28px}
+.diagram-mobile{display:none}
+.diagram-scroll{position:relative;overflow:hidden}
+.diagram-stage{position:relative;width:1228px;transform-origin:top left}
+.arc-svg{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:visible;width:100%;height:100%}
+.arc{fill:none;stroke:rgba(150,24,38,.55);stroke-width:2.5}
+.chevron path{fill:var(--red)}
+.tv-card{display:block;width:480px;margin:0 auto 40px;text-align:center;text-decoration:none;color:inherit;outline:none}
+.tv-card.bottom{margin:40px auto 0}
+.icon-circle{width:60px;height:60px;border-radius:50%;background:#fff;border:1.5px solid var(--line-strong);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.1);transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s}
+.icon-circle svg{width:30px;height:30px}
+.tv-card:hover .icon-circle{transform:translateY(-5px);box-shadow:0 14px 24px rgba(0,0,0,.18)}
+.tv-card .tag{display:block;color:var(--ink);font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.tv-card h3{color:var(--ink);font-size:14.5px;font-weight:800;margin:0 0 6px;letter-spacing:.01em}
+.tv-card p{color:var(--muted);font-size:11.5px;margin:0 0 10px;line-height:1.5}
+.tv-chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.tv-chip{font-size:9.5px;font-weight:700;letter-spacing:.02em;padding:3px 9px;border-radius:999px;background:var(--surface);border:1px solid var(--line-strong);color:var(--ink)}
+.node-row{position:relative;width:1228px;display:flex;gap:24px;z-index:2}
+.node-col{flex:0 0 200px;width:200px;text-align:center;outline:none;text-decoration:none;color:inherit}
+.node-col .icon-circle{width:64px;height:64px}
+.node-col .icon-circle svg{width:32px;height:32px}
+.node-col:hover .icon-circle{transform:translateY(-5px);box-shadow:0 14px 24px rgba(0,0,0,.18)}
+.node-col .tag{display:block;color:var(--red);font-size:10px;font-weight:800;letter-spacing:.08em;margin-bottom:4px}
+.node-col h4{color:var(--ink);font-size:14px;font-weight:800;margin:0 0 7px}
+.node-col p{color:var(--muted);font-size:11px;margin:0;line-height:1.55}
+.icon-svg{stroke:var(--red-deep);stroke-width:5.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.icon-svg-tv{stroke:var(--ink);stroke-width:5.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gate-badge{position:absolute;top:4px;width:74px;text-align:center;z-index:3}
+.gate-badge::before{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:38px;height:38px;border-radius:50%;background:#fff;z-index:-1}
+.gate-diamond{width:26px;height:26px;background:var(--gold);border-radius:6px;transform:rotate(45deg);margin:0 auto 9px;box-shadow:0 6px 14px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center}
+.gate-diamond svg{width:15px;height:15px;transform:rotate(-45deg);stroke:#fff;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gate-badge .g-lbl{display:block;color:#7A5A08;font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.3}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:10.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+@media (max-width:820px){
+  .diagram-desktop{display:none}
+  .diagram-mobile{display:flex;flex-direction:column;gap:10px}
+  .dm-node{display:flex;align-items:flex-start;gap:14px;text-decoration:none;color:inherit;background:var(--surface-2);border:1.5px solid var(--line-strong);border-radius:var(--radius-sm);padding:14px}
+  .dm-node .icon-circle{flex:none;width:44px;height:44px;margin:0}
+  .dm-node .icon-circle svg{width:22px;height:22px}
+  .dm-body{min-width:0}
+  .dm-body .tag{display:block;color:var(--red);font-size:10px;font-weight:800;letter-spacing:.06em;margin-bottom:3px}
+  .dm-body h4{margin:0 0 4px;font-size:13.5px;font-weight:800}
+  .dm-body p{margin:0;font-size:12px;color:var(--muted);line-height:1.5}
+  .dm-node.dm-tv{background:var(--surface);border-style:dashed}
+  .dm-node.dm-tv .icon-circle svg{stroke:var(--ink)}
+  .dm-node.dm-tv .tag{color:var(--ink)}
+  .dm-node .tv-chips{margin-top:8px;justify-content:flex-start}
+  .dm-gate{display:flex;align-items:center;gap:12px;align-self:center;background:var(--gold-soft);border:1.5px dashed var(--gold);border-radius:999px;padding:8px 18px 8px 8px}
+  .dm-gate .gate-diamond{margin:0}
+  .dm-gate .dm-body b{font-size:11.5px;font-weight:800;color:#7A5A08;letter-spacing:.02em}
+  .map-wrap{padding:16px}
+}
 
 /* artefatos */
 .arts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px}
@@ -94,7 +140,7 @@ h2{font-size:clamp(22px,3vw,30px);font-weight:900;letter-spacing:-.01em;line-hei
 
 /* tecnologia */
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.tag{font-size:12px;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.ttag{font-size:12px;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
 
 /* autor */
 .about{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-top:28px}
@@ -108,10 +154,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 @media(max-width:860px){
   .stats .grid{grid-template-columns:repeat(2,1fr)}
   .cols-3,.steps{grid-template-columns:1fr}
-  .cols-2,.transv{grid-template-columns:1fr}
+  .cols-2{grid-template-columns:1fr}
   .arts{grid-template-columns:repeat(2,1fr)}
-  .gate{flex-basis:100%}
-  .top nav{display:none}
+  .topbar nav{display:none}
 }
 @media(max-width:520px){
   .wrap{padding:0 16px}
@@ -122,7 +167,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 </head>
 <body>
 
-<header class="top">
+<header class="topbar">
   <div class="wrap">
     <a class="brand" href="apresentacao.html"><span class="seal">SGP</span><small>Sistema de Gestão de Projetos</small></a>
     <nav>
@@ -176,19 +221,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="sec-eyebrow">A solução</div>
     <h2>Um ciclo de vida claro, com decisões nos momentos certos.</h2>
     <p class="sec-lead">Cada projeto percorre cinco etapas sequenciais, com dois gates de decisão formal. Governança e liderança atravessam todo o ciclo.</p>
-    <div class="flow">
-      <div class="step"><div class="k">D01</div><h4>Demanda</h4><p>Recebe, avalia e prioriza o pedido antes de virar projeto.</p></div>
-      <div class="gate">Gate 1<br>Triagem</div>
-      <div class="step"><div class="k">D02</div><h4>Planejamento</h4><p>Transforma a demanda aprovada em plano concreto e executável.</p></div>
-      <div class="gate">Gate 2<br>Pactuação</div>
-      <div class="step"><div class="k">D03</div><h4>Execução</h4><p>Entregas concretas, equipe mobilizada, riscos tratados.</p></div>
-      <div class="step"><div class="k">D04</div><h4>Controle</h4><p>Monitora a execução, identifica desvios e formaliza mudanças.</p></div>
-      <div class="step"><div class="k">D05</div><h4>Encerramento</h4><p>Fecha formalmente e transforma a experiência em lições aprendidas.</p></div>
-    </div>
-    <div class="transv">
-      <div><b>D06 · Governança e Tomada de Decisão</b> — as decisões certas, pelas pessoas certas, no momento certo.</div>
-      <div><b>D07 · Liderança, Equipes e Cultura</b> — identificar, engajar, desenvolver e liderar pessoas.</div>
-    </div>
+    <div class="map-wrap" id="mapaCiclo"></div>
 
     <h2 style="margin-top:56px">12 artefatos padronizados, com código controlado.</h2>
     <p class="sec-lead">Cada etapa gera um documento com estrutura fixa, protocolo próprio, histórico de alterações e versão para impressão — todos ligados ao mesmo projeto.</p>
@@ -244,12 +277,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <div class="card">
         <h3>Arquitetura</h3>
         <p>Site estático publicado no GitHub Pages, com banco de dados, autenticação e funções de servidor no Supabase. Login sem senha por link no e-mail e instalável no celular como aplicativo.</p>
-        <div class="tags"><span class="tag">HTML · CSS · JavaScript</span><span class="tag">GitHub Pages</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">PWA</span></div>
+        <div class="tags"><span class="ttag">HTML · CSS · JavaScript</span><span class="ttag">GitHub Pages</span><span class="ttag">Supabase</span><span class="ttag">PostgreSQL</span><span class="ttag">PWA</span></div>
       </div>
       <div class="card">
         <h3>Segurança e automação</h3>
         <p>Regras de acesso aplicadas no próprio banco (Row Level Security), funções de servidor para e-mail, notificações push e IA, e uma rotina diária de verificação de prazos.</p>
-        <div class="tags"><span class="tag">Row Level Security</span><span class="tag">Edge Functions</span><span class="tag">Web Push</span><span class="tag">IA generativa</span></div>
+        <div class="tags"><span class="ttag">Row Level Security</span><span class="ttag">Edge Functions</span><span class="ttag">Web Push</span><span class="ttag">IA generativa</span></div>
       </div>
     </div>
   </div>
@@ -280,5 +313,80 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   </div>
 </footer>
 
+<script src="app-data.js?v=6"></script>
+<script>
+/* Mapa do ciclo de vida: mesmos dados (app-data.js), icones e desenho das linhas
+   da pagina inicial do sistema (renderHome/layoutDiagram em app.js), so que sem
+   interacao de gate e com cada etapa levando ao detalhe dela no sistema. */
+(function(){
+  var host=document.getElementById('mapaCiclo');
+  if(!host||typeof SEQUENCIAIS==='undefined') return;
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  var ICON={
+    D01:'<g class="icon-svg"><line x1="24" y1="4" x2="24" y2="24"></line><path d="M14 15 L24 25 L34 15"></path><path d="M5 27 L5 43 L43 43 L43 27"></path></g>',
+    D02:'<g class="icon-svg"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12"></circle><circle cx="24" cy="24" r="4" fill="var(--red-deep)" stroke="none"></circle></g>',
+    D03:'<g class="icon-svg"><circle cx="24" cy="24" r="20"></circle><path d="M19 15 L35 24 L19 33 Z"></path></g>',
+    D04:'<g class="icon-svg" transform="translate(2,3)"><circle cx="22" cy="22" r="21"></circle><line x1="22" y1="22" x2="33" y2="11"></line><circle cx="22" cy="22" r="3.2" fill="var(--red-deep)" stroke="none"></circle></g>',
+    D05:'<g class="icon-svg"><rect x="6" y="20" width="36" height="22" rx="3"></rect><rect x="3" y="9" width="42" height="9" rx="3"></rect><line x1="18" y1="13.5" x2="30" y2="13.5"></line></g>',
+    D06:'<g class="icon-svg-tv" transform="translate(2,4)"><path d="M22 0 L44 14 L0 14 Z"></path><line x1="4" y1="18" x2="4" y2="34"></line><line x1="14" y1="18" x2="14" y2="34"></line><line x1="30" y1="18" x2="30" y2="34"></line><line x1="40" y1="18" x2="40" y2="34"></line><line x1="-2" y1="38" x2="46" y2="38"></line></g>',
+    D07:'<g class="icon-svg-tv" transform="translate(1,3)"><circle cx="16" cy="10" r="8"></circle><path d="M2 34 C2 22 9 16 16 16 C23 16 30 22 30 34"></path><circle cx="33" cy="14" r="6.5"></circle><path d="M24 34 C24 25 29 22 34 22 C39 22 44 26 45 33"></path></g>'
+  };
+  var GICON={gate1:'<path d="M3 4 L21 4 L13 14 L13 20 L11 20 L11 14 Z"></path>',gate2:'<path d="M4 12 L10 18 L20 6"></path>'};
+  var link=function(id){return 'index.html#/'+id;};
+  var circle=function(id){return '<span class="icon-circle"><svg viewBox="0 0 48 48">'+(ICON[id]||'')+'</svg></span>';};
+  var diamond=function(g){return '<span class="gate-diamond"><svg viewBox="0 0 24 24">'+(GICON[g]||'')+'</svg></span>';};
+  var chips=function(d){return d.grupos[0].estrategias.map(function(e){return '<span class="tv-chip">'+esc(e.id)+'</span>';}).join('');};
+  var gateBadge=function(g,left){var p=GATES[g].nome.split(' — ');return '<span class="gate-badge" style="left:'+left+'px" title="'+esc(GATES[g].nome)+'">'+diamond(g)+'<span class="g-lbl">'+esc(p[0])+'<br>'+esc(p[1]||'')+'</span></span>';};
+  var tvCard=function(d,pos){var body='<span class="tag">'+d.id+' · Transversal</span><h3>'+esc(d.titulo)+'</h3><p>'+esc(d.resumo)+'</p><span class="tv-chips">'+chips(d)+'</span>';return '<a class="tv-card '+pos+'" href="'+link(d.id)+'">'+(pos==='top'?circle(d.id)+body:body+circle(d.id))+'</a>';};
+  var cols=SEQUENCIAIS.map(function(d,i){return '<a class="node-col" href="'+link(d.id)+'"'+((i<2)?' style="margin-right:66px"':'')+'>'+circle(d.id)+'<span class="tag">'+d.id+'</span><h4>'+esc(d.titulo)+'</h4><p>'+esc(d.resumo)+'</p></a>';}).join('');
+  var mNode=function(d){return '<a class="dm-node" href="'+link(d.id)+'">'+circle(d.id)+'<span class="dm-body"><span class="tag">'+d.id+'</span><h4>'+esc(d.titulo)+'</h4><p>'+esc(d.resumo)+'</p></span></a>';};
+  var mTv=function(d){return '<a class="dm-node dm-tv" href="'+link(d.id)+'">'+circle(d.id)+'<span class="dm-body"><span class="tag">'+d.id+' · Transversal</span><h4>'+esc(d.titulo)+'</h4><p>'+esc(d.resumo)+'</p><span class="tv-chips">'+chips(d)+'</span></span></a>';};
+  var mGate=function(g){var p=GATES[g].nome.split(' — ');return '<span class="dm-gate">'+diamond(g)+'<span class="dm-body"><b>'+esc(p[0])+' — '+esc(p[1]||'')+'</b></span></span>';};
+  var d06=TRANSVERSAIS.filter(function(d){return d.id==='D06';})[0], d07=TRANSVERSAIS.filter(function(d){return d.id==='D07';})[0];
+  host.innerHTML=
+    '<div class="diagram-desktop"><div class="diagram-scroll" id="diagramScroll"><div class="diagram-stage" id="diagramStage">'+
+      '<svg class="arc-svg" id="arcSvg" preserveAspectRatio="none" aria-hidden="true"><path class="arc"></path><path class="arc"></path><path class="arc"></path><path class="arc"></path><g class="chevron" id="chevronGroup"></g></svg>'+
+      tvCard(d06,'top')+'<div class="node-row" id="nodeRow">'+gateBadge('gate1',228)+gateBadge('gate2',518)+cols+'</div>'+tvCard(d07,'bottom')+
+    '</div></div></div>'+
+    '<div class="diagram-mobile">'+mTv(d06)+mNode(SEQUENCIAIS[0])+mGate('gate1')+mNode(SEQUENCIAIS[1])+mGate('gate2')+SEQUENCIAIS.slice(2).map(mNode).join('')+mTv(d07)+'</div>'+
+    '<div class="legend"><span><i style="background:var(--red)"></i> Diretriz sequencial (D01–D05)</span><span><i style="background:var(--ink)"></i> Diretriz transversal (D06–D07)</span><span><i style="background:var(--gold);border-radius:3px;transform:rotate(45deg)"></i> Gate de autorização institucional</span></div>';
+
+  function fit(){
+    var sc=document.getElementById('diagramScroll'), st=document.getElementById('diagramStage');
+    if(!sc||!st||st.offsetParent===null) return;
+    var k=Math.min(1, sc.clientWidth/1228);
+    st.style.transform='scale('+k+')'; sc.style.height=(st.offsetHeight*k)+'px';
+  }
+  function layout(){
+    var st=document.getElementById('diagramStage'); if(!st||st.offsetParent===null) return;
+    var svg=document.getElementById('arcSvg'), chev=document.getElementById('chevronGroup');
+    var cs=document.getElementById('nodeRow').querySelectorAll('.node-col');
+    var i6=st.querySelector('.tv-card.top .icon-circle'), i7=st.querySelector('.tv-card.bottom .icon-circle');
+    st.style.transform='none';
+    var sr=st.getBoundingClientRect();
+    var rel=function(el){var r=el.getBoundingClientRect();return {cx:r.left+r.width/2-sr.left,cy:r.top+r.height/2-sr.top,l:r.left-sr.left,rr:r.right-sr.left,t:r.top-sr.top,b:r.bottom-sr.top};};
+    var a=rel(i6), z=rel(i7), c1=rel(cs[0].querySelector('.icon-circle')), c5=rel(cs[cs.length-1].querySelector('.icon-circle')), k1=rel(cs[0]), k5=rel(cs[cs.length-1]), R=24;
+    svg.setAttribute('viewBox','0 0 '+st.scrollWidth+' '+st.scrollHeight);
+    var P=[
+      'M '+a.l+' '+a.cy+' L '+(c1.cx+R)+' '+a.cy+' Q '+c1.cx+' '+a.cy+' '+c1.cx+' '+(a.cy+R)+' L '+c1.cx+' '+c1.t,
+      'M '+a.rr+' '+a.cy+' L '+(c5.cx-R)+' '+a.cy+' Q '+c5.cx+' '+a.cy+' '+c5.cx+' '+(a.cy+R)+' L '+c5.cx+' '+c1.t,
+      'M '+z.l+' '+z.cy+' L '+(c1.cx+R)+' '+z.cy+' Q '+c1.cx+' '+z.cy+' '+c1.cx+' '+(z.cy-R)+' L '+c1.cx+' '+k1.b,
+      'M '+z.rr+' '+z.cy+' L '+(c5.cx-R)+' '+z.cy+' Q '+c5.cx+' '+z.cy+' '+c5.cx+' '+(z.cy-R)+' L '+c5.cx+' '+k5.b
+    ];
+    svg.querySelectorAll('.arc').forEach(function(p,i){p.setAttribute('d',P[i]);});
+    chev.innerHTML='';
+    for(var i=0;i<cs.length-1;i++){
+      var ra=rel(cs[i].querySelector('.icon-circle')), rb=rel(cs[i+1].querySelector('.icon-circle')), m=(ra.rr+rb.l)/2, y=ra.cy;
+      var p=document.createElementNS('http://www.w3.org/2000/svg','path');
+      p.setAttribute('d','M '+(m-8)+' '+(y-12)+' L '+(m+8)+' '+y+' L '+(m-8)+' '+(y+12)+' L '+(m-8)+' '+(y+3)+' L '+(m-20)+' '+(y+3)+' L '+(m-20)+' '+(y-3)+' L '+(m-8)+' '+(y-3)+' Z');
+      chev.appendChild(p);
+    }
+    fit();
+  }
+  layout();
+  window.addEventListener('resize',layout);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+})();
+</script>
 </body>
 </html>
