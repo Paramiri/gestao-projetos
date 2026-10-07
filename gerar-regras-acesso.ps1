@@ -1,7 +1,7 @@
-param([string]$OutPath = (Join-Path $PSScriptRoot "Regras de Acesso e Permissoes - Sistema UNIALFA.docx"))
+param([string]$OutPath = (Join-Path $PSScriptRoot "Regras de Acesso e Permissoes - SGP.docx"))
 $ErrorActionPreference = "Stop"
 
-# Gera "Regras de Acesso e Permissoes - Sistema UNIALFA.docx" via automacao COM do Microsoft Word
+# Gera "Regras de Acesso e Permissoes - SGP.docx" via automacao COM do Microsoft Word
 # (Node.js/pandoc/LibreOffice nao estao disponiveis neste ambiente).
 # Ver CLAUDE.md - secao "Documentacao oficial de regras de acesso" para quando reexecutar este script.
 
@@ -83,7 +83,7 @@ function HR() {
 }
 
 # ---- Capa ----
-P "UNIALFA - GERENCIA DE PROJETOS" 10 $true $false $colRed "left" 4
+P "SGP - SISTEMA DE GESTAO DE PROJETOS" 10 $true $false $colRed "left" 4
 $sel.Font.Size = 26; $sel.Font.Bold = $true; $sel.Font.Color = $colInk
 $sel.ParagraphFormat.SpaceAfter = 4
 $sel.TypeText("Regras de Acesso e Permissoes")
@@ -91,15 +91,14 @@ $sel.TypeParagraph()
 $sel.Font.Bold = $false
 P "Sistema de Gestao de Projetos" 14 $false $true $colMuted "left" 20
 
-P "Este documento descreve, de forma completa, todas as regras de acesso e permissao implementadas no sistema de gestao de projetos da UNIALFA (login, acesso sem login, papeis de usuario, gates de aprovacao e restricao por equipe de projeto), conforme o estado atual do codigo. Este e o documento oficial de referencia: qualquer inclusao, alteracao ou remocao de regra de acesso no sistema deve ser refletida aqui." 11 $false $false $colInk "left" 16
+P "Este documento descreve, de forma completa, todas as regras de acesso e permissao implementadas no Sistema de Gestao de Projetos (SGP) (login, acesso sem login, papeis de usuario, gates de aprovacao e restricao por equipe de projeto), conforme o estado atual do codigo. Este e o documento oficial de referencia: qualquer inclusao, alteracao ou remocao de regra de acesso no sistema deve ser refletida aqui." 11 $false $false $colInk "left" 16
 
 HR
 
 # ---- 1 ----
 H1 "1. Login obrigatorio (regra geral)"
-P "A maioria das 15 paginas do sistema exige login antes de carregar ou salvar qualquer dado. O login pode ser feito de duas formas:"
+P "A maioria das 15 paginas do sistema exige login antes de carregar ou salvar qualquer dado. O login e feito sem senha:"
 Bul "Link magico por e-mail - o usuario informa o e-mail e recebe um link de acesso, sem senha."
-Bul "Microsoft (SSO) - `"Entrar com Microsoft - UNIALFA`", usando a conta institucional."
 P "As paginas abertas sem exigir login sao a pagina inicial (index.html, mapa de diretrizes) e o Validador de Projetos (ferramenta de apoio a decisao) - ambas mostram o conteudo livremente e so exibem a barra `"Conectado como...`" caso ja exista uma sessao ativa. Diferente da Solicitacao de Demanda e da Ata de Reuniao (secao 2), o acesso sem login do Validador nao depende de nenhuma ativacao pelo Admin - e sempre aberto."
 
 HR
@@ -165,7 +164,7 @@ H2 "3.2 Adicionar usuario antes do primeiro login (conta criada na hora)"
 P "Normalmente uma pessoa so apareceria na aba `"Usuarios`" da Administracao depois de fazer login pela primeira vez (o perfil seria criado automaticamente, com papel `"Solicitante`"). `"+ Adicionar usuario`" permite ao Admin adiantar isso, criando a conta de verdade na hora:"
 Bul "Na aba Usuarios, o Admin preenche nome, telefone (opcional), e-mail e papel e clica em `"+ Adicionar usuario`"."
 Bul "O sistema cria a conta de verdade no Supabase Auth (via Admin API, sem exigir senha nem confirmacao por e-mail) e o perfil correspondente (nome, telefone, papel) na hora - a pessoa ja aparece na lista de Usuarios como conta ativa, e ja pode ser adicionada a equipe de qualquer projeto (secao 5) sem esperar ela logar."
-Bul "Quando essa pessoa eventualmente fizer o primeiro login (link magico ou Microsoft), o Supabase Auth reconhece o e-mail e autentica direto na conta ja existente - nao cria uma conta duplicada, e o perfil definido pelo Admin permanece do jeito que estava."
+Bul "Quando essa pessoa eventualmente fizer o primeiro login (link magico), o Supabase Auth reconhece o e-mail e autentica direto na conta ja existente - nao cria uma conta duplicada, e o perfil definido pelo Admin permanece do jeito que estava."
 P "Controle de acesso: a criacao de conta e feita por uma Edge Function (`criar-usuario-admin`) que confere, a cada chamada, que quem esta chamando tem papel Admin em `public.perfis` - a mesma trava ja usada em outras acoes sensiveis exclusivas de Admin (ex.: reset do ambiente de treinamento, secao 3.8). A function usa a chave de servico do Supabase (nunca exposta no navegador) para criar a conta e gravar o perfil."
 Bul "Pre-cadastros antigos (feitos antes de 15/09/2026, tabela `perfis_pendentes`) continuam funcionando: a pessoa aparece com o selo `"Pendente - 1o login`" ate fazer login ou ate o Admin usar o novo botao `"Criar conta agora`" para converte-la em conta de verdade imediatamente, pelo mesmo mecanismo acima."
 
@@ -200,13 +199,13 @@ Bul "Na pratica, importar audio so faz sentido para quem tambem pode rodar a ana
 P "Assim como a importacao de texto, a Edge Function que processa o audio confere a permissao direto no banco antes de chamar a IA, nao so a interface."
 
 H2 "3.7 Restricao de edicao no Plano de Comunicacao de Projeto"
-P "O Plano de Comunicacao de Projeto (FORALF00308) e um documento unico e compartilhado (secao 5.3) - qualquer usuario autenticado sempre pode abrir a aba Painel, visualizar o conteudo e usar o botao Imprimir. Diferente da secao 3.4 (que restringe visualizacao de pagina inteira), aqui a restricao e so sobre a aba `"Editar dados`": uma lista de papeis, definida pelo Admin na aba Configuracoes da Administracao, decide quem pode usar `"Editar dados`" e salvar alteracoes."
+P "O Plano de Comunicacao de Projeto (SGP-08) e um documento unico e compartilhado (secao 5.3) - qualquer usuario autenticado sempre pode abrir a aba Painel, visualizar o conteudo e usar o botao Imprimir. Diferente da secao 3.4 (que restringe visualizacao de pagina inteira), aqui a restricao e so sobre a aba `"Editar dados`": uma lista de papeis, definida pelo Admin na aba Configuracoes da Administracao, decide quem pode usar `"Editar dados`" e salvar alteracoes."
 Bul "Comeca configurado apenas para PMO/Admin - os demais papeis veem a aba `"Editar dados`" escondida e uma nota explicando a restricao no lugar dela, mas continuam vendo o Painel normalmente."
 Bul "Um usuario com papel Admin sempre consegue editar, mesmo que o papel Admin seja removido da lista por engano - mesma trava de seguranca usada na secao 3.4."
 Bul "A checagem tambem bloqueia a funcao de salvar caso alguem tente forcar a aba de edicao por fora da interface."
 
 H2 "3.8 Reset do ambiente de treinamento (aba Administracao, so em producao)"
-P "O sistema tem um ambiente de treinamento/demonstracao totalmente separado (banco de dados proprio, mesmo schema e regras de acesso da producao, com 7 projetos de exemplo ficticios cobrindo o ciclo completo), usado para apresentacoes e capacitacao sem tocar em dado real. A aba Administracao, quando acessada em producao (`"gestaoprojetos.alfa.br`"), mostra uma aba extra `"Ambiente de Treino`" com um botao que apaga os dados atuais do ambiente de treinamento e recria os 7 projetos de exemplo do zero - util para deixar o ambiente limpo antes de uma nova turma."
+P "O sistema tem um ambiente de treinamento/demonstracao totalmente separado (banco de dados proprio, mesmo schema e regras de acesso da producao, com 7 projetos de exemplo ficticios cobrindo o ciclo completo), usado para apresentacoes e capacitacao sem tocar em dado real. A aba Administracao, quando acessada em producao (`"paramiri.github.io/gestao-projetos`"), mostra uma aba extra `"Ambiente de Treino`" com um botao que apaga os dados atuais do ambiente de treinamento e recria os 7 projetos de exemplo do zero - util para deixar o ambiente limpo antes de uma nova turma."
 Bul "A aba so aparece em producao - quem acessa a Administracao pelo proprio ambiente de treinamento nao ve essa opcao."
 Bul "A acao e restrita a Admin: o botao chama uma Edge Function que confere, direto no banco de producao (nao so na tela), que quem chamou tem papel Admin antes de fazer qualquer alteracao - inclusive rejeitando um token de sessao valido cujo dono nao seja Admin."
 Bul "Nao apaga nem altera nenhum dado de producao em nenhuma hipotese - a Edge Function so tem permissao de escrita no banco do ambiente de treinamento, nunca no de producao, e se recusa a rodar caso seja implantada por engano no projeto errado."
@@ -225,7 +224,7 @@ Bul "No Relatorio de Situacao e no Relatorio de Entregas, a logica de acesso e d
 Bul "Disponivel apenas em producao - o ambiente de treinamento nao recebe a chave de IA nem a Edge Function correspondente, de proposito, para nunca gerar cobranca real ao demonstrar o sistema."
 
 H2 "3.10 Importacao de documento por IA (Solicitacao de Demanda)"
-P "A Solicitacao de Demanda (FORALF00339) tem um painel `"Importar documento preenchido`", no topo do formulario, que aceita colar texto ou anexar um arquivo (.txt, .docx ou .pdf) do formulario oficial ja preenchido a mao fora do sistema. O texto e extraido no proprio navegador (sem passar pelo servidor) e analisado pela API da Claude (Anthropic), que sugere o preenchimento dos campos ainda vazios - nome do projeto, solicitante, departamento, justificativa, objetivo, escopo, prazo, orcamento, partes interessadas e anexos. Igual as demais importacoes por IA, a sugestao nunca salva nada sozinha."
+P "A Solicitacao de Demanda (SGP-01) tem um painel `"Importar documento preenchido`", no topo do formulario, que aceita colar texto ou anexar um arquivo (.txt, .docx ou .pdf) do formulario oficial ja preenchido a mao fora do sistema. O texto e extraido no proprio navegador (sem passar pelo servidor) e analisado pela API da Claude (Anthropic), que sugere o preenchimento dos campos ainda vazios - nome do projeto, solicitante, departamento, justificativa, objetivo, escopo, prazo, orcamento, partes interessadas e anexos. Igual as demais importacoes por IA, a sugestao nunca salva nada sozinha."
 Bul "Mesma logica de permissao das secoes 3.5/3.6/3.9: interruptor mestre em Administracao > Configuracoes, desligado por padrao, valendo para todo mundo sem excecao, inclusive Admin; com o interruptor ligado, uma lista de papeis propria define quem pode usar - Admin sempre tem acesso."
 Bul "Diferente das demais secoes deste capitulo, aqui nao ha restricao por equipe de projeto - a Solicitacao de Demanda e o primeiro formulario da esteira, registrado antes de existir um projeto aprovado."
 Bul "Acesso sem login (secao 2 do documento institucional) NAO tem acesso a este painel, mesmo com o interruptor ligado para os papeis normais - a importacao exige um perfil de usuario autenticado com papel definido."
@@ -266,7 +265,7 @@ Bul "Onde: no status da Solicitacao de Demanda - so o Admin consegue alterar o c
 H2 "4.2 Gate 2 - Pactuacao"
 P "Ocorre ao final do Planejamento (D02), antes do inicio da Execucao (D03). E o gate mais critico: autoriza formalmente o inicio da execucao do projeto."
 Bul "Quem decide: Dono do Negocio, perante a Alta Gestao."
-Bul "Onde: no Relatorio de Entregas e Beneficios (FORALF12), aba Editar dados - campo Status (Pendente de pactuacao / Pactuado). So o Admin consegue alterar esse campo; qualquer outro papel ve o controle travado, com um aviso explicando que so o PMO/Admin pode pactuar."
+Bul "Onde: no Relatorio de Entregas e Beneficios (SGP-12), aba Editar dados - campo Status (Pendente de pactuacao / Pactuado). So o Admin consegue alterar esse campo; qualquer outro papel ve o controle travado, com um aviso explicando que so o PMO/Admin pode pactuar."
 Bul "Ao marcar `"Pactuado`", o sistema preenche automaticamente a Data de pactuacao (hoje) e o Aprovador (nome de quem esta logado), ambos editaveis pelo Admin."
 Bul "Enquanto o status estiver `"Pactuado`", todos os demais campos do relatorio (ficha do programa, indicadores, projetos vinculados) ficam bloqueados para edicao - inclusive para o Admin - ate que o Gate 2 seja reaberto (status voltar para `"Pendente de pactuacao`")."
 

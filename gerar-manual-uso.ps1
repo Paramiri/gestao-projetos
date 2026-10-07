@@ -23,7 +23,7 @@ $sec.PageSetup.PageHeight = $word.CentimetersToPoints(27.94)
 $footer = $sec.Footers.Item(1)
 $footer.Range.Font.Size = 8.5
 $footer.Range.Font.Color = $colMuted
-$footer.Range.Text = "UNIALFA - Manual de Uso da Ferramenta de Gestao de Projetos | Pagina "
+$footer.Range.Text = "SGP - Manual de Uso da Ferramenta de Gestao de Projetos | Pagina "
 $footer.Range.Collapse(0) | Out-Null
 $footer.Range.Fields.Add($footer.Range, 33) | Out-Null  # wdFieldPage = 33
 
@@ -214,18 +214,17 @@ function TableSimple($rows, $colWidthsCm){
 # ============================================================
 # CAPA
 # ============================================================
-P "UNIALFA - GERENCIA DE PROJETOS" 10 $true $false $colRed "left" 4
+P "SGP - SISTEMA DE GESTAO DE PROJETOS" 10 $true $false $colRed "left" 4
 $sel.Style = $doc.Styles.Item(-1)
 $sel.Font.Name="Montserrat"; $sel.Font.Size = 28; $sel.Font.Bold = $true; $sel.Font.Color = $colInk
 $sel.ParagraphFormat.SpaceAfter = 4
 $sel.TypeText("MANUAL DE USO")
 $sel.TypeParagraph()
 $sel.Font.Bold = $false
-P "Ferramenta de Gestao de Projetos - UNIALFA" 15 $false $false $colInk "left" 20
+P "Ferramenta de Gestao de Projetos (SGP)" 15 $false $false $colInk "left" 20
 P "Guia passo a passo: do mapa de diretrizes e da Solicitacao de Demanda a geracao dos Relatorios de Situacao e de Entregas e Beneficios - incluindo login, papeis de usuario, gates de aprovacao, restricao por equipe e o Validador de Projetos." 12 $false $true $colMuted "left" 30
-P "UNIALFA - Gerencia de Projetos" 11 $false $false $colMuted "left" 2
-P "Grupo Jose Alves" 11 $false $false $colMuted "left" 2
-P "Versao 2.91 - 17 de setembro de 2026 (substitui a versao 2.90 de 17/09/2026)" 11 $false $false $colMuted "left" 2
+P "Andre Torres - Gerente de Projetos" 11 $false $false $colMuted "left" 2
+P "Versao 2.92 - 7 de outubro de 2026 (substitui a versao 2.91 de 17/09/2026)" 11 $false $false $colMuted "left" 2
 
 $sel.InsertBreak(7) | Out-Null
 
@@ -249,7 +248,7 @@ $sel.InsertBreak(7) | Out-Null
 H1 "1. Introducao"
 
 H2 "1.1 Sobre este manual"
-P "Este manual explica, passo a passo, como usar as ferramentas eletronicas que dao suporte a gestao de projetos da UNIALFA. Ele cobre a sequencia completa de uso: do login e do mapa de diretrizes, passando pelo registro de uma nova demanda, ate a geracao dos dois relatorios de fechamento - o Relatorio de Situacao de Projetos (FORALF11) e o Relatorio de Entregas e Beneficios (FORALF12)."
+P "Este manual explica, passo a passo, como usar as ferramentas eletronicas que dao suporte a gestao de projetos da instituicao. Ele cobre a sequencia completa de uso: do login e do mapa de diretrizes, passando pelo registro de uma nova demanda, ate a geracao dos dois relatorios de fechamento - o Relatorio de Situacao de Projetos (SGP-11) e o Relatorio de Entregas e Beneficios (SGP-12)."
 P "Esta e a versao 2.0 do manual. Em relacao a versao 1.0 (15/07/2026), foram adicionadas as secoes sobre login obrigatorio, acesso sem login, papeis de usuario, os dois gates de aprovacao, restricao por equipe do projeto, o Validador de Projetos e a pagina de Administracao - alem de capturas de tela reais de cada ferramenta."
 P "Esta e a versao 2.1 do manual. Em relacao a versao 2.0 (28/07/2026), foram adicionadas as secoes sobre o registro vivo de riscos e as sugestoes de riscos recorrentes no TAP (Passo 3), a sinalizacao automatica de risco de atraso no Relatorio de Situacao (secao 4.1) e a prioridade leve (P0/P1/P2) das atividades da EAP (Passo 5)."
 P "Esta e a versao 2.2 do manual. Em relacao a versao 2.1 (29/07/2026), foi adicionada a implementacao tecnica do Gate 2 - Pactuacao no Relatorio de Entregas e Beneficios (secao 4.2): status controlado pelo Admin, data e aprovador preenchidos automaticamente, e trava de edicao do relatorio enquanto pactuado."
@@ -270,12 +269,12 @@ P "Esta e a versao 2.16 do manual. Em relacao a versao 2.15 (10/08/2026), foi ad
 P "Esta e a versao 2.17 do manual. Em relacao a versao 2.16 (11/08/2026), foi adicionada a importacao de transcricao por IA na Ata de Reuniao (secao 2.10, Passo 6 e 6.3 - substitui o antigo painel `Preencher com Read AI`, que nunca funcionou em producao): o usuario cola a transcricao de uma reuniao e a IA sugere pauta, participantes, resumo, encaminhamentos e entraves para revisao, com interruptor geral e lista de papeis permitidos configuraveis pelo Admin."
 P "Esta e a versao 2.18 do manual. Em relacao a versao 2.17 (12/08/2026), a importacao de transcricao por IA (secao 2.10) passou a aceitar tambem arquivo `.txt`, `.docx` ou `.pdf` anexado, alem de colar o texto diretamente - o sistema extrai o texto do arquivo automaticamente para revisao antes de analisar."
 P "Esta e a versao 2.19 do manual. Em relacao a versao 2.18 (12/08/2026), foi adicionada a importacao de audio por IA na Ata de Reuniao (secao 2.11): alem de colar/anexar a transcricao em texto, o usuario pode anexar a propria gravacao da reuniao (.mp3, .m4a, .aac, .wav, .ogg...), dividida e transcrita automaticamente em pedacos pelo sistema - com interruptor geral e lista de papeis permitidos proprios, independentes dos da importacao por texto, configuraveis pelo Admin (secao 6.3)."
-P "Esta e a versao 2.20 do manual. Em relacao a versao 2.19 (12/08/2026), os antigos botoes `Exportar CSV` e `Imprimir` da Ata de Reuniao (Passo 6), que agiam sobre a lista inteira e nao geravam um documento util, foram substituidos por `Imprimir` e `Exportar Word` no painel de uma ata especifica: ambos geram o documento no formato oficial do FORALF00340 (cabecalho, unidade, pauta, participantes, descricao, saidas e entraves)."
-P "Esta e a versao 2.21 do manual. Em relacao a versao 2.20 (13/08/2026), o mesmo ajuste foi estendido aos demais formularios que ainda tinham os antigos botoes `Exportar CSV` e `Imprimir` sem funcionalidade real: Solicitacao de Demanda (Passo 1), Canvas de Projeto (Passo 2), TAP (Passo 3), Planejamento e Desenvolvimento (Passo 4), EAP (Passo 5), SMP (Passo 7), TEP (Passo 8), RLA (Passo 9), Relatorio de Situacao (secao 4.1) e Relatorio de Entregas e Beneficios (secao 4.2). Em todos, `Imprimir` e `Exportar Word` agora geram o documento no formato oficial do respectivo FORALF (ou, no caso da EAP, um layout padrao do sistema, ja que este artefato nao tem FORALF proprio)."
-P "Esta e a versao 2.22 do manual. Em relacao a versao 2.21 (13/08/2026), o Plano de Comunicacao de Projeto (Passo 10) ganhou as 4 colunas que faltavam em relacao ao documento oficial FORALF00308 - Quando Comunicar, Com Quem se Comunicar, Como Comunicar e Quem Comunica, alem das ja existentes Tipo de Comunicacao e O que Comunicar - e passou a ter a aba `Editar dados` restrita por papel (padrao PMO/Admin, configuravel em Administracao > Configuracoes, secao 6.3), mantendo a visualizacao e impressao livres para qualquer usuario autenticado."
+P "Esta e a versao 2.20 do manual. Em relacao a versao 2.19 (12/08/2026), os antigos botoes `Exportar CSV` e `Imprimir` da Ata de Reuniao (Passo 6), que agiam sobre a lista inteira e nao geravam um documento util, foram substituidos por `Imprimir` e `Exportar Word` no painel de uma ata especifica: ambos geram o documento no formato oficial do SGP-07 (cabecalho, unidade, pauta, participantes, descricao, saidas e entraves)."
+P "Esta e a versao 2.21 do manual. Em relacao a versao 2.20 (13/08/2026), o mesmo ajuste foi estendido aos demais formularios que ainda tinham os antigos botoes `Exportar CSV` e `Imprimir` sem funcionalidade real: Solicitacao de Demanda (Passo 1), Canvas de Projeto (Passo 2), TAP (Passo 3), Planejamento e Desenvolvimento (Passo 4), EAP (Passo 5), SMP (Passo 7), TEP (Passo 8), RLA (Passo 9), Relatorio de Situacao (secao 4.1) e Relatorio de Entregas e Beneficios (secao 4.2). Em todos, `Imprimir` e `Exportar Word` agora geram o documento no formato padrao do respectivo codigo SGP (SGP-01 a SGP-12)."
+P "Esta e a versao 2.22 do manual. Em relacao a versao 2.21 (13/08/2026), o Plano de Comunicacao de Projeto (Passo 10) ganhou as 4 colunas que faltavam em relacao ao documento oficial SGP-08 - Quando Comunicar, Com Quem se Comunicar, Como Comunicar e Quem Comunica, alem das ja existentes Tipo de Comunicacao e O que Comunicar - e passou a ter a aba `Editar dados` restrita por papel (padrao PMO/Admin, configuravel em Administracao > Configuracoes, secao 6.3), mantendo a visualizacao e impressao livres para qualquer usuario autenticado."
 P "Esta e a versao 2.23 do manual. Em relacao a versao 2.22 (13/08/2026), foi adicionada a nova secao 6.5 - Ambiente de Treino: um ambiente de treinamento/demonstracao totalmente separado da producao, com 7 projetos ficticios cobrindo o ciclo completo, e uma quarta aba na Administracao (visivel so em producao) com um botao que reseta e repopula esse ambiente com um clique, restrito a Admin (secao 3.8 das Regras de Acesso)."
 P "Esta e a versao 2.24 do manual. Em relacao a versao 2.23 (14/08/2026), foi adicionada a nova secao 2.12 - Assistente de preenchimento por IA (Canvas e TAP): um botao `Sugerir com IA` que le a Solicitacao de Demanda, o Canvas (no caso do TAP) e as Atas de Reuniao do projeto vinculado para sugerir o preenchimento dos campos ainda vazios, com a mesma logica de interruptor geral e lista de papeis liberados ja usada na importacao de transcricao (secao 2.10)."
-P "Esta e a versao 2.25 do manual. Em relacao a versao 2.24 (19/08/2026), foi adicionada a nova secao 2.13 - Importacao de documento por IA (Solicitacao de Demanda): um painel `Importar documento preenchido` que le o formulario oficial FORALF00339 preenchido a mao em Word ou PDF (colado ou anexado) e sugere o preenchimento dos campos do formulario online, com a mesma logica de interruptor geral e lista de papeis liberados das demais importacoes por IA - sem restricao por equipe de projeto, ja que e o primeiro formulario da esteira."
+P "Esta e a versao 2.25 do manual. Em relacao a versao 2.24 (19/08/2026), foi adicionada a nova secao 2.13 - Importacao de documento por IA (Solicitacao de Demanda): um painel `Importar documento preenchido` que le o formulario oficial SGP-01 preenchido a mao em Word ou PDF (colado ou anexado) e sugere o preenchimento dos campos do formulario online, com a mesma logica de interruptor geral e lista de papeis liberados das demais importacoes por IA - sem restricao por equipe de projeto, ja que e o primeiro formulario da esteira."
 P "Esta e a versao 2.26 do manual. Em relacao a versao 2.25 (19/08/2026), o assistente de preenchimento por IA (secao 2.12) foi estendido do Canvas/TAP para tambem cobrir o Planejamento e Desenvolvimento de Projeto (Passo 4: pre-projeto, beneficios e marcos iniciais de cronograma, a partir do TAP e do Canvas) e a EAP (Passo 5: pacotes de trabalho e entregas, a partir do Planejamento e do TAP, so quando a arvore estiver totalmente vazia) - Fase 2 do assistente, usando o mesmo interruptor geral ja existente."
 P "Esta e a versao 2.27 do manual. Em relacao a versao 2.26 (19/08/2026), o assistente de preenchimento por IA (secao 2.12) foi estendido para tambem cobrir a SMP (Passo 7: descricao da mudanca e analise de impactos, contrastando o combinado no TAP/Planejamento com o que as Atas mais recentes discutem), o TEP (Passo 8: justificativa, atividades encerradas e consideracoes finais, comparando planejado e realizado) e o RLA (Passo 9: as 4 secoes de texto livre - Visao geral, Destaques, Desafios e Tarefas pos-projeto - nunca os blocos de avaliacao estruturada Sim/Nao/Parcial com placar, que continuam sendo autoavaliacao manual) - Fase 3, concluindo o assistente nos 7 formularios da esteira principal, usando o mesmo interruptor geral ja existente."
 P "Esta e a versao 2.28 do manual. Em relacao a versao 2.27 (19/08/2026), o assistente de preenchimento por IA no Planejamento (Passo 4, secao 2.12) passou a ler tambem a Solicitacao de Demanda e a sugerir mais 5 campos que ainda ficavam de fora: o Solicitante (capa, copiado da Demanda), as Macro fases do projeto (aba Pre-projeto, resumidas do cronograma do TAP) e a Introducao, Situacao atual e Proposta de mudanca (aba Viabilidade, redigidas com a mesma base factual do Contexto e do Objetivo geral do Pre-projeto, mas com redacao propria para cada campo). O campo Negocio (capa) permanece de fora do assistente, por nao ter fonte confiavel nos documentos lidos."
@@ -296,7 +295,7 @@ P "Esta e a versao 2.42 do manual. Em relacao a versao 2.41 (03/09/2026), foi ad
 P "Esta e a versao 2.43 do manual. Em relacao a versao 2.42 (03/09/2026), foi adicionada a Saude do projeto (secao 6.4.1) - Fase 3 da proposta de visao por projeto. Um selo geral (Normal/Atencao/Critico/Encerrado/Sem dados) calculado a partir de tres sinais - situacao atrasada, marco ativo com data-alvo vencida e orcamento estourado (custo realizado acima do estimado no TAP) - alem de tres numeros de apoio: % de marcos concluidos, atraso em dias do marco mais atrasado e % do orcamento realizado. Aparece na Ficha do Projeto e como nova coluna `Saude` na tabela `Visao atual por projeto` do Painel Executivo (secao 6.4). Nenhum dado novo no banco - tudo calculado em cima do que ja era lido pela Ficha (Fase 2)."
 P "Esta e a versao 2.44 do manual. Em relacao a versao 2.43 (03/09/2026), a SMP - Solicitacao de Mudanca de Projeto (Passo 7) ganhou a mesma secao Anexos ja existente na Solicitacao de Demanda (Passo 1, versao 2.29): upload real de arquivo (.txt, .docx ou .pdf, ate 15 MB) guardado num repositorio proprio do sistema (Supabase Storage, bucket dedicado `anexos-smp`) e disponivel para download por quem acessar o registro, alem do campo de texto livre Links de documentos para referencias que nao sao um arquivo enviado."
 P "Esta e a versao 2.45 do manual. Em relacao a versao 2.44 (03/09/2026), o Registro de riscos do TAP (Passo 3, secao 9) ganhou os campos Probabilidade (Baixa/Media/Alta), Impacto (Baixo/Medio/Alto) e Mitigacao (texto livre), complementares aos ja existentes Status, Responsavel e Ultima revisao - cada risco agora descreve tambem a chance de ocorrer, a gravidade do efeito e a resposta planejada, com Probabilidade e Impacto exibidos como selo colorido por severidade na tela de detalhes."
-P "Esta e a versao 2.46 do manual. Em relacao a versao 2.45 (03/09/2026), o documento gerado pelos botoes `Imprimir` e `Exportar Word` da Solicitacao de Demanda (Passo 1) passou a incluir a secao 10 - Aprovacao ao final, com linhas para assinatura do Gestor Responsavel e do Responsavel, e a data - alinhando o documento gerado pelo sistema ao formulario oficial FORALF00339 em Word. O logo usado em todos os documentos gerados por Imprimir/Exportar Word (Solicitacao de Demanda, Canvas, TAP, Planejamento, EAP, SMP, Ata, TEP, RLA, Relatorio de Situacao e Relatorio de Entregas) tambem foi atualizado para a marca UNIALFA, conforme o template oficial."
+P "Esta e a versao 2.46 do manual. Em relacao a versao 2.45 (03/09/2026), o documento gerado pelos botoes `Imprimir` e `Exportar Word` da Solicitacao de Demanda (Passo 1) passou a incluir a secao 10 - Aprovacao ao final, com linhas para assinatura do Gestor Responsavel e do Responsavel, e a data - alinhando o documento gerado pelo sistema ao formulario oficial SGP-01 em Word. O logo usado em todos os documentos gerados por Imprimir/Exportar Word (Solicitacao de Demanda, Canvas, TAP, Planejamento, EAP, SMP, Ata, TEP, RLA, Relatorio de Situacao e Relatorio de Entregas) tambem foi atualizado para a identidade visual do sistema, conforme o template padrao."
 P "Esta e a versao 2.47 do manual. Em relacao a versao 2.46 (09/09/2026), o cronograma de entregas macro do TAP (Passo 3, secao 10) passou a ser a fonte unica do cronograma do projeto: ganhou o campo `Conclusao real` em cada marco, e o Planejamento (Passo 4, aba Cronograma) e o Relatorio de Situacao (secao 4.1, secao Marcos) passaram a mostrar esses mesmos marcos sempre ao vivo, so leitura, em vez de manter copias proprias - o botao `Importar marcos do TAP` do Relatorio de Situacao foi removido por nao ser mais necessario. O calculo de Saude do projeto (secao 6.4.1) e o indicador Marcos no prazo (secao 6.7) passaram a considerar a Conclusao real: um marco concluido no TAP nunca conta como atrasado, mesmo que o Termino previsto ja tenha passado."
 P "Esta e a versao 2.48 do manual. Em relacao a versao 2.47 (10/09/2026), o cronograma de entregas macro do TAP (Passo 3, secao 10) ganhou o campo opcional `Depende de` em cada marco - uma dependencia simples, por nome, de outro marco do mesmo cronograma. Um marco cuja dependencia ainda nao tenha Conclusao real e ja tenha passado do Termino previsto ganha um aviso `bloqueado`, visivel em todo lugar que mostra o cronograma: o proprio TAP, o espelho do Planejamento (Passo 4) e os Marcos do Relatorio de Situacao (secao 4.1)."
 P "Esta e a versao 2.49 do manual. Em relacao a versao 2.48 (10/09/2026), a edicao do cronograma de entregas macro passou do TAP (Passo 3) para o Planejamento e Desenvolvimento de Projeto (Passo 4, aba 3): agora e la que os marcos sao cadastrados e alterados, e o TAP passou a mostra-los so leitura, ao vivo - o inverso do que valia desde a versao 2.47. Cada marco tambem ganhou uma numeracao automatica (`Nº`, coluna renumerada ao vivo conforme a ordem das linhas), e o campo de dependencia passou a referenciar outro marco pelo numero (`Depende do nº`) em vez do nome - mais simples de usar e mais resistente a renomear um marco depois. O calculo de Saude do projeto (secao 6.4.1), o indicador Marcos no prazo (secao 6.7) e os Marcos do Relatorio de Situacao (secao 4.1) passaram a ler o cronograma do Planejamento em vez do TAP; o TAP continua sendo a fonte do custo total estimado, usado no calculo de orcamento."
@@ -341,11 +340,12 @@ P "Esta e a versao 2.88 do manual. Em relacao a versao 2.87 (17/09/2026), a Gest
 P "Esta e a versao 2.89 do manual. Em relacao a versao 2.88 (17/09/2026), o campo Anexos da aba Viabilidade no Planejamento e Desenvolvimento de Projeto (Passo 4) deixou de ser so um texto livre e ganhou upload real de arquivo (.txt/.docx/.pdf, ate 15 MB), no mesmo padrao ja usado pela Solicitacao de Demanda (Passo 1) e pela SMP (Passo 7) - com lista de arquivos enviados, download e remocao. O texto livre antigo continua disponivel, renomeado para `Links de documentos`."
 P "Esta e a versao 2.90 do manual. Em relacao a versao 2.89 (17/09/2026), a Ficha do Projeto (secao 6.4.1) ganhou a secao `Anexos do projeto`, reunindo num so lugar todo arquivo enviado nos 3 pontos do sistema que aceitam upload real - Solicitacao de Demanda, SMP e a aba Viabilidade do Planejamento - com a origem de cada arquivo e um botao para baixar direto, sem precisar abrir cada formulario separadamente."
 P "Esta e a versao 2.91 do manual. Em relacao a versao 2.90 (17/09/2026), a EAP (Passo 5) trocou o assistente `Sugerir com IA` pelo botao `Importar do Cronograma`: em vez de a IA redigir pacotes e entregas com texto proprio, o novo botao copia os nomes dos marcos do Cronograma do Planejamento sem nenhuma reformulacao, garantindo que o casamento automatico Entrega x Marco (usado para o status automatico da entrega e na Ficha do Projeto) sempre funcione."
-P "O manual nao substitui as Diretrizes para a Gestao de Projetos da UNIALFA (documento institucional que define o framework D01 a D07) nem o documento Regras de Acesso e Permissoes (que detalha cada regra de controle de acesso); ele e o guia operacional de como usar cada ferramenta na pratica."
+P "Esta e a versao 2.92 do manual. Em relacao a versao 2.91 (17/09/2026), a ferramenta passou a se chamar SGP - Sistema de Gestao de Projetos, sem vinculo com nenhuma instituicao: os codigos dos 12 formularios passaram a ser SGP-01 a SGP-12 (iguais ao numero de cada formulario, com a EAP ganhando o SGP-05), o login passou a ser so por link magico por e-mail (o botao Entrar com Microsoft foi desativado), as notificacoes passaram a sair do e-mail do proprio sistema e todas as capturas de tela foram refeitas com a nova identidade visual e os dados ficticios de demonstracao."
+P "O manual nao substitui as Diretrizes para a Gestao de Projetos (documento que define o framework D01 a D07) nem o documento Regras de Acesso e Permissoes (que detalha cada regra de controle de acesso); ele e o guia operacional de como usar cada ferramenta na pratica."
 
 H2 "1.2 Visao geral da ferramenta"
 P "A ferramenta e composta por 16 paginas eletronicas independentes:"
-Bul "12 formularios de registro (codigo FORALF), cada um correspondendo a um artefato institucional - da Solicitacao de Demanda ao Relatorio de Entregas e Beneficios."
+Bul "12 formularios de registro (codigo SGP-01 a SGP-12), cada um correspondendo a um artefato institucional - da Solicitacao de Demanda ao Relatorio de Entregas e Beneficios."
 Bul "1 ferramenta de apoio a decisao, o Validador de Projetos, que nao gera registros de artefato mas ajuda a avaliar projetos."
 Bul "1 pagina de Administracao, restrita a Admin, para gerenciar usuarios, equipes e configuracoes do sistema."
 Bul "1 Painel Executivo, tambem restrito a Admin, com a visao agregada de todo o sistema (secao 6.4)."
@@ -357,30 +357,29 @@ Img "00_home.png" "Mapa de diretrizes - pagina inicial. Nao exige login." 5.8
 H2 "1.3 Como acessar e fazer login"
 P "Todos os 12 formularios de registro e a pagina de Administracao exigem login antes de carregar ou salvar qualquer dado. Ao abrir qualquer um deles sem sessao ativa, aparece a tela de entrada:"
 Img "01_login_gate.png" "Tela de login, exibida ao abrir qualquer formulario sem sessao ativa." 4.6
-P "O login pode ser feito de duas formas, sem necessidade de senha:"
+P "O login e feito sem necessidade de senha:"
 Bul "Link magico por e-mail - digite seu e-mail e clique em `Enviar link de acesso`. Um link chega no seu e-mail; clique nele e a pagina de origem atualiza sozinha."
-Bul "Microsoft (SSO) - clique em `Entrar com Microsoft - UNIALFA` e autentique com a sua conta institucional."
 Nota "No primeiro login, cada pessoa recebe automaticamente o papel Solicitante. Para obter outro papel (ex.: Gerente de Projetos, Admin), peca a um Admin para altera-lo em Administracao > Usuarios (secao 6)."
 P "Depois de logado, uma barra preta no topo da pagina mostra `Conectado como [seu e-mail]` e o seu papel atual, com um botao `Sair`."
 
 H2 "1.4 Como a ferramenta se relaciona com as Diretrizes (D01-D07)"
-P "Os 12 formularios cobrem os 13 artefatos previstos nas Diretrizes. O Reporte de Resultados (D06.5) nao tem um formulario proprio - e atendido pela secao `Resultados alcancados` do Relatorio de Situacao (FORALF11, secao 4.1)."
+P "Os 12 formularios cobrem os 13 artefatos previstos nas Diretrizes. O Reporte de Resultados (D06.5) nao tem um formulario proprio - e atendido pela secao `Resultados alcancados` do Relatorio de Situacao (SGP-11, secao 4.1)."
 $rows = @(
   @("Passo","Formulario","Diretriz / Estrategia"),
-  @("1","Solicitacao de Demanda (FORALF00339)","D01.1 - Recebimento e Registro de Demandas"),
+  @("1","Solicitacao de Demanda (SGP-01)","D01.1 - Recebimento e Registro de Demandas"),
   @("-","Gate 1 - Triagem","D01.4/D01.5 - aprovacao do Gestor Responsavel (Admin)"),
-  @("2","Canvas de Projeto (FORALF00344)","D01.6 - Elaboracao do Canvas de Projeto"),
-  @("3","TAP - Termo de Abertura (FORALF00338)","D02.1 - Desenvolvimento do TAP"),
-  @("4","Planejamento e Desenvolvimento (FORALF00325)","D02.2 a D02.10"),
+  @("2","Canvas de Projeto (SGP-02)","D01.6 - Elaboracao do Canvas de Projeto"),
+  @("3","TAP - Termo de Abertura (SGP-03)","D02.1 - Desenvolvimento do TAP"),
+  @("4","Planejamento e Desenvolvimento (SGP-04)","D02.2 a D02.10"),
   @("5","EAP - Estrutura Analitica do Projeto","D02.9 - Desenvolvimento da EAP"),
   @("-","Gate 2 - Pactuacao","D06.1/D06.2 - autorizacao da Alta Gestao"),
-  @("6","Ata de Reuniao (FORALF00340)","D01 a D07 - transversal, qualquer interacao formal"),
-  @("7","SMP - Solicitacao de Mudanca (FORALF00343)","D04.4 - Controle Integrado de Mudancas"),
-  @("8","TEP - Termo de Encerramento (FORALF00341)","D05.1.9 - Emissao do Termo de Encerramento"),
-  @("9","RLA - Registro de Licoes Aprendidas (FORALF00342)","D05.1.6 - Conducao de Licoes Aprendidas"),
-  @("10","Plano de Comunicacao de Projeto (FORALF00308)","D03.5 - Planejamento das Comunicacoes"),
-  @("11","Relatorio de Situacao de Projetos (FORALF11)","D04.3 - Elaboracao de Relatorios"),
-  @("12","Relatorio de Entregas e Beneficios (FORALF12)","D06.1/D06.2 - Governanca e Tomada de Decisao")
+  @("6","Ata de Reuniao (SGP-07)","D01 a D07 - transversal, qualquer interacao formal"),
+  @("7","SMP - Solicitacao de Mudanca (SGP-06)","D04.4 - Controle Integrado de Mudancas"),
+  @("8","TEP - Termo de Encerramento (SGP-09)","D05.1.9 - Emissao do Termo de Encerramento"),
+  @("9","RLA - Registro de Licoes Aprendidas (SGP-10)","D05.1.6 - Conducao de Licoes Aprendidas"),
+  @("10","Plano de Comunicacao de Projeto (SGP-08)","D03.5 - Planejamento das Comunicacoes"),
+  @("11","Relatorio de Situacao de Projetos (SGP-11)","D04.3 - Elaboracao de Relatorios"),
+  @("12","Relatorio de Entregas e Beneficios (SGP-12)","D06.1/D06.2 - Governanca e Tomada de Decisao")
 )
 TableSimple $rows @(1.5,7.5,7.0)
 
@@ -394,9 +393,9 @@ P "O Mapa de Diretrizes (pagina inicial) e o ponto central: o menu lateral lista
 
 H2 "2.2 Convencoes usadas neste manual"
 Bul "Campos marcados com asterisco (*) nos formularios sao obrigatorios. O sistema nao deixa registrar enquanto algum campo obrigatorio estiver vazio - ele destaca o campo em vermelho e rola a tela ate ele."
-Bul "Ao salvar, cada formulario gera um numero de protocolo automatico no formato CODIGO-ANO-SEQUENCIAL (ex.: FORALF00339-2026-001). Guarde esse numero para localizar o registro depois."
+Bul "Ao salvar, cada formulario gera um numero de protocolo automatico no formato CODIGO-ANO-SEQUENCIAL (ex.: SGP-01-2026-001). Guarde esse numero para localizar o registro depois."
 Bul "Todo registro tem um status (ex.: Pendente de aprovacao, Aprovado, Reprovado), alteravel a partir da tela de consulta - em alguns formularios, so o Admin pode altera-lo (ver secao 2.4)."
-Bul "A tela de consulta de cada formulario tem um campo de busca. Ao abrir um registro especifico, o rodape do painel lateral traz os botoes `Imprimir` e `Exportar Word`, que geram o documento no formato oficial do respectivo FORALF, pronto para impressao ou para abrir no Word."
+Bul "A tela de consulta de cada formulario tem um campo de busca. Ao abrir um registro especifico, o rodape do painel lateral traz os botoes `Imprimir` e `Exportar Word`, que geram o documento no formato padrao do respectivo codigo SGP, pronto para impressao ou para abrir no Word."
 
 H2 "2.3 Papeis de usuario e o que cada um pode fazer"
 P "Cada pessoa que faz login recebe um papel, usado para liberar ou restringir acoes especificas no sistema. Papeis sao atribuidos e alterados por um Admin, em Administracao > Usuarios."
@@ -445,7 +444,7 @@ P "Todos os 12 formularios de registro gravam os dados em um banco de dados real
 P "Cada formulario ainda grava seus registros de forma independente - nao existe herenca automatica de informacoes entre eles. Ao preencher o TAP logo depois do Canvas, por exemplo, e preciso informar novamente o nome do projeto, a unidade e o gerente (ou selecionar o mesmo `Projeto vinculado`, quando o formulario tiver esse campo). Preencha os dados de identificacao da mesma forma em todos os formularios de um mesmo projeto, para manter a rastreabilidade entre eles."
 
 H2 "2.8 Notificacoes por e-mail em transicoes de estado"
-P "Sete momentos do sistema disparam automaticamente um e-mail de notificacao, enviado via Resend por uma Supabase Edge Function (a chave da API fica guardada no servidor, nunca no navegador):"
+P "Sete momentos do sistema disparam automaticamente um e-mail de notificacao, enviado por uma Supabase Edge Function pelo servidor de e-mail (SMTP) do sistema (as credenciais ficam guardadas no servidor, nunca no navegador):"
 Bul "Registro de nova Solicitacao de Demanda: assim que a demanda e salva, antes de qualquer decisao - avisa os Admins que ha um Gate 1 - Triagem pendente de analise."
 Bul "Gate 1 - Solicitacao de Demanda: quando o Admin muda o status para `Aprovada` ou `Reprovada`."
 Bul "Canvas de Projeto: quando o status muda para `Aprovado`."
@@ -484,7 +483,7 @@ H2 "2.12 Assistente de preenchimento por IA (Canvas, TAP, Planejamento, SMP, TEP
 P "O Canvas de Projeto (Passo 2), o TAP (Passo 3), o Planejamento e Desenvolvimento de Projeto (Passo 4), a SMP (Passo 7), o TEP (Passo 8) e o RLA (Passo 9) tem um botao `Sugerir com IA`, que aparece assim que um Projeto vinculado e selecionado. Diferente da importacao de transcricao (secao 2.10), que le um texto colado pelo usuario, este assistente le os proprios documentos ja registrados do projeto - seguindo a esteira (Demanda alimenta o Canvas; Canvas e Demanda alimentam o TAP; TAP e Canvas alimentam o Planejamento; TAP e Planejamento alimentam a SMP; TAP, Planejamento e EAP alimentam o TEP; TEP e SMPs alimentam o RLA), sempre incluindo as Atas de Reuniao do projeto - e usa IA (Claude, pela mesma Supabase Edge Function em espirito da secao 2.10) para sugerir o preenchimento dos campos ainda vazios. A EAP (Passo 5) NAO tem mais este assistente - ver secao 5 do Passo 5, `Importar do Cronograma`."
 Bul "So preenche o que estiver vazio: um campo ja digitado pelo usuario nunca e sobrescrito pela sugestao."
 Bul "Cada campo preenchido pela IA fica com um selo `IA` e destaque visual ate ser editado - assim fica claro, campo a campo, o que veio de sugestao e o que foi escrito pela pessoa."
-Bul "Uma linha no rodape do bloco lista os documentos usados como base (ex.: `Sugestao baseada em: Solicitacao de Demanda FORALF00339-2026-001, Canvas de Projeto FORALF00344-2026-002`)."
+Bul "Uma linha no rodape do bloco lista os documentos usados como base (ex.: `Sugestao baseada em: Solicitacao de Demanda SGP-01-2026-001, Canvas de Projeto SGP-02-2026-002`)."
 Bul "No TAP, alem dos campos de texto, a sugestao tambem propoe linhas iniciais para as tabelas de riscos, cronograma de entregas macro, custos e partes interessadas - sempre que a tabela ainda estiver vazia. No Planejamento, propoe tambem marcos iniciais na aba Cronograma."
 Bul "No Planejamento, o Solicitante (capa) e copiado direto da Solicitacao de Demanda, e as Macro fases do projeto (aba Pre-projeto) sao um resumo em texto do cronograma de entregas macro do TAP. Na aba Viabilidade, a Introducao, a Situacao atual e a Proposta de mudanca sao redigidas com a mesma base factual do Contexto e do Objetivo geral do Pre-projeto, mas com redacao propria para o proposito de cada campo - nunca uma copia literal de um campo para o outro. O campo Negocio (capa) fica de fora do assistente, por nao ter fonte confiavel nos documentos lidos."
 Bul "Na SMP, a logica tambem e diferente: como o TAP e o Planejamento so mostram o que foi combinado originalmente (nao a mudanca em si), a IA procura nas Atas mais recentes alguma mudanca de fato sendo discutida e contrasta com esse combinado - nunca copia os campos do TAP/Planejamento diretamente. Se as Atas nao discutirem nenhuma mudanca concreta, a sugestao devolve todos os campos vazios em vez de inventar uma mudanca hipotetica."
@@ -495,7 +494,7 @@ P "Mesma logica de custo e permissao da importacao de transcricao (secao 2.10): 
 Nota "Como qualquer sugestao de IA, o resultado pode estar incompleto ou impreciso quando os documentos anteriores tambem estiverem - revise sempre antes de clicar em `Registrar`."
 
 H2 "2.13 Importacao de documento por IA (Solicitacao de Demanda)"
-P "A Solicitacao de Demanda (Passo 1) tem um painel `Importar documento preenchido`, no topo do formulario, para quem ja preencheu o formulario oficial FORALF00339 em Word ou PDF fora do sistema e agora precisa transcrever esses dados para a tela. O texto pode ser colado diretamente, ou o arquivo (`.txt`, `.docx` ou `.pdf`) anexado pelo botao `Anexar arquivo` - o sistema extrai o texto automaticamente para revisao antes de clicar em `Analisar e preencher`. Limite de 15 MB por arquivo."
+P "A Solicitacao de Demanda (Passo 1) tem um painel `Importar documento preenchido`, no topo do formulario, para quem ja preencheu o formulario oficial SGP-01 em Word ou PDF fora do sistema e agora precisa transcrever esses dados para a tela. O texto pode ser colado diretamente, ou o arquivo (`.txt`, `.docx` ou `.pdf`) anexado pelo botao `Anexar arquivo` - o sistema extrai o texto automaticamente para revisao antes de clicar em `Analisar e preencher`. Limite de 15 MB por arquivo."
 Bul "A IA identifica nome do projeto, solicitante, departamento, justificativa, objetivo, escopo, prazo, orcamento, partes interessadas e anexos, e preenche so os campos ainda vazios do formulario - exatamente como as demais importacoes por IA (secoes 2.10 e 2.12)."
 Bul "Departamento e Prioridade so sao preenchidos se o valor identificado pela IA corresponder exatamente a uma das opcoes da lista suspensa - caso contrario, o campo fica em branco para preenchimento manual."
 Nota "PDFs escaneados (so imagem, sem texto real por tras) nao sao suportados - a extracao depende do PDF ter texto selecionavel. Nesse caso, copie e cole o texto manualmente."
@@ -533,13 +532,13 @@ Nota "Nao se aplica aos outros 5 formularios (Solicitacao de Demanda, Ata de Reu
 H1 "3. Passo a passo do fluxo de um projeto"
 P "Esta secao percorre os 12 formularios de registro na ordem em que normalmente sao usados ao longo da vida de um projeto. Os Passos 1 a 5 e 8 a 9 seguem a esteira sequencial do projeto; os Passos 6, 7 e 10 sao de uso recorrente ou condicional; os relatorios finais (Passos 11 e 12) sao detalhados na secao 4."
 
-H2 "Passo 1 - Solicitacao de Demanda (FORALF00339)"
+H2 "Passo 1 - Solicitacao de Demanda (SGP-01)"
 P "Quando usar: no inicio de tudo, para registrar formalmente uma ideia, necessidade ou problema institucional antes de qualquer outra acao. Pode ser preenchida com login normal ou, se a opcao estiver ativa, sem login (ver secao 2.6)."
 $r1 = @(
   @("Campo","Obrig.","Descricao"),
   @("Nome do projeto","Sim","Nome que vai identificar a iniciativa em todos os registros futuros"),
   @("Solicitante","Sim","Nome de quem esta pedindo o projeto"),
-  @("Departamento / unidade","Sim","UNIALFA, FADISP, Colegio Alfa, TLA, Controladoria, TI ou Outro"),
+  @("Departamento / unidade","Sim","Lista de areas da instituicao (Reitoria, Diretorias, Coordenacoes, RH, Marketing, TI etc.)"),
   @("Justificativa / necessidade","Sim","Por que o projeto e necessario"),
   @("Objetivo / resultado esperado","Sim","O que deve ser entregue ao final"),
   @("Escopo","Sim","O que esta incluido e o que nao esta"),
@@ -556,11 +555,11 @@ Img "13_f01_lista.png" "Demandas cadastradas, com protocolo, projeto, prazo e st
 Exemplo "`Automatizacao de servicos` - solicitante Hudson Lucas Aleixo, unidade Relacionamento, justificativa: reduzir o tempo de espera dos alunos e desafogar o atendimento presencial/manual da secretaria, oferecendo disponibilidade 24/7 para solicitacoes basicas."
 P "Como salvar: clique em `Registrar solicitacao`. O sistema gera o protocolo e leva voce para `Demandas cadastradas`. Clique em qualquer linha da tabela para abrir o registro e revisar os dados. Ao salvar, todos os Admins recebem um aviso automatico (e-mail e, se ativado, push) de que ha um Gate 1 pendente de analise (secao 2.8)."
 Nota "E neste ponto que ocorre o Gate 1 - Triagem: so um Admin pode mudar o status para Aprovada ou Reprovada (secao 2.4). So avance para o Passo 2 depois que o status estiver Aprovada. Essa mudanca de status dispara um e-mail de notificacao (secao 2.8)."
-Bul "No rodape do painel de detalhes de uma demanda, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do FORALF00339, pronto para impressao ou para abrir no Word - incluindo, ao final, a secao 10 - Aprovacao, com linhas para assinatura do Gestor Responsavel e do Responsavel, e a data."
+Bul "No rodape do painel de detalhes de uma demanda, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-01, pronto para impressao ou para abrir no Word - incluindo, ao final, a secao 10 - Aprovacao, com linhas para assinatura do Gestor Responsavel e do Responsavel, e a data."
 Bul "Assistente de preenchimento por IA: o painel `Importar documento preenchido`, no topo do formulario, extrai os dados de uma copia do formulario oficial ja preenchida em Word ou PDF fora do sistema (secao 2.13)."
 Bul "Anexos: o botao `Anexar arquivo`, na secao Anexos, envia o arquivo direto para um repositorio proprio do sistema (ate 15 MB, .txt/.docx/.pdf) - cada arquivo enviado aparece numa lista com opcoes `Baixar` e `Remover`, tanto no formulario quanto no painel de detalhes do registro. O campo de texto Links de documentos continua disponivel a parte, para links que nao sao um arquivo enviado."
 
-H2 "Passo 2 - Canvas de Projeto (FORALF00344)"
+H2 "Passo 2 - Canvas de Projeto (SGP-02)"
 P "Quando usar: assim que a demanda for aprovada. O Canvas e o primeiro documento estruturado do projeto - reune, em uma unica tela, a motivacao, o produto, os parceiros, as entregas, os riscos e os custos. Exige selecionar um `Projeto vinculado` ja Aprovado no Gate 1, e so membros da equipe daquele projeto (ou Admin) podem registrar (secao 2.5)."
 $r2 = @(
   @("Campo","Obrig.","Descricao"),
@@ -579,10 +578,10 @@ TableSimple $r2 @(5.0,1.8,9.2)
 Img "15_f02_novo.png" "Tela de novo Canvas, com o seletor de Projeto vinculado no topo." 5.6
 Img "16_f02_lista.png" "Canvas cadastrados." 5.6
 P "Como salvar: clique em `Registrar canvas`. O status inicial e Pendente de aprovacao; altere para Aprovado ao validar o Canvas com o Dono do Negocio e o Gerente de Projetos. Ao marcar Aprovado, um e-mail de notificacao e disparado automaticamente (secao 2.8)."
-Bul "No rodape do painel de detalhes de um canvas, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do FORALF00344, pronto para impressao ou para abrir no Word."
+Bul "No rodape do painel de detalhes de um canvas, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-02, pronto para impressao ou para abrir no Word."
 Bul "Assistente de preenchimento por IA: apos selecionar o Projeto vinculado, o botao `Sugerir com IA` le a Solicitacao de Demanda e as Atas de Reuniao do projeto e sugere o preenchimento dos campos ainda vazios (secao 2.12)."
 
-H2 "Passo 3 - TAP, Termo de Abertura de Projeto (FORALF00338)"
+H2 "Passo 3 - TAP, Termo de Abertura de Projeto (SGP-03)"
 P "Quando usar: depois do Canvas aprovado, para autorizar formalmente a existencia do projeto. Tambem exige `Projeto vinculado` e segue a restricao por equipe (secao 2.5) - a figura da secao 2.5 mostra este formulario com um projeto ja selecionado."
 $r3 = @(
   @("Campo","Obrig.","Descricao"),
@@ -608,10 +607,10 @@ Img "18_f03_lista.png" "TAPs cadastrados." 5.6
 P "Cronograma de entregas macro (secao 10 do formulario): e editado no Planejamento (Passo 4) - aqui o TAP mostra, so leitura, o mesmo cronograma ao vivo: numero do marco (Nº), responsavel, Inicio/Termino previstos, Conclusao real, custo e dependencia, com um botao `Linha do tempo` para ver os mesmos marcos em barras (ver detalhe no Passo 4). Para alterar um marco, use o Planejamento. Alem de Inicio e Termino previstos, cada marco tem um campo `Conclusao real`, preenchido quando o marco de fato termina - e o que permite ao sistema distinguir um marco `atrasado agora` de um marco que `terminou atrasado`: um marco com Conclusao real preenchida nunca conta como atrasado no calculo de Saude do projeto (secao 6.4.1) nem no indicador Marcos no prazo (secao 6.7), mesmo que o Termino previsto ja tenha passado."
 P "Dependencia entre marcos: cada marco tambem tem um campo opcional `Depende nº`, onde se digita o numero de outro marco do mesmo cronograma (por exemplo, o marco 2 pode depender do marco 1). Se o marco indicado ainda nao tiver Conclusao real e o Termino previsto ja tiver passado, o marco dependente ganha um aviso `bloqueado` - visivel no proprio Planejamento (edicao, detalhes e impressao/exportacao), no espelho do TAP e nos Marcos do Relatorio de Situacao. E uma verificacao simples, de um nivel so e por numero - nao calcula um caminho critico completo nem cadeias de varios marcos."
 P "Como salvar: clique em `Registrar TAP`. Um projeto sem TAP aprovado nao deve avancar para a execucao. Ao marcar Aprovado, um e-mail de notificacao e disparado automaticamente (secao 2.8)."
-Bul "No rodape do painel de detalhes de um TAP, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do FORALF00338 (incluindo o registro de riscos, o cronograma vindo ao vivo do Planejamento e as tabelas de custos, partes interessadas, equipe e indicadores), pronto para impressao ou para abrir no Word."
+Bul "No rodape do painel de detalhes de um TAP, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-03 (incluindo o registro de riscos, o cronograma vindo ao vivo do Planejamento e as tabelas de custos, partes interessadas, equipe e indicadores), pronto para impressao ou para abrir no Word."
 Bul "Assistente de preenchimento por IA: apos selecionar o Projeto vinculado, o botao `Sugerir com IA` le a Solicitacao de Demanda, o Canvas e as Atas de Reuniao do projeto e sugere o preenchimento dos campos de texto ainda vazios, alem de rascunhos iniciais para as tabelas de riscos, custos e partes interessadas (secao 2.12) - diferente da sugestao de riscos recorrentes acima, que e uma regra automatica sem IA."
 
-H2 "Passo 4 - Planejamento e Desenvolvimento de Projeto (FORALF00325)"
+H2 "Passo 4 - Planejamento e Desenvolvimento de Projeto (SGP-04)"
 P "Quando usar: logo apos o TAP, para detalhar o projeto em profundidade. E o dossie mais extenso da ferramenta, organizado em 8 abas internas, navegaveis pela barra de estagios no topo."
 $r4 = @(
   @("Aba","Conteudo"),
@@ -628,7 +627,7 @@ TableSimple $r4 @(3.0,13.0)
 Img "19_f04_novo.png" "Capa de identificacao do dossie, com a barra das 8 abas no rodape visivel." 5.6
 Img "20_f04_lista.png" "Projetos cadastrados (estado vazio, antes do primeiro dossie ser salvo)." 5.6
 P "Como salvar: preencha a capa (nome do projeto, unidade e gestor sao obrigatorios) e navegue pelas 8 abas. Clique em `Registrar dossie`. E este documento que alimenta, junto com o Canvas, a elaboracao do Relatorio de Entregas e Beneficios (Passo 12)."
-Bul "No rodape do painel de detalhes de um dossie, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do FORALF00325, com as 8 abas em sequencia, pronto para impressao ou para abrir no Word."
+Bul "No rodape do painel de detalhes de um dossie, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-04, com as 8 abas em sequencia, pronto para impressao ou para abrir no Word."
 P "Cronograma de entregas macro (aba 3): cada marco recebe automaticamente um numero sequencial (Nº) assim que o campo Marco/Entrega e preenchido - renumerado ao vivo ao reordenar, adicionar ou remover linhas. Alem de Inicio e Termino previstos, cada marco tem um campo `Conclusao real`. E este cronograma que aparece, so leitura, no TAP (Passo 3) e no Relatorio de Situacao (secao 4.1) do mesmo projeto, e que alimenta o calculo de Saude do projeto (secao 6.4.1) e o indicador Marcos no prazo (secao 6.7)."
 P "Dependencia entre marcos: cada marco tambem tem um campo opcional `Depende nº`, onde se digita o numero de outro marco do mesmo cronograma. Se o marco indicado ainda nao tiver Conclusao real e o Termino previsto ja tiver passado, o marco dependente ganha um aviso `bloqueado` - visivel no proprio Planejamento, no espelho do TAP e nos Marcos do Relatorio de Situacao."
 P "Linha do tempo (Gantt): acima da tabela de marcos, o botao `Linha do tempo` alterna para uma visualizacao em barras, uma por marco, com o mesmo periodo de Inicio/Termino previstos - azul para marcos no prazo, verde para concluidos, vermelho para atrasados, e um contorno vermelho extra para marcos bloqueados por dependencia. Uma linha vertical marca o dia de hoje. E somente para visualizacao - a edicao continua sempre pela aba Tabela. Marcos sem nenhuma data preenchida nao aparecem na linha do tempo, mas continuam na tabela normalmente. A mesma visualizacao (com os mesmos dados, ao vivo) tambem esta disponivel no espelho do TAP (secao 10) e na secao Marcos do Relatorio de Situacao (secao 4.1)."
@@ -653,10 +652,10 @@ Img "39_f05_prioridade.png" "Atividades de nivel 3 com os tres niveis de priorid
 Bul "Status automatico da entrega: ao clicar em `Visualizar arvore` (ou ao abrir uma EAP ja registrada), cada Entrega (nivel 2) ganha um selo - `Concluida`, `Atrasada`, `No prazo` ou `Sem cronograma vinculado` - calculado automaticamente a partir do cronograma do Planejamento (Passo 4), casando pelo nome da entrega com o nome do marco. Nao ha nenhum campo novo para preencher na EAP: uma entrega fica `Concluida` se o marco correspondente tiver Conclusao real preenchida no cronograma, `Atrasada` se nao tiver conclusao e o Termino previsto ja tiver passado, e `Sem cronograma vinculado` se nao houver marco com o mesmo nome. Um resumo no topo da arvore mostra o percentual de entregas concluidas do projeto."
 Bul "Status automatico da atividade: o mesmo casamento por nome desce mais um nivel - cada Atividade (nivel 3) ganha um selo `Concluida`, `Pendente` ou `Sem tarefa vinculada`, casando pelo nome da atividade com uma tarefa cadastrada dentro de qualquer marco do cronograma (botao `+ Tarefas` de cada marco, Passo 4, secao 3). Como tarefa nao tem data - so nome e concluida - nao existe estado `Atrasada` aqui, so `Concluida`/`Pendente`. Tambem sem nenhum campo novo para preencher na EAP."
 P "Clique em `Registrar EAP` para gerar o protocolo."
-Bul "No rodape do painel de detalhes de uma EAP, os botoes `Imprimir` e `Exportar Word` geram um documento com a arvore hierarquica completa (pacotes, entregas e atividades, com a prioridade de cada uma), pronto para impressao ou para abrir no Word. Este artefato nao tem um FORALF oficial - o layout segue o padrao visual dos demais documentos gerados pelo sistema."
+Bul "No rodape do painel de detalhes de uma EAP, os botoes `Imprimir` e `Exportar Word` geram um documento com a arvore hierarquica completa (pacotes, entregas e atividades, com a prioridade de cada uma), pronto para impressao ou para abrir no Word. O documento sai com o codigo SGP-05 - o layout segue o padrao visual dos demais documentos gerados pelo sistema."
 Bul "Importar do Cronograma: apos selecionar o Projeto vinculado, o botao `Importar do Cronograma` cria (ou reaproveita, se ja existir) um pacote de trabalho fixo `Marcos do Cronograma` e adiciona uma Entrega (nivel 2) para cada marco do Cronograma do Planejamento (Passo 4), com o nome copiado de forma identica, sem nenhuma reformulacao - e esse nome identico que permite o casamento automatico de status explicado acima. Clicar de novo so acrescenta marcos que ainda nao viraram entrega, sem duplicar os ja importados nem mexer em pacotes/entregas criados manualmente. Este botao substituiu um antigo assistente por IA (`Sugerir com IA`) que sugeria pacotes e entregas com texto proprio - como o casamento com o Cronograma exige nome exatamente igual, a sugestao de IA (que reformulava o texto) nem sempre garantia esse casamento; a importacao mecanica garante sempre."
 
-H2 "Passo 6 - Ata de Reuniao (FORALF00340) - uso recorrente"
+H2 "Passo 6 - Ata de Reuniao (SGP-07) - uso recorrente"
 P "Quando usar: a qualquer momento do projeto, para registrar formalmente qualquer reuniao - nao faz parte da esteira sequencial, fica sempre disponivel. Pode ser preenchida com login normal ou, se a opcao estiver ativa, sem login (ver secao 2.6)."
 Img "25_f07_novo.png" "Tela de nova ata, com o painel `Importar transcricao da reuniao` para preenchimento automatico por IA." 5.6
 Img "26_f07_lista.png" "Atas cadastradas (estado vazio)." 5.6
@@ -664,9 +663,9 @@ Bul "Selecione a(s) unidade(s) envolvidas, preencha Pauta e Projeto (obrigatorio
 Bul "Nas tabelas de Encaminhamentos e Entraves, a coluna SEQ e preenchida automaticamente - numera em sequencia (01, 02...) assim que o Encaminhamento/Entrave da linha e digitado, sem precisar informar o numero manualmente. Uma linha ainda vazia nao entra na contagem; reordenar (`▲`/`▼`) ou remover uma linha renumera as demais automaticamente."
 Bul "Opcional, quando habilitado pelo Admin: em `Importar transcricao da reuniao`, cole o texto, anexe um arquivo `.txt`/`.docx`/`.pdf`, ou anexe o audio da gravacao (`.mp3`/`.m4a`/`.aac`/`.wav`/`.ogg`) para transcricao automatica (secao 2.11), depois clique em `Analisar e preencher` - a IA sugere pauta, data/horario (se mencionados), participantes, resumo, encaminhamentos e entraves. Revise sempre os dados sugeridos antes de registrar (secao 2.10)."
 P "Clique em `Registrar ata` para gerar o protocolo."
-Bul "Na lista `Atas cadastradas`, clique numa ata para abri-la e usar os botoes `Imprimir` e `Exportar Word`, no rodape do painel lateral: ambos geram o documento no formato oficial do FORALF00340 (cabecalho, unidade, pauta, participantes, descricao, saidas e entraves), pronto para impressao ou para abrir no Word."
+Bul "Na lista `Atas cadastradas`, clique numa ata para abri-la e usar os botoes `Imprimir` e `Exportar Word`, no rodape do painel lateral: ambos geram o documento no formato oficial do SGP-07 (cabecalho, unidade, pauta, participantes, descricao, saidas e entraves), pronto para impressao ou para abrir no Word."
 
-H2 "Passo 7 - SMP, Solicitacao de Mudanca de Projeto (FORALF00343) - uso condicional"
+H2 "Passo 7 - SMP, Solicitacao de Mudanca de Projeto (SGP-06) - uso condicional"
 P "Quando usar: sempre que for necessario alterar escopo, cronograma, custo ou qualidade de um projeto ja em andamento. Nenhuma mudanca deve ser feita sem passar por este formulario."
 Img "23_f06_novo.png" "Tela de nova SMP." 5.6
 Img "24_f06_lista.png" "SMPs cadastradas (estado vazio)." 5.6
@@ -677,10 +676,10 @@ Bul "Assistente de preenchimento por IA: apos selecionar o Projeto vinculado, o 
 P "Clique em `Registrar SMP` - o status do registro acompanha automaticamente a decisao marcada."
 Bul "Anexos: mesmo recurso ja usado na Solicitacao de Demanda (Passo 1) - o botao `Anexar arquivo`, na secao Anexos, envia o arquivo direto para um repositorio proprio do sistema (ate 15 MB, .txt/.docx/.pdf), com opcoes `Baixar` e `Remover` tanto no formulario quanto no painel de detalhes do registro. O campo de texto Links de documentos continua disponivel a parte, para links que nao sao um arquivo enviado."
 Img "58_smp_anexos.png" "Secao Anexos da SMP: arquivo enviado, com opcoes de baixar/remover, e o campo Links de documentos." 5.6
-Bul "No rodape do painel de detalhes de uma SMP, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do FORALF00343 (incluindo a analise das 8 dimensoes de impacto), pronto para impressao ou para abrir no Word."
+Bul "No rodape do painel de detalhes de uma SMP, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-06 (incluindo a analise das 8 dimensoes de impacto), pronto para impressao ou para abrir no Word."
 Nota "Propagacao para o projeto vinculado: sempre que a decisao da SMP e finalizada como `Aprovada` ou `Nao aprovada` (seja ao registrar/editar a SMP ou ao trocar o Status na tela de detalhes), o sistema grava automaticamente um evento no historico compartilhado do projeto vinculado (o mesmo historico acessivel pelo botao `Ver historico` em qualquer formulario com `Projeto vinculado` - secao 2.5). Isso torna as decisoes de mudanca visiveis para quem estiver no Canvas, TAP, Planejamento, EAP, TEP ou RLA daquele projeto, sem precisar abrir a SMP. Essa propagacao apenas registra o evento no historico - ela nao altera o Status do projeto usado no Gate 1 (Aprovado/Reprovado). A mesma decisao (Aprovada ou Nao aprovada) tambem dispara um e-mail de notificacao (secao 2.8)."
 
-H2 "Passo 8 - TEP, Termo de Encerramento de Projeto (FORALF00341)"
+H2 "Passo 8 - TEP, Termo de Encerramento de Projeto (SGP-09)"
 P "Quando usar: ao encerrar o projeto, seja por conclusao, paralisacao ou cancelamento."
 Img "28_f09_novo.png" "Tela de novo TEP." 5.6
 Img "29_f09_lista.png" "TEPs cadastrados (estado vazio)." 5.6
@@ -690,9 +689,9 @@ Bul "Registre entregas de resultados, atividades encerradas, o link da pasta do 
 Bul "Assistente de preenchimento por IA: apos selecionar o Projeto vinculado, o botao `Sugerir com IA` compara o TAP, o Planejamento e a EAP com o que as Atas mais recentes confirmam realizado, sugerindo a justificativa de encerramento, as atividades encerradas e as consideracoes finais (secao 2.12)."
 P "Clique em `Registrar TEP` para gerar o protocolo. O registro de um novo TEP dispara um e-mail de notificacao (secao 2.8)."
 Nota "Encerra o projeto no cadastro compartilhado: ao registrar o TEP, o projeto vinculado passa a refletir o tipo de encerramento escolhido (Concluido/Paralisado/Cancelado) e some da lista de `Projeto vinculado` para novos registros nos demais formularios (secao 2.5)."
-Bul "No rodape do painel de detalhes de um TEP, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do FORALF00341, pronto para impressao ou para abrir no Word."
+Bul "No rodape do painel de detalhes de um TEP, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-09, pronto para impressao ou para abrir no Word."
 
-H2 "Passo 9 - RLA, Registro de Licoes Aprendidas (FORALF00342)"
+H2 "Passo 9 - RLA, Registro de Licoes Aprendidas (SGP-10)"
 P "Quando usar: junto com o TEP, ao final do projeto (ou tambem em pontos intermediarios), para capturar o aprendizado organizacional."
 Img "30_f10_novo.png" "Tela de novo RLA." 5.6
 Img "31_f10_lista.png" "RLAs cadastrados (estado vazio)." 5.6
@@ -700,9 +699,9 @@ Bul "Responda as perguntas abertas dos blocos Visao geral, Destaques, Desafios e
 Bul "Nos blocos de avaliacao estruturada, marque Sim/Nao/Parcial/N-A para cada afirmacao - cada bloco calcula automaticamente um placar percentual."
 Bul "Assistente de preenchimento por IA: apos selecionar o Projeto vinculado, o botao `Sugerir com IA` le o TEP, as Atas e todas as SMPs do projeto para sugerir as respostas das 4 secoes de texto livre - Visao geral, Destaques, Desafios e Tarefas pos-projeto. Os blocos de avaliacao estruturada Sim/Nao/Parcial (secoes 6 a 9, com placar percentual) nao sao preenchidos pela IA - continuam sendo uma autoavaliacao manual da equipe (secao 2.12)."
 P "Clique em `Registrar RLA`. O score global fica salvo junto com o registro."
-Bul "No rodape do painel de detalhes de um RLA, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do FORALF00342 (incluindo os quatro blocos de avaliacao estruturada com o placar de cada um), pronto para impressao ou para abrir no Word."
+Bul "No rodape do painel de detalhes de um RLA, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-10 (incluindo os quatro blocos de avaliacao estruturada com o placar de cada um), pronto para impressao ou para abrir no Word."
 
-H2 "Passo 10 - Plano de Comunicacao de Projeto (FORALF00308)"
+H2 "Passo 10 - Plano de Comunicacao de Projeto (SGP-08)"
 P "Quando usar: para planejar o que sera comunicado, a quem e em qual momento do projeto. Este artefato tem uma ferramenta eletronica propria, organizada como uma tabela de referencia com abas Painel (visualizacao) e Editar dados."
 Img "27_f08_painel.png" "Painel do Plano de Comunicacao: cada linha da tabela e um tipo de comunicacao do projeto." 5.6
 $r10 = @(
@@ -715,7 +714,7 @@ $r10 = @(
   @("Quem Comunica","Responsavel por comunicar (ex.: GP, GP / PMO)")
 )
 TableSimple $r10 @(4.5,11.5)
-P "As 15 linhas padrao do plano (Comeco do projeto, Diario de equipe, Status semanal, Report executivo, Comite de Mudancas, Gestao de Riscos, Comunicacao de incidentes, Entregas e marcos, Integracao com stakeholders externos, Comunicacao de mudancas organizacionais, Treinamentos, Homologacao/UAT, Go/No-Go, Pos-Lancamento e Licoes aprendidas & Encerramento) vem preenchidas com o conteudo do documento oficial FORALF00308 nas 6 colunas - use `Editar dados` para ajustar aos seus projetos."
+P "As 15 linhas padrao do plano (Comeco do projeto, Diario de equipe, Status semanal, Report executivo, Comite de Mudancas, Gestao de Riscos, Comunicacao de incidentes, Entregas e marcos, Integracao com stakeholders externos, Comunicacao de mudancas organizacionais, Treinamentos, Homologacao/UAT, Go/No-Go, Pos-Lancamento e Licoes aprendidas & Encerramento) vem preenchidas com o conteudo do documento oficial SGP-08 nas 6 colunas - use `Editar dados` para ajustar aos seus projetos."
 Nota "Edicao restrita por papel: diferente dos demais formularios, so PMO/Admin pode usar `Editar dados` e salvar alteracoes no Plano de Comunicacao - controlavel pelo Admin em Administracao > Configuracoes (secao 6.3), mesmo esquema de lista de papeis usado no Painel Executivo e nos dois relatorios. Qualquer usuario autenticado continua podendo abrir a aba Painel, visualizar todas as colunas e usar o botao Imprimir; quem nao tem permissao de edicao ve a aba `Editar dados` escondida e um aviso no lugar dela."
 
 # ============================================================
@@ -724,7 +723,7 @@ Nota "Edicao restrita por papel: diferente dos demais formularios, so PMO/Admin 
 H1 "4. Gerando os relatorios finais"
 P "Esta secao detalha os dois relatorios que fecham o ciclo de uso da ferramenta: o Relatorio de Situacao de Projetos (visao de controle do portfolio) e o Relatorio de Entregas e Beneficios (ficha executiva de programa e projetos, base do Gate 2)."
 
-H2 "4.1 Relatorio de Situacao de Projetos (FORALF11)"
+H2 "4.1 Relatorio de Situacao de Projetos (SGP-11)"
 P "Visao consolidada de todos os projetos do portfolio: status, percentual de execucao, marcos e pontos de atencao. Tem tres abas: Painel, Editar dados e Importar Project."
 Img "32_f11_painel.png" "Painel do Relatorio de Situacao (estado vazio, antes do primeiro preenchimento)." 5.6
 Img "33_f11_editar.png" "Aba Editar dados: cabecalho do relatorio e botao para adicionar projetos/marcos." 5.6
@@ -736,7 +735,7 @@ Bul "Assistente de preenchimento por IA: com um Projeto vinculado selecionado, o
 Bul "Marcos vem do Planejamento: a secao Marcos de cada linha de projeto mostra, automaticamente (sem botao de importar), os marcos do cronograma de entregas macro do Planejamento e Desenvolvimento de Projeto daquele projeto - nome, Inicio/Termino previsto e Conclusao real vem sempre ao vivo do Planejamento (para mudar um marco, edite o Planejamento). O unico campo proprio aqui e o Status de cada marco (A iniciar, No prazo, Atrasado, Paralisado, Concluido ou Cancelado), que continua sendo ajustado manualmente. Um marco com dependencia bloqueada (`bloqueado`) mostra o mesmo aviso aqui. O botao `Linha do tempo`, acima da lista, mostra os mesmos marcos em barras (ver detalhe no Passo 4)."
 Img "42_f11_projeto_vinculado.png" "Projeto vinculado selecionado, com o nome preenchido automaticamente e o historico compartilhado exibido." 5.6
 Bul "Alternativa mais rapida: use `Importar Project` - o sistema detecta automaticamente as colunas de nome, % concluido, inicio, termino e responsavel."
-Bul "Clique em `Salvar e ver painel`. No rodape, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do FORALF11 com o retrato completo do portfolio (visao geral dos projetos, entraves e encaminhamentos, resultados alcancados e o resumo de atencao/destaque por programa), pronto para impressao ou para abrir no Word. Se uma versao historica estiver sendo visualizada (Nota abaixo), os dois botoes exportam essa versao, nao a atual."
+Bul "Clique em `Salvar e ver painel`. No rodape, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-11 com o retrato completo do portfolio (visao geral dos projetos, entraves e encaminhamentos, resultados alcancados e o resumo de atencao/destaque por programa), pronto para impressao ou para abrir no Word. Se uma versao historica estiver sendo visualizada (Nota abaixo), os dois botoes exportam essa versao, nao a atual."
 Nota "Sinalizacao automatica: a tabela de projetos do Painel ganhou a coluna `Sinalizacao` e o quadro de indicadores ganhou o card `Em risco de atraso`. E um calculo automatico, independente do campo Status manual: compara o % Execucao informado com o % que seria esperado pelo tempo ja decorrido entre o Inicio previsto e o Termino previsto do projeto. Se a defasagem for de 15 pontos percentuais ou mais, aparece `Risco de atraso`; se o Termino previsto ja passou e o projeto nao esta em 100%, aparece `Prazo vencido`. Projetos Concluido, Cancelado ou Paralisado ficam fora desse calculo. O resultado tambem sai no documento exportado."
 Img "38_f11_sinalizacao.png" "Painel com o card `Em risco de atraso` e a coluna Sinalizacao mostrando os selos Risco de atraso e Prazo vencido." 5.6
 Bul "Custos realizados: logo abaixo de Marcos, cada projeto tem sua propria lista de categorias de custo com o valor efetivamente gasto ate o momento, base do indicador `Projetos dentro do orcamento` do novo Relatorio de Resultados (secao 6.7)."
@@ -755,7 +754,7 @@ Nota "Versionamento: toda vez que o relatorio e salvo (`Salvar e ver painel`), o
 Img "46_f11_versao_historica_banner.png" "Aviso de versao historica (somente leitura), com o botao para voltar a versao atual." 5.6
 Nota "Este relatorio nao tem aprovacao/status formal - e uma ferramenta viva de acompanhamento, atualizada sempre que a situacao dos projetos mudar."
 
-H2 "4.2 Relatorio de Entregas e Beneficios (FORALF12)"
+H2 "4.2 Relatorio de Entregas e Beneficios (SGP-12)"
 P "O relatorio mais importante do ponto de vista de governanca: e sobre ele que ocorre o Gate 2 - Pactuacao, quando o Dono do Negocio assume formalmente, perante a Alta Gestao, o compromisso de que todo o trabalho planejado sera executado."
 Img "35_f12_painel.png" "Painel do Relatorio de Entregas e Beneficios (estado vazio)." 5.6
 Img "36_f12_editar.png" "Aba Editar dados: Ficha do Programa, o primeiro bloco a preencher." 5.6
@@ -766,7 +765,7 @@ Bul "Assistente de preenchimento por IA: com um Projeto vinculado selecionado, o
 Img "43_f12_projeto_vinculado.png" "Projeto vinculado selecionado no Relatorio de Entregas, com nome e historico preenchidos." 5.6
 Nota "Importar indicadores do TAP: quando um Projeto vinculado e selecionado, a secao `Indicadores do projeto` ganha o botao `Importar do TAP`. Ele busca o(s) TAP(s) registrados para aquele mesmo projeto e traz os indicadores de resultado ja preenchidos la (secao 9 do TAP - Passo 3), evitando digitar tudo de novo: o Valor inicial do TAP vira o Valor atual aqui, e o Valor final vira a Meta. Indicadores com o mesmo nome que ja estiverem na lista nao sao duplicados - o botao pode ser clicado varias vezes com seguranca. Se nenhum TAP for encontrado para o projeto selecionado, aparece um aviso."
 Img "44_f12_importar_tap.png" "Indicadores do projeto apos importar do TAP - Valor atual e Meta preenchidos automaticamente." 5.6
-Bul "Clique em `Salvar e ver painel`. No rodape, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do FORALF12 (ficha do programa, indicadores, valores estimados e a ficha de cada projeto com suas entregas), pronto para levar a reuniao de pactuacao ou abrir no Word."
+Bul "Clique em `Salvar e ver painel`. No rodape, os botoes `Imprimir` e `Exportar Word` geram o documento no formato oficial do SGP-12 (ficha do programa, indicadores, valores estimados e a ficha de cada projeto com suas entregas), pronto para levar a reuniao de pactuacao ou abrir no Word."
 Nota "Gate 2 - Pactuacao: no topo da aba Editar dados ha um cartao `Gate 2 - Pactuacao` com Status (Pendente de pactuacao / Pactuado), Data de pactuacao e Aprovador. Assim como o Gate 1 da Solicitacao de Demanda, so o Admin consegue alterar o Status - qualquer outro papel ve o controle travado com um aviso. Ao marcar `Pactuado`, a Data e o Aprovador sao preenchidos automaticamente (editaveis). Enquanto o status estiver `Pactuado`, todos os demais campos do relatorio ficam bloqueados para edicao, inclusive para o Admin, ate que o Gate 2 seja reaberto (status volte para `Pendente de pactuacao`)."
 Img "40_f12_gate2.png" "Cartao Gate 2 - Pactuacao preenchido, com o relatorio travado apos a pactuacao." 5.6
 Nota "So depois do Gate 2 pactuado o projeto deve avancar para a execucao. Um projeto que comeca a ser executado sem essa pactuacao corre o risco de ser questionado ou desautorizado em momentos criticos. Ao marcar Pactuado, um e-mail de notificacao e disparado automaticamente (secao 2.8)."
@@ -778,7 +777,7 @@ Img "45_f12_historico_versoes.png" "Lista de versoes salvas do Relatorio de Entr
 # 5. VALIDADOR DE PROJETOS
 # ============================================================
 H1 "5. Validador de Projetos"
-P "O Validador de Projetos e uma ferramenta de apoio a decisao sobre Fatores Criticos de Sucesso (FCS) e Beneficios em instituicoes de ensino. Diferente dos 12 formularios de registro, ele nao gera um artefato FORALF - e um painel de reflexao e diagnostico."
+P "O Validador de Projetos e uma ferramenta de apoio a decisao sobre Fatores Criticos de Sucesso (FCS) e Beneficios em instituicoes de ensino. Diferente dos 12 formularios de registro, ele nao gera um artefato com codigo SGP - e um painel de reflexao e diagnostico."
 P "E a unica ferramenta, alem do Mapa de Diretrizes, que nao exige login. Todo o conteudo funciona livremente; login so e pedido para vincular uma avaliacao a um projeto e salvar o veredito no historico daquele projeto (secao 2.6 do documento Regras de Acesso detalha esse caso)."
 H2 "5.1 Quadro de conexoes"
 P "Mostra a matriz analitica entre 7 fatores criticos de sucesso (F1-F7) e 5 dimensoes de beneficio (B1-B5). Clique em um fator ou dimensao para ver as conexoes."
@@ -801,7 +800,7 @@ H2 "6.1 Usuarios"
 P "Lista todos os usuarios que ja fizeram login pelo menos uma vez, com nome, telefone (editavel diretamente na lista), um seletor para alterar o papel, e um link `Ver historico` por usuario."
 Img "09_admin_usuarios.png" "Aba Usuarios: nome, telefone, papel atual e seletor de alteracao de papel por usuario." 5.8
 P "No topo da lista, o Admin pode cadastrar uma pessoa que ainda nao fez login, preenchendo nome, telefone (opcional), e-mail e papel e clicando em `+ Adicionar usuario`. A conta e criada de verdade na hora (via Supabase Auth) - a pessoa ja aparece na lista de usuarios normalmente, com o papel e o nome definidos, e ja pode ser adicionada a equipe de qualquer projeto (secao 6.2) sem precisar esperar ela logar."
-Nota "Quando a pessoa eventualmente fizer o primeiro login (link magico ou Microsoft), o Supabase Auth reconhece o e-mail e autentica direto na conta ja criada - nao gera uma conta duplicada, e o perfil (nome, telefone, papel) ja definido pelo Admin permanece do jeito que estava."
+Nota "Quando a pessoa eventualmente fizer o primeiro login (link magico), o Supabase Auth reconhece o e-mail e autentica direto na conta ja criada - nao gera uma conta duplicada, e o perfil (nome, telefone, papel) ja definido pelo Admin permanece do jeito que estava."
 P "Antes de 15/09/2026, cadastrar alguem aqui criava so um pre-cadastro pendente, que so virava conta de verdade no primeiro login da pessoa - por isso ela nao podia ser adicionada a uma equipe antes disso. Um pre-cadastro feito daquele jeito (selo `Pendente - 1o login` na lista) ainda funciona: o Admin pode ajustar telefone e papel, remove-lo pelo botao `Remover`, ou usar o novo botao `Criar conta agora` para converte-lo numa conta de verdade imediatamente, sem esperar o login."
 P "Cada usuario ja cadastrado tem um link `Ver historico`, que expande um painel logo abaixo da linha listando toda troca de papel e de telefone ja feita nesse perfil - valor anterior, novo valor, quando aconteceu e quem alterou. Clicar de novo (`Fechar historico`) recolhe o painel."
 Nota "Como o papel de um usuario controla o acesso a praticamente toda a ferramenta (paginas restritas a Admin, listas configuraveis de quem ve cada relatorio, contagem de equipe), esse historico existe para que uma promocao ou rebaixamento de papel nunca fique sem rastro de quem fez e quando - o mesmo principio de rastreabilidade ja usado no `Ver historico` dos 9 formularios do ciclo de vida do projeto."
@@ -946,7 +945,7 @@ Img "55_pptx_capa_gerada.png" "Slide de capa da apresentacao PPTX gerada, com a 
 # ============================================================
 H1 "7. Perguntas frequentes"
 H3 "Como corrijo um registro que ja salvei?"
-P "Va ate a aba de registros cadastrados do formulario correspondente, clique na linha da tabela para abrir o painel de detalhes e clique em `Editar dados` (ou altere o status pelo seletor no rodape). Para os relatorios FORALF11 e FORALF12, volte para `Editar dados`, ajuste os campos e clique novamente em `Salvar e ver painel`."
+P "Va ate a aba de registros cadastrados do formulario correspondente, clique na linha da tabela para abrir o painel de detalhes e clique em `Editar dados` (ou altere o status pelo seletor no rodape). Para os relatorios SGP-11 e SGP-12, volte para `Editar dados`, ajuste os campos e clique novamente em `Salvar e ver painel`."
 H3 "Como excluo um registro?"
 P "Abra o registro na tela de detalhes e clique em `Excluir`, no rodape. A acao pede confirmacao e nao pode ser desfeita depois de confirmada."
 H3 "Por que o botao de registrar/salvar esta desabilitado?"
@@ -964,18 +963,18 @@ P "Nao. Cada formulario pode ser preenchido e salvo em etapas diferentes - o reg
 H1 "8. Anexo - Tabela de artefatos"
 $r8 = @(
   @("#","Artefato","Codigo","Diretriz","Equipe?"),
-  @("1","Solicitacao de Demanda","FORALF00339","D01.1","Nao"),
-  @("2","Canvas de Projeto","FORALF00344","D01.6","Sim"),
-  @("3","TAP - Termo de Abertura","FORALF00338","D02.1","Sim"),
-  @("4","Planejamento e Desenvolvimento","FORALF00325","D02.2-D02.10","Sim"),
+  @("1","Solicitacao de Demanda","SGP-01","D01.1","Nao"),
+  @("2","Canvas de Projeto","SGP-02","D01.6","Sim"),
+  @("3","TAP - Termo de Abertura","SGP-03","D02.1","Sim"),
+  @("4","Planejamento e Desenvolvimento","SGP-04","D02.2-D02.10","Sim"),
   @("5","EAP - Estrutura Analitica","(sem codigo)","D02.9","Sim"),
-  @("6","Ata de Reuniao","FORALF00340","D01-D07 (transversal)","Nao"),
-  @("7","SMP - Solicitacao de Mudanca","FORALF00343","D04.4","Sim"),
-  @("8","TEP - Termo de Encerramento","FORALF00341","D05.1.9","Sim"),
-  @("9","RLA - Licoes Aprendidas","FORALF00342","D05.1.6","Sim"),
-  @("10","Plano de Comunicacao","FORALF00308","D03.5","Nao"),
-  @("11","Relatorio de Situacao","FORALF11","D04.3 / D06.5-D06.7","Nao"),
-  @("12","Relatorio de Entregas e Beneficios","FORALF12","D06.1/D06.2","Nao")
+  @("6","Ata de Reuniao","SGP-07","D01-D07 (transversal)","Nao"),
+  @("7","SMP - Solicitacao de Mudanca","SGP-06","D04.4","Sim"),
+  @("8","TEP - Termo de Encerramento","SGP-09","D05.1.9","Sim"),
+  @("9","RLA - Licoes Aprendidas","SGP-10","D05.1.6","Sim"),
+  @("10","Plano de Comunicacao","SGP-08","D03.5","Nao"),
+  @("11","Relatorio de Situacao","SGP-11","D04.3 / D06.5-D06.7","Nao"),
+  @("12","Relatorio de Entregas e Beneficios","SGP-12","D06.1/D06.2","Nao")
 )
 TableSimple $r8 @(1.0,5.2,3.2,4.6,2.0)
 P "Documento gerado a partir do estado atual do codigo do sistema, com capturas de tela reais coletadas em 28 e 29/07/2026." 9 $false $true $colMuted "left" 0
