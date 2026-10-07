@@ -1,13 +1,16 @@
 // Edge Function: send-notification
-// Envia e-mails transacionais via Resend e, para quem tiver ativado, lembretes
+// Envia e-mails transacionais via SMTP do Gmail e, para quem tiver ativado, lembretes
 // push no celular via Web Push, para as notificacoes de transicao de estado
 // do Sistema de Gestao de Projetos UNIALFA (Gate 1, Gate 2, SMP, Canvas, TAP, TEP).
 //
 // Segredos necessarios (definidos via `supabase secrets set NOME=valor`):
-//   RESEND_API_KEY      - envio de e-mail
+//   SMTP_USER           - conta Gmail remetente (ex.: fulano@gmail.com)
+//   SMTP_PASS           - senha de app do Gmail (16 letras, gerada em
+//                         myaccount.google.com/apppasswords — nao a senha normal)
 //   VAPID_PUBLIC_KEY     )
 //   VAPID_PRIVATE_KEY    )  chaves do Web Push (par gerado uma unica vez)
-//   VAPID_SUBJECT         )  ex.: mailto:notificacoes@sistemas.alfa.br
+//   VAPID_SUBJECT         )  ex.: mailto:fulano@gmail.com (padrao: mailto:SMTP_USER)
+// O envio usa a porta 465 (SMTPS) porque as Edge Functions bloqueiam 25 e 587.
 // SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY sao injetados automaticamente pelo
 // runtime das Edge Functions — usados para ler push_subscriptions.
 //
@@ -19,13 +22,18 @@
 // normalmente só com e-mail (comportamento anterior preservado).
 
 import webpush from "npm:web-push@3.6.7";
+import nodemailer from "npm:nodemailer@6.9.16";
 
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const FROM_ADDRESS = "UNIALFA - Gerência de Projetos <notificacoes@sistemas.alfa.br>";
+const SMTP_USER = Deno.env.get("SMTP_USER");
+const SMTP_PASS = Deno.env.get("SMTP_PASS");
+const FROM_ADDRESS = `"Sistema de Gestão de Projetos" <${SMTP_USER}>`;
+const smtp = SMTP_USER && SMTP_PASS
+  ? nodemailer.createTransport({ host: "smtp.gmail.com", port: 465, secure: true, auth: { user: SMTP_USER, pass: SMTP_PASS } })
+  : null;
 
 const VAPID_PUBLIC_KEY = Deno.env.get("VAPID_PUBLIC_KEY");
 const VAPID_PRIVATE_KEY = Deno.env.get("VAPID_PRIVATE_KEY");
-const VAPID_SUBJECT = Deno.env.get("VAPID_SUBJECT") || "mailto:notificacoes@sistemas.alfa.br";
+const VAPID_SUBJECT = Deno.env.get("VAPID_SUBJECT") || `mailto:${SMTP_USER}`;
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -128,24 +136,14 @@ Deno.serve(async (req: Request) => {
 
   let emailId: unknown = null;
   let emailError: unknown = null;
-  if (!RESEND_API_KEY) {
-    emailError = "RESEND_API_KEY não configurada nos secrets da function";
+  if (!smtp) {
+    emailError = "SMTP_USER/SMTP_PASS não configurados nos secrets da function";
   } else {
     try {
-      const r = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: { "Authorization": `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ from: FROM_ADDRESS, to: recipients, subject, html }),
-      });
-      const result = await r.json();
-      if (!r.ok) {
-        console.error("Resend retornou erro:", result);
-        emailError = result;
-      } else {
-        emailId = result?.id;
-      }
+      const info = await smtp.sendMail({ from: FROM_ADDRESS, to: recipients, subject, html });
+      emailId = info.messageId;
     } catch (e) {
-      console.error("Falha ao chamar a API do Resend:", e);
+      console.error("Falha ao enviar e-mail via SMTP do Gmail:", e);
       emailError = String(e);
     }
   }
