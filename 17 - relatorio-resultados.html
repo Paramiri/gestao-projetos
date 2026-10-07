@@ -784,7 +784,7 @@ async function gerarApresentacaoPPTX(){
       s1.addShape('roundRect', { x:0.7, y:6.6, w:1.15, h:0.62, rectRadius:0.06, fill:{color:'FFFFFF'}, line:{type:'none'} });
       s1.addImage({ data: logoDataUri, x:0.78, y:6.68, w:1.0, h:0.46 });
     }
-    s1.addText('SISTEMA DE GESTÃO DE PROJETOS', { x:2.05, y:6.75, w:4, h:0.4, fontFace:'Arial', fontSize:11, bold:true, color:'FFFFFF', charSpacing:1 });
+    s1.addText('SISTEMA DE GESTÃO DE PROJETOS', { x:(logoDataUri?2.05:0.7), y:6.75, w:4, h:0.4, fontFace:'Arial', fontSize:11, bold:true, color:'FFFFFF', charSpacing:1 });
 
     // ---- Slide 2: Indicadores estratégicos ----
     var s2 = pres.addSlide();
